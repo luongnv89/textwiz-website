@@ -4,19 +4,19 @@
 
 ## Product
 
-- [Home](https://textwiz.luongnv.com/): Overview, features, demo video, FAQ, early-access signup
+- [Home](https://textwiz.luongnv.com/): Overview, features, demo video, FAQ
 - [Getting started](https://textwiz.luongnv.com/getting-started): Ollama and cloud API setup, hotkey, Services menu, troubleshooting
 - [API keys guide](https://textwiz.luongnv.com/api-keys): Free-tier Gemini, Groq, OpenRouter, Mistral, Ollama signup and Keychain setup
 
 ## Updates & policy
 
 - [Changelog](https://textwiz.luongnv.com/changelog): Release notes
-- [Privacy policy](https://textwiz.luongnv.com/privacy): Email signup, Keychain, local SQLite, third-party AI providers
+- [Privacy policy](https://textwiz.luongnv.com/privacy): Static site, Keychain, local SQLite, third-party AI providers
 - [Terms of service](https://textwiz.luongnv.com/terms): Website and app terms
 
 ## Optional
 
 - [Full context for AI](https://textwiz.luongnv.com/llms-full.txt): Extended product, setup, FAQ, and privacy text
-- [Feedback](https://textwiz.luongnv.com/feedback): User feedback form
+- [Feedback](https://textwiz.luongnv.com/feedback): GitHub issue templates
 - [GitHub repository](https://github.com/luongnv89/textwiz): macOS app source (Swift/SwiftUI)
 - [GitHub issues / feedback](https://github.com/luongnv89/textwiz-feedback): Public issue tracker

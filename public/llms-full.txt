@@ -8,7 +8,7 @@ TextWiz ships eight built-in shortcuts (Proofread, Rewrite, Concise, Friendly, P
 
 **Providers:** On-device — Apple Intelligence (Apple Foundation Model, free, no API key on supported Macs), Ollama, LM Studio, MLX-LM. Cloud — Gemini, OpenAI, Claude, Mistral, Groq, OpenRouter. One Primary Provider and one Model in Settings apply to all shortcuts.
 
-**Requirements:** macOS 14 Sonoma or later for distribution; some features need macOS 15.2+ for Apple Intelligence. Mac App Store listing with early-access email signup on the website.
+**Requirements:** macOS 14 Sonoma or later for distribution; some features need macOS 15.2+ for Apple Intelligence. Available on the Mac App Store.
 
 ## How to use TextWiz
 
@@ -30,7 +30,7 @@ Other providers follow the same Settings pattern (API key or server URL for loca
 - Cloud: only processed text goes to the chosen provider.
 - Keys: macOS Keychain only.
 - History/analytics: local SQLite, not uploaded.
-- Website early access: email for launch notification only.
+- Website: static marketing pages; no email signup or on-site feedback forms.
 
 ## FAQ
 

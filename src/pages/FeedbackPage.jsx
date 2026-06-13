@@ -1,206 +1,92 @@
-import { useState, useCallback, useEffect } from 'react';
-import { ChevronLeft } from 'lucide-react';
-import GitHubGate from '../components/feedback/GitHubGate';
-import GitHubOptions from '../components/feedback/GitHubOptions';
-import FormDetails from '../components/feedback/FormDetails';
-import FormSuccess from '../components/feedback/FormSuccess';
-import { useTurnstileSiteKey } from '../hooks/useTurnstileSiteKey';
+import { AlertCircle, Bug, Lightbulb, MessageSquare, ArrowRight } from 'lucide-react';
 import { cn } from '../lib/utils';
 
-const STORAGE_KEY = 'textwiz-feedback-form';
+const FEEDBACK_BASE_URL = 'https://github.com/luongnv89/textwiz-feedback/issues/new';
 
-const initialFormData = {
-  osVersion: '',
-  appVersion: '',
-  provider: '',
-  feedbackType: 'general',
-  title: '',
-  feedback: '',
-  email: '',
-  consent: true,
-  turnstileToken: null,
-};
+const OPTIONS = [
+  {
+    id: 'bug',
+    icon: Bug,
+    label: 'Report a Bug',
+    description: 'Found something broken? Open a bug report on GitHub.',
+    href: `${FEEDBACK_BASE_URL}?template=bug_report.yml`,
+    color: 'from-red-500 to-orange-500',
+  },
+  {
+    id: 'feature',
+    icon: Lightbulb,
+    label: 'Request a Feature',
+    description: 'Share an idea for a future release.',
+    href: `${FEEDBACK_BASE_URL}?template=feature_request.yml`,
+    color: 'from-blue-500 to-cyan-500',
+  },
+  {
+    id: 'general',
+    icon: MessageSquare,
+    label: 'General Feedback',
+    description: 'Questions, praise, or anything else.',
+    href: `${FEEDBACK_BASE_URL}?template=feedback.yml`,
+    color: 'from-purple-500 to-pink-500',
+  },
+];
 
 export default function FeedbackPage() {
-  const [stage, setStage] = useState('github-gate');
-  const [formData, setFormData] = useState(initialFormData);
-  const [status, setStatus] = useState('idle');
-  const [errorMessage, setErrorMessage] = useState('');
-  const turnstileSiteKey = useTurnstileSiteKey();
-
-  useEffect(() => {
-    const saved = localStorage.getItem(STORAGE_KEY);
-    if (saved) {
-      try {
-        setFormData((prev) => ({ ...prev, ...JSON.parse(saved) }));
-      } catch (err) {
-        console.error('Failed to parse saved feedback form data:', err);
-      }
-    }
-  }, []);
-
-  const handleGitHubChoice = useCallback((answer) => {
-    setStage(answer ? 'github-options' : 'form-details');
-  }, []);
-
-  const handleBack = useCallback(() => {
-    if (stage === 'github-options' || stage === 'form-details') {
-      setStage('github-gate');
-    }
-  }, [stage]);
-
-  const handleFormChange = useCallback(
-    (field, value) => {
-      setFormData((prev) => ({ ...prev, [field]: value }));
-      if (status === 'error') {
-        setStatus('idle');
-        setErrorMessage('');
-      }
-    },
-    [status]
-  );
-
-  const handleFormSubmit = useCallback(
-    async (e) => {
-      e.preventDefault();
-
-      if (
-        !formData.osVersion ||
-        !formData.appVersion ||
-        !formData.feedbackType ||
-        !formData.title?.trim() ||
-        !formData.feedback?.trim() ||
-        !formData.consent ||
-        (turnstileSiteKey && !formData.turnstileToken)
-      ) {
-        setStatus('error');
-        setErrorMessage('Please fill out all required fields.');
-        return;
-      }
-
-      if (formData.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-        setStatus('error');
-        setErrorMessage('Please enter a valid email address.');
-        return;
-      }
-
-      setStatus('submitting');
-      setErrorMessage('');
-
-      try {
-        const submitData = new FormData();
-        submitData.append('form-name', 'feedback');
-        submitData.append('os-version', formData.osVersion);
-        submitData.append('app-version', formData.appVersion);
-        submitData.append('provider', formData.provider || '');
-        submitData.append('feedback-type', formData.feedbackType);
-        submitData.append('title', formData.title);
-        submitData.append('feedback', formData.feedback);
-        submitData.append('email', formData.email);
-
-        if (formData.turnstileToken) {
-          submitData.append('cf-turnstile-response', formData.turnstileToken);
-        }
-
-        const response = await fetch('/', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-          body: new URLSearchParams(submitData).toString(),
-        });
-
-        if (!response.ok) throw new Error(`Server returned ${response.status}`);
-
-        setStatus('success');
-        setStage('success');
-        localStorage.removeItem(STORAGE_KEY);
-      } catch (err) {
-        setStatus('error');
-        if (err.message.includes('Failed to fetch') || err.message.includes('NetworkError')) {
-          setErrorMessage('Network error. Please check your connection and try again.');
-        } else if (err.message.includes('Server returned')) {
-          setErrorMessage('Server error. Please try again in a moment.');
-        } else {
-          setErrorMessage('Something went wrong. Please try again.');
-        }
-      }
-    },
-    [formData, turnstileSiteKey]
-  );
-
-  const handleReset = useCallback(() => {
-    setStage('github-gate');
-    setFormData(initialFormData);
-    setStatus('idle');
-    setErrorMessage('');
-  }, []);
-
   return (
     <section className="py-24 sm:py-32 px-4 bg-gradient-to-b from-primary-50 via-white to-white dark:from-slate-900 dark:via-slate-950 dark:to-black transition-colors duration-300">
-      <div className="max-w-2xl mx-auto mb-12">
-        <div className="flex items-center gap-2 mb-6">
-          {stage !== 'github-gate' && stage !== 'success' && (
-            <button
-              onClick={handleBack}
-              className="p-2 hover:bg-gray-100 dark:hover:bg-slate-800 rounded-lg transition-colors"
-              aria-label="Go back"
+      <div className="max-w-2xl mx-auto">
+        <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-slate-100">Send Feedback</h1>
+        <p className="text-gray-500 dark:text-slate-400 mt-2 mb-8">
+          Bugs, feature ideas, and questions go to our public GitHub issue tracker. You need a free GitHub account to
+          file an issue.
+        </p>
+
+        <div className="flex items-start gap-3 p-4 bg-primary-50 dark:bg-primary-500/10 border border-primary-200 dark:border-primary-500/20 rounded-lg mb-8">
+          <AlertCircle className="h-5 w-5 text-primary-600 dark:text-primary-400 mt-0.5 flex-shrink-0" />
+          <p className="text-sm text-gray-700 dark:text-slate-200">
+            Each link opens a guided issue form on{' '}
+            <a
+              href="https://github.com/luongnv89/textwiz-feedback"
+              className="text-primary-600 dark:text-primary-400 underline hover:no-underline"
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              <ChevronLeft className="h-5 w-5 text-gray-500 dark:text-slate-400" />
-            </button>
-          )}
-          <div className="flex-1">
-            <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-slate-100">Send Feedback</h1>
-            <p className="text-gray-500 dark:text-slate-400 mt-2">
-              Bugs, feature ideas, or just a note — every message reaches a real person.
-            </p>
-          </div>
+              luongnv89/textwiz-feedback
+            </a>
+            . We do not collect email or run CAPTCHA on this site.
+          </p>
         </div>
 
-        {stage !== 'success' && (
-          <div className="flex items-center gap-2 text-xs text-gray-500 dark:text-slate-400 px-4 py-2 bg-gray-100 dark:bg-slate-800/50 rounded-lg w-fit">
-            <div
-              className={cn(
-                'w-2 h-2 rounded-full transition-colors',
-                ['github-gate', 'github-options'].includes(stage) ? 'bg-primary-500' : 'bg-green-500'
-              )}
-            />
-            <span>
-              {stage === 'github-gate' && 'Step 1: GitHub Account'}
-              {stage === 'github-options' && 'Step 2: Choose Your Path'}
-              {stage === 'form-details' && 'Step 2: Feedback Form'}
-            </span>
-          </div>
-        )}
-      </div>
-
-      <div className="max-w-2xl mx-auto px-4">
-        {stage === 'github-gate' && (
-          <GitHubGate
-            onYes={() => handleGitHubChoice(true)}
-            onNo={() => handleGitHubChoice(false)}
-            isLoading={status === 'submitting'}
-          />
-        )}
-
-        {stage === 'github-options' && (
-          <GitHubOptions onBack={handleBack} onEmailInstead={() => setStage('form-details')} />
-        )}
-
-        {stage === 'form-details' && (
-          <FormDetails
-            formData={formData}
-            onChange={handleFormChange}
-            onSubmit={handleFormSubmit}
-            turnstileSiteKey={turnstileSiteKey}
-            onTurnstileSuccess={(token) => handleFormChange('turnstileToken', token)}
-            onTurnstileExpire={() => handleFormChange('turnstileToken', null)}
-            onTurnstileError={() => handleFormChange('turnstileToken', null)}
-            isSubmitting={status === 'submitting'}
-            error={status === 'error' ? errorMessage : null}
-            onBack={handleBack}
-          />
-        )}
-
-        {stage === 'success' && <FormSuccess feedbackType={formData.feedbackType} onNewFeedback={handleReset} />}
+        <div className="grid grid-cols-1 gap-4">
+          {OPTIONS.map((option) => {
+            const Icon = option.icon;
+            return (
+              <a
+                key={option.id}
+                href={option.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={cn(
+                  'group block p-6 rounded-xl border border-gray-200 dark:border-slate-700',
+                  'bg-white dark:bg-slate-900 hover:bg-gray-50 dark:hover:bg-slate-800 transition-all duration-300',
+                  'hover:border-primary-300 dark:hover:border-primary-500 hover:shadow-lg'
+                )}
+              >
+                <div className="flex items-start gap-4">
+                  <div className={cn('p-3 rounded-lg text-white flex-shrink-0', `bg-gradient-to-br ${option.color}`)}>
+                    <Icon className="h-6 w-6" />
+                  </div>
+                  <div className="flex-1">
+                    <h2 className="font-semibold text-gray-900 dark:text-slate-100 group-hover:text-primary-600 dark:group-hover:text-primary-300 transition-colors flex items-center gap-2">
+                      {option.label}
+                      <ArrowRight className="h-4 w-4 opacity-0 group-hover:opacity-100 transition-opacity" />
+                    </h2>
+                    <p className="text-sm text-gray-500 dark:text-slate-400 mt-1">{option.description}</p>
+                  </div>
+                </div>
+              </a>
+            );
+          })}
+        </div>
       </div>
     </section>
   );

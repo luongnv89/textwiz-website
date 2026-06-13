@@ -58,17 +58,17 @@ export const SEO_ROUTES = [
     description: 'Send feedback or report issues for TextWiz. Help improve the macOS AI writing assistant.',
     body: `
       <h1>TextWiz feedback</h1>
-      <p>Share bugs, ideas, and provider-specific issues. You can also file public issues on GitHub.</p>
+      <p>Share bugs, ideas, and provider-specific issues via public GitHub issue templates.</p>
     `,
   },
   {
     path: '/privacy',
     title: 'Privacy Policy',
     description:
-      'How TextWiz handles email sign-ups, local data, API keys in Keychain, and third-party AI providers.',
+      'How the TextWiz website and app handle data: static site, Keychain, local SQLite, and third-party AI providers.',
     body: `
       <h1>Privacy policy</h1>
-      <p>Early-access email only for launch updates. The app stores API keys in macOS Keychain, usage in local SQLite, and sends text only to the AI provider you choose. TextWiz operates no backend telemetry servers.</p>
+      <p>The marketing site does not collect email or run on-site feedback forms. The app stores API keys in macOS Keychain, usage in local SQLite, and sends text only to the AI provider you choose. TextWiz operates no backend telemetry servers.</p>
     `,
   },
   {

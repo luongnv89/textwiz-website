@@ -1,6 +1,6 @@
 # TextWiz Website
 
-Marketing site for [TextWiz](https://github.com/luongnv89/textwiz) — React + Vite + Tailwind.
+Marketing site for [TextWiz](https://github.com/luongnv89/textwiz) — React + Vite + Tailwind. Static pages only; feedback via GitHub issues (no email signup or CAPTCHA on this site).
 
 ## Development
 
@@ -31,9 +31,8 @@ Pushes to **`main`** run [`.github/workflows/deploy-pages.yml`](.github/workflow
 
 **One-time setup (repo owner):**
 
-1. Create public repo `luongnv89/textwiz-website` (or fork this tree).
-2. **Settings → Pages → Build and deployment**: Source = **GitHub Actions**.
-3. Push to `main`; the workflow publishes the site.
+1. **Settings → Pages → Build and deployment**: Source = **GitHub Actions**.
+2. Push to `main`; the workflow publishes the site.
 
 Default URL: **https://luongnv89.github.io/textwiz-website/**
 
@@ -47,13 +46,12 @@ Canonical SEO URLs in `shared/seo-routes.mjs` still point at `https://textwiz.lu
 
 ## Netlify (optional)
 
-[`netlify.toml`](netlify.toml) remains for Netlify deploys (`npm run build`, publish `dist`). Use root path `/` (no `VITE_BASE_PATH`).
+[`netlify.toml`](netlify.toml) remains for optional Netlify deploys (`npm run build`, publish `dist`). Use root path `/` (no `VITE_BASE_PATH`).
 
 ## Environment
 
 | Variable | Purpose |
 |----------|---------|
-| `VITE_TURNSTILE_SITE_KEY` | Cloudflare Turnstile (feedback / forms) |
 | `VITE_BASE_PATH` | Asset + router base (CI sets this for GitHub Pages) |
 
 ## License
