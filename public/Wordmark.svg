@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="720" height="200" viewBox="0 0 720 200" xmlns="http://www.w3.org/2000/svg">
+  <rect x="20" y="20" width="160" height="160" rx="40" fill="#30D158"/>
+  <path d="M46.667 46.667 H113.333 M80 46.667 V100" stroke="white" stroke-width="18.667" stroke-linecap="round"/>
+  <path d="M104 104 L109.333 98.667 L114.667 104 L112 109.333 L106.667 106.667 L101.333 109.333 L104 104 Z" fill="#FFB800"/>
+  <circle cx="106.667" cy="104" r="4" fill="#FFB800"/>
+
+  <text x="200" y="110" fill="#0F172A" font-family="SF Pro Display, Helvetica Neue, Helvetica, Arial, sans-serif" font-size="70" font-weight="600" letter-spacing="0.02em">
+    TextWiz
+  </text>
+  <text x="200" y="150" fill="#1E9A41" font-family="SF Pro Text, Helvetica Neue, Helvetica, Arial, sans-serif" font-size="24" font-weight="500" letter-spacing="0.08em">
+    SELECT. CLICK. PERFECT.
+  </text>
+</svg>

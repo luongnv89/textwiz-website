@@ -1,0 +1,22 @@
+# TextWiz
+
+> TextWiz is a native macOS productivity app that runs AI writing shortcuts on text you select—via clipboard + global hotkey (⌘⇧Space) or macOS Services—without Accessibility APIs. Free on-device Apple Foundation Model (Apple Intelligence) on supported Macs, plus nine providers (Gemini, OpenAI, Claude, Mistral, Groq, OpenRouter, Ollama, LM Studio, MLX-LM), custom shortcuts, inline diff, and local history. Marketing site: https://textwiz.luongnv.com — source: https://github.com/luongnv89/textwiz
+
+## Product
+
+- [Home](https://textwiz.luongnv.com/): Overview, features, demo video, FAQ, early-access signup
+- [Getting started](https://textwiz.luongnv.com/getting-started): Ollama and cloud API setup, hotkey, Services menu, troubleshooting
+- [API keys guide](https://textwiz.luongnv.com/api-keys): Free-tier Gemini, Groq, OpenRouter, Mistral, Ollama signup and Keychain setup
+
+## Updates & policy
+
+- [Changelog](https://textwiz.luongnv.com/changelog): Release notes
+- [Privacy policy](https://textwiz.luongnv.com/privacy): Email signup, Keychain, local SQLite, third-party AI providers
+- [Terms of service](https://textwiz.luongnv.com/terms): Website and app terms
+
+## Optional
+
+- [Full context for AI](https://textwiz.luongnv.com/llms-full.txt): Extended product, setup, FAQ, and privacy text
+- [Feedback](https://textwiz.luongnv.com/feedback): User feedback form
+- [GitHub repository](https://github.com/luongnv89/textwiz): macOS app source (Swift/SwiftUI)
+- [GitHub issues / feedback](https://github.com/luongnv89/textwiz-feedback): Public issue tracker

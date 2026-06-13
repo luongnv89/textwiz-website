@@ -1,0 +1,77 @@
+# TextWiz — full site context for AI systems
+
+> TextWiz is a native macOS productivity application that runs AI writing shortcuts on text you select. Capture via clipboard (⌘C) + global hotkey (⌘⇧Space) or macOS Services (right-click → Process with TextWiz). No Accessibility APIs. Nine LLM providers; API keys in Keychain; history and analytics in local SQLite. Site: https://textwiz.luongnv.com — App source: https://github.com/luongnv89/textwiz
+
+## Product summary
+
+TextWiz ships eight built-in shortcuts (Proofread, Rewrite, Concise, Friendly, Professional, X Post, LinkedIn Post, Improve Prompt) plus unlimited custom shortcuts from the shortcut manager. A floating panel streams responses with an inline diff (additions/deletions). Results can auto-copy to the clipboard or splice back via Services.
+
+**Providers:** On-device — Apple Intelligence (Apple Foundation Model, free, no API key on supported Macs), Ollama, LM Studio, MLX-LM. Cloud — Gemini, OpenAI, Claude, Mistral, Groq, OpenRouter. One Primary Provider and one Model in Settings apply to all shortcuts.
+
+**Requirements:** macOS 14 Sonoma or later for distribution; some features need macOS 15.2+ for Apple Intelligence. Mac App Store listing with early-access email signup on the website.
+
+## How to use TextWiz
+
+1. Copy selected text with ⌘C, press ⌘⇧Space — panel opens with clipboard as input, pick a shortcut.
+2. Or right-click selection → Services → Process with TextWiz — macOS replaces text in place.
+3. No Accessibility permission; works in sandboxed apps (Slack, VS Code, browsers).
+
+## Setup (getting started)
+
+**Ollama (local):** `brew install ollama` → `ollama serve` → `ollama pull llama3.2:3b` (or similar) → TextWiz Dashboard → Settings → Primary Provider Ollama → verify server URL → Refresh models → Test Connection → ⌘C + ⌘⇧Space.
+
+**Gemini (cloud):** API key from Google AI Studio → Settings → Primary Provider Gemini → Configure API Key → Save to Keychain → pick model → Test Connection.
+
+Other providers follow the same Settings pattern (API key or server URL for local engines).
+
+## Privacy
+
+- On-device providers: text never leaves the Mac.
+- Cloud: only processed text goes to the chosen provider.
+- Keys: macOS Keychain only.
+- History/analytics: local SQLite, not uploaded.
+- Website early access: email for launch notification only.
+
+## FAQ
+
+### How do I use TextWiz?
+Two flows. Copy text with ⌘C and press ⌘⇧Space — the floating panel opens with your clipboard as input and runs the AI shortcut. Or right-click the selection → Services → Process with TextWiz, and macOS replaces it in place. Pick any of the 8 built-in shortcuts — Proofread, Rewrite, Concise, Friendly, Professional, X Post, LinkedIn Post, or Improve Prompt — or run one you built yourself.
+
+### Which AI providers does TextWiz support?
+Nine providers out of the box. On-device: Apple Intelligence (Apple Foundation Model—free, no API key on supported Macs), Ollama, LM Studio, and MLX-LM. Cloud: Gemini, OpenAI, Claude, Mistral, Groq, and OpenRouter. Choose one Primary Provider and Model in Settings—all shortcuts use that pair unless you override in a custom shortcut.
+
+### Do I need an API key?
+Only for cloud providers. Apple Intelligence, Ollama, LM Studio, and MLX-LM run on-device with no API key. For cloud models, bring your own key—stored in the macOS Keychain and only sent to the provider you chose.
+
+### Can I add my own shortcuts?
+Yes. The built-in shortcut manager lets you create, edit, duplicate, and delete shortcuts. Write the system prompt, pick the provider and model, and it shows up in the panel alongside the defaults.
+
+### Can TextWiz write the result back into my document?
+Yes — two ways. Via right-click → Services → Process with TextWiz, macOS splices the AI result in place where the selection was, no extra steps. Via the ⌘⇧Space hotkey, the result is auto-copied when the wizard finishes and the panel shows a 'Copied — press ⌘V to paste' toast. Either way, no Accessibility permission is needed.
+
+### Does TextWiz keep a history of my requests?
+Yes. Every run is saved locally so you can browse, search, and reopen past results from the History view. It's stored in SQLite on your Mac—never uploaded anywhere.
+
+### What is the diff view?
+Inline highlighting of what changed between your original text and the AI result—word and character-level, additions in green and deletions in red. Enabled by default in the floating panel.
+
+### Where does my data go? Is it private?
+With on-device providers (Apple Intelligence, Ollama, LM Studio, MLX-LM), nothing leaves your Mac. With cloud providers, only the text you process is sent to the provider you selected. Usage analytics stay in local SQLite and API keys live in the macOS Keychain. TextWiz itself has no servers and collects nothing.
+
+### Does TextWiz need the Accessibility permission?
+No. TextWiz captures text through two fully compliant paths: the system clipboard (you press ⌘C, then ⌘⇧Space) and the macOS Services menu (right-click → Services → Process with TextWiz). It does not call any Accessibility APIs. You won't see any permission prompts on first launch — it just works, even in Slack, VS Code, and other sandboxed apps.
+
+## Site map
+
+- https://textwiz.luongnv.com/
+- https://textwiz.luongnv.com/api-keys
+- https://textwiz.luongnv.com/getting-started
+- https://textwiz.luongnv.com/changelog
+- https://textwiz.luongnv.com/feedback
+- https://textwiz.luongnv.com/privacy
+- https://textwiz.luongnv.com/terms
+## Links
+
+- GitHub (app): https://github.com/luongnv89/textwiz
+- GitHub (feedback issues): https://github.com/luongnv89/textwiz-feedback
+- Developer X: https://twitter.com/luongnv89
