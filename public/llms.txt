@@ -5,8 +5,7 @@
 ## Product
 
 - [Home](https://textwiz.luongnv.com/): Overview, features, demo video, FAQ
-- [Getting started](https://textwiz.luongnv.com/getting-started): Ollama and cloud API setup, hotkey, Services menu, troubleshooting
-- [API keys guide](https://textwiz.luongnv.com/api-keys): Free-tier Gemini, Groq, OpenRouter, Mistral, Ollama signup and Keychain setup
+- [Setup & API keys](https://textwiz.luongnv.com/getting-started): Ollama and Gemini setup, free-tier provider keys, hotkey, Services, troubleshooting
 
 ## Updates & policy
 

@@ -71,13 +71,7 @@ export default function Navigation() {
               to="/getting-started"
               className="text-gray-600 dark:text-slate-300 hover:text-primary-600 dark:hover:text-primary-300 font-medium transition"
             >
-              Setup
-            </Link>
-            <Link
-              to="/api-keys"
-              className="text-gray-600 dark:text-slate-300 hover:text-primary-600 dark:hover:text-primary-300 font-medium transition"
-            >
-              API keys
+              Setup & API keys
             </Link>
             <Link
               to="/changelog"

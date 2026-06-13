@@ -21,26 +21,14 @@ export const SEO_ROUTES = [
     `,
   },
   {
-    path: '/api-keys',
-    title: 'API Keys Guide',
-    description:
-      'Free-tier API keys for TextWiz: Gemini, Groq, OpenRouter, Mistral, and Ollama. Signup links, limits (verified 2026-06), and Keychain setup.',
-    body: `
-      <h1>Free-tier API keys for TextWiz</h1>
-      <p>Obtain keys from Gemini, Groq, OpenRouter, Mistral, or run Ollama locally with no key. Configure once in Dashboard → Settings → Primary Provider; keys stored in macOS Keychain.</p>
-      <p>Start here: Ollama for privacy, Gemini for fastest cloud setup, OpenRouter for many :free models, Groq for low latency.</p>
-    `,
-  },
-  {
     path: '/getting-started',
-    title: 'Getting Started',
+    title: 'Setup & API Keys',
     description:
-      'Set up TextWiz on macOS: Ollama, cloud API keys, global hotkey ⌘⇧Space, and macOS Services. Step-by-step setup guide.',
+      'Set up TextWiz on macOS: Ollama and Gemini walkthroughs, free-tier API keys (Gemini, Groq, OpenRouter, Mistral), hotkey ⌘⇧Space, and Services.',
     body: `
-      <h1>Connect TextWiz to an LLM</h1>
-      <p>TextWiz is the UI; you plug in an LLM. Local path: install Ollama, run <code>ollama serve</code>, pull a model, open Dashboard → Settings → Primary Provider Ollama → Test Connection → ⌘C text → ⌘⇧Space.</p>
-      <p>Cloud path: get a Gemini API key from Google AI Studio, paste in Settings → API Key (Keychain), pick a model, test connection, run a shortcut.</p>
-      <p>Shortcuts share one Primary Provider and Model from Settings—not per-shortcut. Capture text via clipboard + hotkey or right-click Services → Process with TextWiz.</p>
+      <h1>Setup and API keys</h1>
+      <p>Connect TextWiz to an LLM: local Ollama track or cloud Gemini track, then configure Dashboard → Settings → Primary Provider. Free-tier signup links for Gemini, Groq, OpenRouter, and Mistral on the same page.</p>
+      <p>Shortcuts share one Primary Provider and Model from Settings. Capture text via clipboard + hotkey or Services → Process with TextWiz.</p>
     `,
   },
   {

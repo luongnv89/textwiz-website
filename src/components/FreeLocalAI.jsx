@@ -76,7 +76,7 @@ export default function FreeLocalAI() {
           </a>{' '}
           or read the{' '}
           <a href="/getting-started" className="text-primary-600 dark:text-primary-300 font-medium hover:underline">
-            getting started guide
+            setup guide
           </a>
           .
         </p>

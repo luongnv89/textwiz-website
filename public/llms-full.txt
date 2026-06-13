@@ -64,7 +64,6 @@ No. TextWiz captures text through two fully compliant paths: the system clipboar
 ## Site map
 
 - https://textwiz.luongnv.com/
-- https://textwiz.luongnv.com/api-keys
 - https://textwiz.luongnv.com/getting-started
 - https://textwiz.luongnv.com/changelog
 - https://textwiz.luongnv.com/feedback

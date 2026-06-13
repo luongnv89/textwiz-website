@@ -30,12 +30,12 @@ test('patchHtml replaces multiline og:description for subroute', () => {
   const route = SEO_ROUTES.find((r) => r.path === '/getting-started');
   assert.ok(route);
   const html = patchHtml(MULTILINE_SHELL, route);
-  assert.match(html, /<title>Getting Started \| TextWiz<\/title>/);
+  assert.match(html, /<title>Setup & API Keys \| TextWiz<\/title>/);
   assert.match(
     html,
-    /<meta property="og:description" content="Set up TextWiz on macOS: Ollama, cloud API keys, global hotkey ⌘⇧Space, and macOS Services\. Step-by-step setup guide\." \/>/,
+    /<meta property="og:description" content="Set up TextWiz on macOS: Ollama and Gemini walkthroughs, free-tier API keys \(Gemini, Groq, OpenRouter, Mistral\), hotkey ⌘⇧Space, and Services\." \/>/,
   );
   assert.match(html, /<link rel="canonical" href="https:\/\/textwiz\.luongnv\.com\/getting-started" \/>/);
   assert.doesNotMatch(html, /homepage og desc/);
-  assert.match(html, /<h1>Connect TextWiz to an LLM<\/h1>/);
+  assert.match(html, /<h1>Setup and API keys<\/h1>/);
 });

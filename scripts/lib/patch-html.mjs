@@ -59,7 +59,7 @@ export function patchHtml(shell, route, siteOrigin = SITE_URL) {
       <article style="max-width: 42rem; margin: 2rem auto; padding: 0 1.5rem; font-family: system-ui, sans-serif; line-height: 1.6;">
       ${route.body}
       <nav>
-        <a href="/">Home</a> · <a href="/getting-started">Getting started</a> · <a href="/api-keys">API keys</a> · <a href="/changelog">Changelog</a> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a>
+        <a href="/">Home</a> · <a href="/getting-started">Setup &amp; API keys</a> · <a href="/changelog">Changelog</a> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a>
       </nav>
       </article>`;
 

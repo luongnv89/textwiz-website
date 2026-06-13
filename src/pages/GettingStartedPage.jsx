@@ -11,89 +11,8 @@ import {
   ArrowRight,
   Sparkles,
 } from 'lucide-react';
-
-function Code({ children }) {
-  return (
-    <code className="px-1.5 py-0.5 rounded bg-gray-100 dark:bg-slate-800 text-primary-700 dark:text-primary-300 font-mono text-[0.9em]">
-      {children}
-    </code>
-  );
-}
-
-function Pre({ children }) {
-  return (
-    <pre className="my-4 p-4 rounded-xl bg-slate-900 dark:bg-black text-slate-100 text-sm overflow-x-auto border border-slate-800">
-      <code className="font-mono whitespace-pre">{children}</code>
-    </pre>
-  );
-}
-
-function Callout({ icon: IconGlyph, tone = 'info', title, children }) {
-  const tones = {
-    info: 'bg-primary-50 dark:bg-primary-500/10 border-primary-200 dark:border-primary-500/30 text-primary-900 dark:text-primary-100',
-    warn: 'bg-amber-50 dark:bg-amber-500/10 border-amber-200 dark:border-amber-500/30 text-amber-900 dark:text-amber-100',
-    ok: 'bg-emerald-50 dark:bg-emerald-500/10 border-emerald-200 dark:border-emerald-500/30 text-emerald-900 dark:text-emerald-100',
-  };
-  const Glyph = IconGlyph;
-  return (
-    <div className={`my-6 p-5 rounded-xl border ${tones[tone]} flex gap-3`}>
-      <Glyph className="h-5 w-5 mt-0.5 flex-shrink-0" />
-      <div>
-        {title && <div className="font-semibold mb-1">{title}</div>}
-        <div className="text-[0.95em] leading-relaxed">{children}</div>
-      </div>
-    </div>
-  );
-}
-
-function Step({ n, title, children }) {
-  return (
-    <div className="mb-8">
-      <h3 className="flex items-center gap-3 text-xl font-semibold text-gray-900 dark:text-slate-100 mb-3">
-        <span className="inline-flex items-center justify-center h-8 w-8 rounded-full bg-primary-600 text-white text-sm font-bold flex-shrink-0">
-          {n}
-        </span>
-        {title}
-      </h3>
-      <div className="ml-11">{children}</div>
-    </div>
-  );
-}
-
-function Table({ headers, rows }) {
-  return (
-    <div className="my-5 overflow-x-auto rounded-xl border border-gray-200 dark:border-slate-800">
-      <table className="w-full text-sm">
-        <thead className="bg-gray-50 dark:bg-slate-900/50">
-          <tr>
-            {headers.map((h) => (
-              <th
-                key={h}
-                className="px-4 py-3 text-left font-semibold text-gray-900 dark:text-slate-100 border-b border-gray-200 dark:border-slate-800"
-              >
-                {h}
-              </th>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          {rows.map((row, i) => (
-            <tr
-              key={i}
-              className="border-b border-gray-100 dark:border-slate-800/50 last:border-b-0"
-            >
-              {row.map((cell, j) => (
-                <td key={j} className="px-4 py-3 text-gray-700 dark:text-slate-300 align-top">
-                  {cell}
-                </td>
-              ))}
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
-  );
-}
+import { Callout, Code, Pre, Step, Table } from '../components/guide/GuideBlocks';
+import ApiKeysSection from '../components/guide/ApiKeysSection';
 
 export default function GettingStartedPage() {
   return (
@@ -102,14 +21,14 @@ export default function GettingStartedPage() {
         <div className="mb-10">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary-100 dark:bg-primary-500/10 text-primary-700 dark:text-primary-300 text-sm font-medium mb-4">
             <BookOpen className="h-4 w-4" />
-            Getting Started
+            Setup guide
           </div>
           <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-slate-100 mb-4">
-            Connect TextWiz to an LLM
+            Setup &amp; API keys
           </h1>
           <p className="text-xl text-gray-600 dark:text-slate-300 leading-relaxed">
-            TextWiz is just the UI; the intelligence comes from an LLM you plug in. This guide walks
-            you from a fresh install to a working AI shortcut in under five minutes.
+            Connect TextWiz to an LLM, configure providers in Settings, and look up free-tier API keys—all in one
+            place.
           </p>
         </div>
 
@@ -147,16 +66,12 @@ export default function GettingStartedPage() {
         />
 
         <p className="text-gray-600 dark:text-slate-300 leading-relaxed">
-          TextWiz also supports Claude, OpenAI, Mistral, Groq, OpenRouter, LM Studio, and MLX-LM —
-          they all follow the same pattern as the two tracks below. For signup links, free-tier
-          limits, and key creation for Gemini, Groq, OpenRouter, and Mistral, see the{' '}
-          <Link
-            to="/api-keys"
-            className="text-primary-600 dark:text-primary-300 hover:underline font-medium"
-          >
-            API keys guide
-          </Link>{' '}
-          (same steps as Dashboard → Settings).
+          TextWiz also supports Claude, OpenAI, Mistral, Groq, OpenRouter, LM Studio, and MLX-LM — they follow the same
+          Settings pattern. Signup links and free-tier limits for Gemini, Groq, OpenRouter, and Mistral are in the{' '}
+          <a href="#gemini" className="text-primary-600 dark:text-primary-300 hover:underline font-medium">
+            API keys reference
+          </a>{' '}
+          below.
         </p>
 
         <Callout icon={Zap} tone="info" title="TL;DR">
@@ -482,6 +397,8 @@ brew install ollama
             ]}
           />
         </div>
+
+        <ApiKeysSection />
 
         <div className="mt-16 pt-10 border-t border-gray-200 dark:border-slate-800">
           <h2 className="text-3xl font-bold text-gray-900 dark:text-slate-100 mb-4">

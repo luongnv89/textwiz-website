@@ -7,7 +7,7 @@ import TermsPage from './pages/TermsPage';
 import FeedbackPage from './pages/FeedbackPage';
 import ChangelogPage from './pages/ChangelogPage';
 import GettingStartedPage from './pages/GettingStartedPage';
-import ApiKeysPage from './pages/ApiKeysPage';
+import ApiKeysRedirect from './pages/ApiKeysRedirect';
 
 function App() {
   return (
@@ -20,7 +20,7 @@ function App() {
           <Route path="/feedback" element={<FeedbackPage />} />
           <Route path="/changelog" element={<ChangelogPage />} />
           <Route path="/getting-started" element={<GettingStartedPage />} />
-          <Route path="/api-keys" element={<ApiKeysPage />} />
+          <Route path="/api-keys" element={<ApiKeysRedirect />} />
         </Routes>
       </Layout>
     </BrowserRouter>
