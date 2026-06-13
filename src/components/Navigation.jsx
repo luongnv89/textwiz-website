@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import MacAppStoreBadge from './MacAppStoreBadge';
+import { publicUrl } from '../lib/publicUrl';
 
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -47,7 +48,7 @@ export default function Navigation() {
               to="/"
               className="flex items-center space-x-2 hover:opacity-80 transition"
             >
-              <img src="/AppIcon.svg" alt="TextWiz" className="h-10 w-10" />
+              <img src={publicUrl('/AppIcon.svg')} alt="TextWiz" className="h-10 w-10" />
               <span className="text-xl font-bold text-gray-900 dark:text-slate-100">TextWiz</span>
             </Link>
           </div>

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { publicUrl } from '../lib/publicUrl';
 
 const screenshots = [
   {
@@ -78,7 +79,7 @@ export default function Screenshots() {
 
         <div className="rounded-2xl overflow-hidden shadow-2xl bg-white dark:bg-slate-900 border border-gray-100 dark:border-slate-800">
           <img
-            src={current.src}
+            src={publicUrl(current.src)}
             alt={current.alt}
             className="w-full h-auto"
           />
@@ -105,7 +106,7 @@ export default function Screenshots() {
               aria-label={`Show ${shot.title}`}
               aria-pressed={index === active}
             >
-              <img src={shot.src} alt="" className="w-full h-auto block" />
+              <img src={publicUrl(shot.src)} alt="" className="w-full h-auto block" />
             </button>
           ))}
         </div>

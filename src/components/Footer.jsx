@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Github, Linkedin } from 'lucide-react';
 import { APP_VERSION_FULL } from '../lib/version';
+import { publicUrl } from '../lib/publicUrl';
 
 function XLogo({ className = 'h-5 w-5' }) {
   return (
@@ -22,7 +23,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto space-y-12">
         <div className="grid gap-12 md:grid-cols-[1.4fr,1fr,1fr]">
           <div className="space-y-6">
-            <img src="/Wordmark-white.svg" alt="TextWiz" className="h-8" />
+            <img src={publicUrl('/Wordmark-white.svg')} alt="TextWiz" className="h-8" />
             <p className="text-gray-400 max-w-sm">
               AI text shortcuts for macOS—global hotkey, Services menu, and nine LLM providers. Polish copy in place with privacy-first, native integration.
             </p>

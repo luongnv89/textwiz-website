@@ -1,6 +1,7 @@
 import { useRef } from 'react';
 import { Maximize2 } from 'lucide-react';
 import MacAppStoreBadge from './MacAppStoreBadge';
+import { publicUrl } from '../lib/publicUrl';
 
 export default function Hero() {
   const videoRef = useRef(null);
@@ -55,8 +56,8 @@ export default function Hero() {
             <video
               ref={videoRef}
               className="w-full h-auto block cursor-pointer"
-              src="/demo-1.0.0.mp4"
-              poster="/shortcuts-preview/1.0.0/appstore-overview.png"
+              src={publicUrl('/demo-1.0.0.mp4')}
+              poster={publicUrl('/shortcuts-preview/1.0.0/appstore-overview.png')}
               autoPlay
               loop
               muted
