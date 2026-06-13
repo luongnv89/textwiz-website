@@ -52,18 +52,21 @@ export default function FreeLocalAI() {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {highlights.map(({ icon: Icon, title, description }) => (
+          {highlights.map((item) => {
+            const Icon = item.icon;
+            return (
             <div
-              key={title}
+              key={item.title}
               className="p-6 rounded-xl border border-emerald-200/80 dark:border-emerald-500/25 bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm shadow-sm"
             >
               <div className="w-11 h-11 rounded-lg bg-emerald-100 dark:bg-emerald-500/15 flex items-center justify-center mb-4">
                 <Icon className="h-5 w-5 text-emerald-700 dark:text-emerald-300" />
               </div>
-              <h3 className="text-lg font-semibold text-gray-900 dark:text-slate-100 mb-2">{title}</h3>
-              <p className="text-sm text-gray-600 dark:text-slate-300 leading-relaxed">{description}</p>
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-slate-100 mb-2">{item.title}</h3>
+              <p className="text-sm text-gray-600 dark:text-slate-300 leading-relaxed">{item.description}</p>
             </div>
-          ))}
+            );
+          })}
         </div>
 
         <p className="mt-10 text-center text-gray-600 dark:text-slate-300">
