@@ -1,0 +1,98 @@
+name: Bug Report
+description: Report a bug or issue with TextWiz for macOS
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting a bug! Please fill out the form below so we can reproduce and fix it quickly.
+
+  - type: textarea
+    id: description
+    attributes:
+      label: What happened?
+      description: Describe the bug and what you expected to happen instead.
+      placeholder: "When I select text in Safari and press ⌘⇧Space, TextWiz..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to Reproduce
+      description: How can we reproduce this bug?
+      placeholder: |
+        1. Select text in...
+        2. Press ⌘⇧Space
+        3. Choose the Rewrite shortcut
+        4. See error
+    validations:
+      required: true
+
+  - type: dropdown
+    id: provider
+    attributes:
+      label: AI Provider
+      description: Which provider were you using when the bug happened?
+      options:
+        - Gemini
+        - OpenAI
+        - Claude (Anthropic)
+        - Mistral
+        - Groq
+        - OpenRouter
+        - Ollama (local)
+        - LM Studio (local)
+        - Apple MLX (local)
+        - Not sure / Not applicable
+    validations:
+      required: true
+
+  - type: input
+    id: source-app
+    attributes:
+      label: Source Application
+      description: Which app were you selecting text from? (e.g., Safari, Slack, VS Code)
+      placeholder: "Safari"
+    validations:
+      required: false
+
+  - type: dropdown
+    id: macos-version
+    attributes:
+      label: macOS Version
+      options:
+        - macOS 26 (Tahoe)
+        - macOS 15 (Sequoia)
+        - macOS 14 (Sonoma)
+        - Older version
+        - Not sure
+    validations:
+      required: true
+
+  - type: input
+    id: app-version
+    attributes:
+      label: TextWiz Version
+      description: Find this in TextWiz → Settings → About
+      placeholder: "1.0.0 (6)"
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs (optional)
+      description: Paste any relevant log output. Find logs via Settings → View Logs.
+      render: shell
+    validations:
+      required: false
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots
+      description: Drop screenshots or screen recordings here if they help explain the issue.
+    validations:
+      required: false

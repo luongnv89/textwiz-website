@@ -1,0 +1,75 @@
+name: General Feedback
+description: Share general feedback about TextWiz
+title: "[Feedback]: "
+labels: ["feedback"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        We'd love to hear your thoughts on TextWiz — what's working, what isn't, and what we could do better.
+
+  - type: dropdown
+    id: type
+    attributes:
+      label: Feedback Type
+      description: What kind of feedback is this?
+      options:
+        - General Experience
+        - User Interface / Design
+        - Performance
+        - Documentation
+        - Privacy / Security
+        - Other
+    validations:
+      required: true
+
+  - type: dropdown
+    id: sentiment
+    attributes:
+      label: Overall Sentiment
+      description: How do you feel about TextWiz?
+      options:
+        - Positive
+        - Neutral
+        - Needs Improvement
+    validations:
+      required: true
+
+  - type: textarea
+    id: feedback
+    attributes:
+      label: Your Feedback
+      description: Tell us what's on your mind.
+      placeholder: "I think..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: suggestions
+    attributes:
+      label: Suggestions
+      description: Any specific suggestions for improvement?
+    validations:
+      required: false
+
+  - type: dropdown
+    id: macos-version
+    attributes:
+      label: macOS Version
+      options:
+        - macOS 26 (Tahoe)
+        - macOS 15 (Sequoia)
+        - macOS 14 (Sonoma)
+        - Older version
+        - Not sure
+    validations:
+      required: false
+
+  - type: input
+    id: app-version
+    attributes:
+      label: TextWiz Version (optional)
+      description: Find this in TextWiz → Settings → About
+      placeholder: "1.0.0 (6)"
+    validations:
+      required: false
