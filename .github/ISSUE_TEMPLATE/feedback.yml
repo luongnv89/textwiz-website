@@ -59,8 +59,6 @@ body:
       options:
         - macOS 26 (Tahoe)
         - macOS 15 (Sequoia)
-        - macOS 14 (Sonoma)
-        - Older version
         - Not sure
     validations:
       required: false
@@ -70,6 +68,6 @@ body:
     attributes:
       label: TextWiz Version (optional)
       description: Find this in TextWiz → Settings → About
-      placeholder: "1.0.0 (6)"
+      placeholder: "1.1.1 (8)"
     validations:
       required: false

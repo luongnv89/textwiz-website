@@ -13,7 +13,7 @@ body:
     attributes:
       label: What happened?
       description: Describe the bug and what you expected to happen instead.
-      placeholder: "When I select text in Safari and press ⌘⇧Space, TextWiz..."
+      placeholder: "When I copy text in Safari and press ⌘⇧Space, TextWiz..."
     validations:
       required: true
 
@@ -23,9 +23,9 @@ body:
       label: Steps to Reproduce
       description: How can we reproduce this bug?
       placeholder: |
-        1. Select text in...
-        2. Press ⌘⇧Space
-        3. Choose the Rewrite shortcut
+        1. Copy text in...
+        2. Press ⌘⇧Space (or right-click → Services → Process with TextWiz)
+        3. Choose the Rewrite wizard
         4. See error
     validations:
       required: true
@@ -36,6 +36,7 @@ body:
       label: AI Provider
       description: Which provider were you using when the bug happened?
       options:
+        - Apple Intelligence (on-device)
         - Gemini
         - OpenAI
         - Claude (Anthropic)
@@ -44,7 +45,8 @@ body:
         - OpenRouter
         - Ollama (local)
         - LM Studio (local)
-        - Apple MLX (local)
+        - MLX-LM (local)
+        - Custom (OpenAI-compatible)
         - Not sure / Not applicable
     validations:
       required: true
@@ -53,7 +55,7 @@ body:
     id: source-app
     attributes:
       label: Source Application
-      description: Which app were you selecting text from? (e.g., Safari, Slack, VS Code)
+      description: Which app were you copying text from? (e.g., Safari, Slack, VS Code)
       placeholder: "Safari"
     validations:
       required: false
@@ -65,8 +67,6 @@ body:
       options:
         - macOS 26 (Tahoe)
         - macOS 15 (Sequoia)
-        - macOS 14 (Sonoma)
-        - Older version
         - Not sure
     validations:
       required: true
@@ -76,7 +76,7 @@ body:
     attributes:
       label: TextWiz Version
       description: Find this in TextWiz → Settings → About
-      placeholder: "1.0.0 (6)"
+      placeholder: "1.1.1 (8)"
     validations:
       required: true
 
