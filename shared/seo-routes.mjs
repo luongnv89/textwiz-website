@@ -4,7 +4,7 @@ export const SITE_URL = 'https://textwiz.luongnv.com';
 export const SITE_NAME = 'TextWiz';
 
 export const DEFAULT_DESCRIPTION =
-  'macOS AI shortcuts on selected text via ⌘⇧Space or Services. Free on-device Apple Foundation Model on supported Macs—plus Gemini, OpenAI, Ollama & more. Keys in Keychain—no Accessibility access.';
+  'Private, local-first macOS AI shortcuts on selected text via ⌘⇧Space or Services. Runs on-device by default (Apple Foundation Model, Ollama, LM Studio, MLX-LM)—no per-token cost—or bring your own cloud key. One-time purchase, no servers, no data collection.';
 
 export const HOMEPAGE_DOCUMENT_TITLE = `${SITE_NAME} — AI Text Shortcuts for macOS`;
 
@@ -15,9 +15,9 @@ export const SEO_ROUTES = [
     title: null,
     description: DEFAULT_DESCRIPTION,
     body: `
-      <h1>TextWiz — AI text shortcuts for macOS</h1>
-      <p>Select text, copy with ⌘C, press ⌘⇧Space to open the floating AI panel—or use Services to replace text in place. Eight built-in shortcuts plus unlimited custom prompts. Nine providers including Apple Intelligence (on-device Foundation Model, free, no API key), Ollama, LM Studio, MLX-LM, and cloud APIs.</p>
-      <p>Privacy-first: Apple Intelligence and other on-device engines keep text on your Mac; cloud keys live in Keychain. No Accessibility permission. Mac App Store • Apple Intelligence requires macOS 15.2+ on supported hardware.</p>
+      <h1>TextWiz — private, local-first AI text shortcuts for macOS</h1>
+      <p>Select text, copy with ⌘C, press ⌘⇧Space to open the floating AI panel—or use Services to replace text in place. Each AI action is a "wizard." We group the built-ins into collections by job: Everyday Edits and Social ship today; the Analyst & Coach collection arrives in the next update. Plus unlimited custom wizards. Ten engines, four of them on-device: Apple Intelligence (Foundation Model, free, no API key), Ollama, LM Studio, and MLX-LM, plus cloud APIs (OpenAI, Anthropic, Gemini, Mistral, Groq, OpenRouter) when you bring your own key.</p>
+      <p>Private by design: on-device engines keep your text on your Mac, TextWiz runs no servers and collects none of your data, and cloud keys live in the Keychain. One-time purchase, no subscription—run on local AI and there is no per-token cost. No Accessibility permission. Mac App Store • Apple Intelligence requires macOS 15.2+ on supported hardware.</p>
     `,
   },
   {

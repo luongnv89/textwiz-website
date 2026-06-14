@@ -32,7 +32,7 @@ export default function TermsPage() {
               2. Description of Service
             </h2>
             <p>
-              TextWiz is a macOS menu bar application that captures selected text and processes it through AI-powered shortcuts. The application connects to third-party AI providers (such as Google Gemini, Ollama, Groq, Mistral, and OpenRouter) using API keys you provide.
+              TextWiz is a macOS menu bar application that captures selected text and processes it through AI-powered wizards. The application connects to third-party AI providers (such as Google Gemini, Ollama, Groq, Mistral, and OpenRouter) using API keys you provide.
             </p>
           </section>
 

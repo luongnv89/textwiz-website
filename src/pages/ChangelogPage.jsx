@@ -147,7 +147,7 @@ const releases = [
     description:
       'The first public build of TextWiz. Everything below has been shipped and is in the build heading to the Mac App Store.',
     highlights: [
-      { icon: Sparkles, text: '8 Shortcuts' },
+      { icon: Sparkles, text: '8 Wizards' },
       { icon: Zap, text: '9 AI Providers' },
       { icon: Shield, text: 'Privacy-First' },
       { icon: Palette, text: 'Inline Diff' },
@@ -159,8 +159,8 @@ const releases = [
         items: [
           'System-wide text capture via the clipboard (⌘⇧Space after ⌘C) and the macOS Services menu — no Accessibility permission required.',
           'Floating panel with streaming AI responses and inline word-/character-level diff highlighting.',
-          '8 built-in shortcuts — Proofread, Rewrite, Concise, Friendly, Professional, X Post, LinkedIn Post, Improve Prompt.',
-          'Shortcut manager — create, edit, duplicate, and delete your own shortcuts with custom prompts, providers, and models.',
+          '8 built-in wizards — Proofread, Rewrite, Concise, Friendly, Professional, X Post, LinkedIn Post, Improve Prompt.',
+          'Wizard manager — create, edit, duplicate, and delete your own wizards with custom prompts, providers, and models.',
           'Request history — every run is saved locally with search and browsing, so you can find and reopen past results.',
           'Replace button — writes the AI result straight back into the source app, no copy-paste required.',
           '9 AI providers — Gemini, OpenAI, Claude, Mistral, Groq, OpenRouter in the cloud; Ollama, LM Studio, and Apple MLX on-device.',
@@ -185,7 +185,7 @@ const releases = [
         icon: Palette,
         items: [
           'Menu bar icon with template rendering for proper light/dark mode behavior.',
-          'Dashboard consolidation — settings, analytics, shortcuts, and logs all in one place.',
+          'Dashboard consolidation — settings, analytics, wizards, and logs all in one place.',
           'Default model picker prefixed with provider for clarity.',
           'Dark mode support throughout the app.',
         ],
@@ -204,7 +204,7 @@ const releases = [
         title: 'Fixes',
         icon: Bug,
         items: [
-          'Default shortcut pre-selection now stable across launches.',
+          'Default wizard pre-selection now stable across launches.',
           'Dashboard dropdowns and "Open at Login" toggle no longer loop.',
           'Floating panel hotkey reliability across multi-monitor setups.',
         ],

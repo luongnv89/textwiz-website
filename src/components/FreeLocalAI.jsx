@@ -2,26 +2,27 @@ import { Sparkles, Shield, KeyRound, WifiOff } from 'lucide-react';
 
 const highlights = [
   {
-    icon: Sparkles,
-    title: 'Apple Foundation Model',
+    icon: WifiOff,
+    title: 'Local AI by default',
     description:
-      'Uses the on-device model built into macOS Apple Intelligence. TextWiz selects it automatically when your Mac supports it—no signup, no billing.',
+      'On-device engines—Apple Foundation Model, Ollama, LM Studio, MLX-LM—so your draft never touches the internet.',
+  },
+  {
+    icon: Sparkles,
+    title: 'Zero token cost',
+    description:
+      'Run on-device and there is no per-token bill, ever. Pay once, process as much text as you want.',
   },
   {
     icon: KeyRound,
-    title: 'No API key',
-    description: 'Unlike cloud providers, there is nothing to paste into Settings. Enable Apple Intelligence in System Settings and you are ready.',
-  },
-  {
-    icon: WifiOff,
-    title: 'Fully local',
-    description: 'Proofread and rewrite without sending your draft to the internet. Great for sensitive email, code comments, and internal docs.',
+    title: 'No API key needed',
+    description: 'Enable Apple Intelligence in System Settings and you are ready. Local engines need no key either.',
   },
   {
     icon: Shield,
-    title: 'Still nine providers',
+    title: 'Your choice of provider',
     description:
-      'When Apple Intelligence is unavailable, switch to Gemini, Groq, Ollama, LM Studio, MLX-LM, or any other engine from the same panel.',
+      'Prefer the cloud? Bring your own OpenAI, Anthropic, Gemini, Groq, Mistral, or OpenRouter key. You control where text goes.',
   },
 ];
 
@@ -35,19 +36,20 @@ export default function FreeLocalAI() {
         <div className="text-center mb-12">
           <p className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-100 dark:bg-emerald-500/15 text-emerald-800 dark:text-emerald-200 text-sm font-semibold mb-4">
             <Sparkles className="h-4 w-4" />
-            Free on supported Macs
+            Pay once. Run free with local AI.
           </p>
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-slate-100 mb-4">
-            Run AI shortcuts with Apple&rsquo;s on-device Foundation Model
+            Private by default—your text stays on your Mac
           </h2>
           <p className="text-lg md:text-xl text-gray-600 dark:text-slate-300 max-w-3xl mx-auto leading-relaxed">
-            On Apple Silicon with Apple Intelligence enabled, TextWiz can use the{' '}
-            <strong className="text-gray-900 dark:text-slate-100">Apple Foundation Model</strong>—a{' '}
-            <strong className="text-emerald-700 dark:text-emerald-300">totally free, local</strong>{' '}
-            path with no API key and no per-token cost. Your text stays on your Mac.
+            A{' '}
+            <strong className="text-gray-900 dark:text-slate-100">one-time purchase</strong>, no subscription. Run on{' '}
+            <strong className="text-emerald-700 dark:text-emerald-300">local AI</strong>{' '}
+            and there is{' '}
+            <strong className="text-emerald-700 dark:text-emerald-300">no per-token cost</strong>—your text stays on your Mac.
           </p>
           <p className="mt-4 text-sm text-gray-500 dark:text-slate-400">
-            Requires macOS 15.2 or later, supported hardware, and Apple Intelligence turned on in System Settings.
+            Apple Foundation Model needs macOS 15.2+ with Apple Intelligence; Ollama, LM Studio, and MLX-LM run on macOS 14+.
           </p>
         </div>
 
@@ -72,9 +74,9 @@ export default function FreeLocalAI() {
         <p className="mt-10 text-center text-gray-600 dark:text-slate-300">
           Prefer another engine?{' '}
           <a href="#features" className="text-primary-600 dark:text-primary-300 font-medium hover:underline">
-            See all nine providers
+            See every engine
           </a>{' '}
-          or read the{' '}
+          (four run locally) or read the{' '}
           <a href="/getting-started" className="text-primary-600 dark:text-primary-300 font-medium hover:underline">
             setup guide
           </a>

@@ -29,7 +29,7 @@ export default function HonestNote() {
             matters.
           </p>
           <p>
-            Everything I ship, I use every day. The diff view, the shortcut manager, request history, the local-only
+            Everything I ship, I use every day. The diff view, the wizard manager, request history, the local-only
             providers — they exist because I wanted them. If something in TextWiz feels clunky or missing, there&rsquo;s
             a good chance I haven&rsquo;t noticed yet. Please tell me.
           </p>

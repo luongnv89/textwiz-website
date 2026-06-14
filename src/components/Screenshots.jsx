@@ -10,33 +10,33 @@ const screenshots = [
   },
   {
     src: '/shortcuts-preview/1.0.0/appstore-shortcut-list.png',
-    title: 'Eight shortcuts out of the box',
-    caption: 'Proofread, Rewrite, Concise, Friendly, Professional, X Post, LinkedIn Post, Improve Prompt.',
-    alt: 'TextWiz shortcut list',
+    title: 'Wizards out of the box',
+    caption: 'Proofread, Rewrite, Concise, Friendly, Professional, X Post, LinkedIn Post, and more—each a one-keystroke spell. (More analyst & coach wizards arrive in the next update.)',
+    alt: 'TextWiz wizard list',
   },
   {
     src: '/shortcuts-preview/1.0.0/appstore-shortcut-edit.png',
-    title: 'Bring your own prompts',
-    caption: 'Create and edit shortcuts with custom system prompts. They follow whichever provider you pick in Settings.',
-    alt: 'TextWiz shortcut editor',
+    title: 'Bring your own wizards',
+    caption: 'Create and edit wizards with custom system prompts. They follow whichever provider you pick in Settings.',
+    alt: 'TextWiz wizard editor',
   },
   {
     src: '/shortcuts-preview/1.0.0/appstore-x-post-shortcut.png',
-    title: 'X post shortcut',
+    title: 'X Post wizard',
     caption: 'Turn a rough thought into a tight post without leaving your current app.',
     alt: 'TextWiz generating an X post',
   },
   {
     src: '/shortcuts-preview/1.0.0/appstore-linkedin-shortcut.png',
-    title: 'LinkedIn post shortcut',
+    title: 'LinkedIn Post wizard',
     caption: 'Longer-form rewrite tuned for LinkedIn voice and pacing.',
     alt: 'TextWiz generating a LinkedIn post',
   },
   {
     src: '/shortcuts-preview/1.0.0/appstore-translate-shortcut.png',
     title: 'Translate in place',
-    caption: 'Add translation shortcuts for any language pair you work in — reuse the same hotkey.',
-    alt: 'TextWiz translation shortcut',
+    caption: 'Add translation wizards for any language pair you work in — reuse the same hotkey.',
+    alt: 'TextWiz translation wizard',
   },
   {
     src: '/shortcuts-preview/1.0.0/appstore-history.png',
@@ -47,7 +47,7 @@ const screenshots = [
   {
     src: '/shortcuts-preview/1.0.0/appstore-analytics.png',
     title: 'Usage analytics',
-    caption: 'Tokens, latency, and success rate per provider and shortcut. Lives on-device in SQLite.',
+    caption: 'Tokens, latency, and success rate per provider and wizard. Lives on-device in SQLite.',
     alt: 'TextWiz usage analytics dashboard',
   },
   {

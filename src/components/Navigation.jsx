@@ -62,6 +62,12 @@ export default function Navigation() {
               Features
             </button>
             <button
+              onClick={() => scrollToSection('wizards')}
+              className="text-gray-600 dark:text-slate-300 hover:text-primary-600 dark:hover:text-primary-300 font-medium transition"
+            >
+              Wizards
+            </button>
+            <button
               onClick={() => scrollToSection('faq')}
               className="text-gray-600 dark:text-slate-300 hover:text-primary-600 dark:hover:text-primary-300 font-medium transition"
             >

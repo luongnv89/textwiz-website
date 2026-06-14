@@ -2,29 +2,29 @@ import { Command, Network, Zap, FileText, Shield, Laptop, History, Clipboard } f
 
 const features = [
   {
+    icon: Shield,
+    title: 'Private by Design',
+    description: 'With local engines, no data ever leaves your Mac. TextWiz runs no servers—history, analytics, and keys all stay on your device. With cloud, only the text you process goes to the provider you picked, never to us.',
+  },
+  {
     icon: Command,
     title: 'Works Everywhere',
     description: 'Copy any text (⌘C) and press ⌘⇧Space, or right-click → Services → Process with TextWiz to replace the selection in place. Works in every app — Safari, Slack, your editor, even sandboxed ones.',
   },
   {
     icon: Network,
-    title: '9 AI Providers, One Panel',
-    description: 'Apple Intelligence (on-device Foundation Model, free, no key) plus Ollama, LM Studio, and MLX-LM locally. Cloud: Gemini, OpenAI, Claude, Mistral, Groq, and OpenRouter. One Primary Provider in Settings powers every shortcut.',
+    title: 'Local First, Your Choice of Cloud',
+    description: 'Four on-device engines—Apple Intelligence (free, no key), Ollama, LM Studio, MLX-LM. Or bring your own OpenAI, Anthropic, Gemini, Mistral, Groq, or OpenRouter key. Ten engines, one panel, you decide.',
   },
   {
     icon: Zap,
-    title: '8 Built-In Shortcuts + Your Own',
-    description: 'Ship-ready prompts for Proofread, Rewrite, Concise, Friendly, Professional, X Post, LinkedIn Post, and Improve Prompt. Build unlimited custom shortcuts in the manager—create, edit, and organize your own AI workflows.',
+    title: 'Built-In Wizards + Your Own',
+    description: 'Each wizard is a one-keystroke AI spell. Everyday Edits and Social wizards ship today; the Analyst & Coach collection lands in the next update. Build unlimited custom wizards too—write the prompt, pick the model, done.',
   },
   {
     icon: FileText,
     title: 'Real-Time Diff View',
     description: 'See exactly what changed with inline highlighting. Word and character-level diffs show every edit AI makes to your text, so nothing surprises you.',
-  },
-  {
-    icon: Shield,
-    title: 'Privacy-First',
-    description: 'Use Apple\'s on-device Foundation Model or Ollama—no data leaves your Mac. Cloud API keys live in Keychain. Usage analytics stay on your device. Your text, your control.',
   },
   {
     icon: Clipboard,
@@ -47,10 +47,10 @@ export default function Features() {
     <section id="features" className="py-24 px-6 bg-white dark:bg-slate-950 transition-colors duration-300">
       <div className="max-w-7xl mx-auto">
         <h2 className="text-4xl md:text-5xl font-bold text-center text-gray-900 dark:text-slate-100 mb-4">
-          Powerful Features for Seamless Productivity
+          Private, fast, and entirely under your control
         </h2>
         <p className="text-xl text-gray-600 dark:text-slate-300 text-center mb-16 max-w-3xl mx-auto">
-          Everything you need to transform text instantly, without interrupting your workflow.
+          Everything you need to transform text instantly—local-first by default, with no servers and no data collection on our side.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

@@ -1,20 +1,24 @@
 /** Shared FAQ copy for UI and FAQPage structured data */
 export const faqData = [
   {
+    q: 'How much does TextWiz cost?',
+    a: 'A one-time purchase on the Mac App Store—no subscription (see the listing for the current price). Run it on local AI and there are no per-token costs either: pay once, process as much text as you like.',
+  },
+  {
     q: 'How do I use TextWiz?',
-    a: 'Two flows. Copy text with ⌘C and press ⌘⇧Space — the floating panel opens with your clipboard as input and runs the AI shortcut. Or right-click the selection → Services → Process with TextWiz, and macOS replaces it in place. Pick any of the 8 built-in shortcuts — Proofread, Rewrite, Concise, Friendly, Professional, X Post, LinkedIn Post, or Improve Prompt — or run one you built yourself.',
+    a: 'Two flows. Copy text with ⌘C and press ⌘⇧Space — the floating panel opens with your clipboard as input and runs the wizard you pick. Or right-click the selection → Services → Process with TextWiz, and macOS replaces it in place. Choose any built-in wizard — Proofread, Rewrite, Concise, Friendly, Professional, X Post, LinkedIn Post, and more — or run one you built yourself.',
   },
   {
     q: 'Which AI providers does TextWiz support?',
-    a: 'Nine providers out of the box. On-device: Apple Intelligence (Apple Foundation Model—free, no API key on supported Macs), Ollama, LM Studio, and MLX-LM. Cloud: Gemini, OpenAI, Claude, Mistral, Groq, and OpenRouter. Choose one Primary Provider and Model in Settings—all shortcuts use that pair unless you override in a custom shortcut.',
+    a: 'Ten engines out of the box, four of them on-device: Apple Intelligence (Apple Foundation Model—free, no API key on supported Macs), Ollama, LM Studio, and MLX-LM. Cloud: Gemini, OpenAI, Claude, Mistral, Groq, and OpenRouter. Choose one Primary Provider and Model in Settings—all wizards use that pair unless you override in a custom wizard.',
   },
   {
     q: 'Do I need an API key?',
     a: "Only for cloud providers. Apple Intelligence, Ollama, LM Studio, and MLX-LM run on-device with no API key. For cloud models, bring your own key—stored in the macOS Keychain and only sent to the provider you chose.",
   },
   {
-    q: 'Can I add my own shortcuts?',
-    a: 'Yes. The built-in shortcut manager lets you create, edit, duplicate, and delete shortcuts. Write the system prompt, pick the provider and model, and it shows up in the panel alongside the defaults.',
+    q: 'What are wizards and collections?',
+    a: 'A wizard (or "wiz") is one AI spell—a named prompt that transforms the text you select. We group the built-in wizards into collections by the job they do: Everyday Edits (Proofread, Rewrite, Concise, Friendly, Professional) and Social (X Post, LinkedIn Post) ship today; an Analyst & Coach collection (Clarity Critic, Executive Summary, Decision Extractor, Rewrite Coach, Argument Stress Test, Structure Tightener) arrives in the next update. You can also build unlimited wizards of your own—write the prompt, pick the provider and model, and it shows up in the panel alongside the built-ins.',
   },
   {
     q: 'Can TextWiz write the result back into my document?',
@@ -30,7 +34,7 @@ export const faqData = [
   },
   {
     q: 'Where does my data go? Is it private?',
-    a: 'With on-device providers (Apple Intelligence, Ollama, LM Studio, MLX-LM), nothing leaves your Mac. With cloud providers, only the text you process is sent to the provider you selected. Usage analytics stay in local SQLite and API keys live in the macOS Keychain. TextWiz itself has no servers and collects nothing.',
+    a: 'TextWiz runs no servers and collects none of your data. With on-device providers (Apple Intelligence, Ollama, LM Studio, MLX-LM), nothing ever leaves your Mac. With cloud providers, only the text you process is sent—directly to the provider you chose, never to us. History and analytics live in local SQLite; API keys stay in the macOS Keychain.',
   },
   {
     q: 'Does TextWiz need the Accessibility permission?',

@@ -25,7 +25,7 @@ export default function Footer() {
           <div className="space-y-6">
             <img src={publicUrl('/Wordmark-white.svg')} alt="TextWiz" className="h-8" />
             <p className="text-gray-400 max-w-sm">
-              AI text shortcuts for macOS—global hotkey, Services menu, and nine LLM providers. Polish copy in place with privacy-first, native integration.
+              Private, local-first AI text shortcuts for macOS—global hotkey, Services menu, and ten engines (four on-device). Polish copy in place with no servers and no data collection.
             </p>
           </div>
 

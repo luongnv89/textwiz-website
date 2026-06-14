@@ -78,7 +78,7 @@ export default function GettingStartedPage() {
           Install or get an API key → open TextWiz Dashboard → <strong>Settings</strong> → pick a{' '}
           <strong>Primary Provider</strong> → configure the key or server → press{' '}
           <strong>Test Connection</strong> → copy any text (<Code>⌘C</Code>) → press{' '}
-          <Code>⌘⇧Space</Code> → pick a shortcut. That&rsquo;s it.
+          <Code>⌘⇧Space</Code> → pick a wizard. That&rsquo;s it.
         </Callout>
 
         <h2 className="text-3xl font-bold text-gray-900 dark:text-slate-100 mt-16 mb-4">
@@ -96,9 +96,9 @@ export default function GettingStartedPage() {
         </p>
 
         <Callout icon={AlertTriangle} tone="warn" title="One thing to know up front">
-          In TextWiz, <strong>shortcuts do not carry their own provider or model</strong>. You pick
+          In TextWiz, <strong>wizards do not carry their own provider or model</strong>. You pick
           one <strong>Primary Provider</strong> and one <strong>Model</strong> in Settings, and every
-          shortcut you run uses those. You only configure an LLM once — not per-shortcut.
+          wizard you run uses those. You only configure an LLM once — not per-wizard.
         </Callout>
 
         <div className="mt-16 pt-10 border-t border-gray-200 dark:border-slate-800">
@@ -159,7 +159,7 @@ brew install ollama
               <li>In the left sidebar of the Dashboard, click <strong>Settings</strong></li>
             </ul>
             <p className="text-gray-700 dark:text-slate-300 leading-relaxed mt-3">
-              You&rsquo;ll see five cards: <em>Default Shortcut</em>, <em>Provider &amp; Model</em>,{' '}
+              You&rsquo;ll see five cards: <em>Default Wizard</em>, <em>Provider &amp; Model</em>,{' '}
               <em>API Key</em> (or <em>Server Configuration</em> for local engines),{' '}
               <em>Global Hotkey</em>, and <em>System Integration</em>.
             </p>
@@ -221,7 +221,7 @@ brew install ollama
             </p>
           </Step>
 
-          <Step n="8" title="Run your first shortcut">
+          <Step n="8" title="Run your first wizard">
             <ol className="list-decimal ml-5 text-gray-700 dark:text-slate-300 space-y-2 leading-relaxed">
               <li>Open any app. Select a sentence or paragraph of text and copy it with <Code>⌘C</Code>.</li>
               <li>
@@ -230,8 +230,8 @@ brew install ollama
                 your clipboard text as input.
               </li>
               <li>
-                The floating panel appears. Pick a predefined shortcut (Rewrite, Concise, Professional…)
-                or create your own from <em>Dashboard → Shortcuts → New Shortcut</em>.
+                The floating panel appears. Pick a built-in wizard (Rewrite, Concise, Professional…)
+                or create your own from <em>Dashboard → Wizards → New Wizard</em>.
               </li>
               <li>
                 Watch the right side of the panel stream the AI response token-by-token. The inline
@@ -269,7 +269,7 @@ brew install ollama
             Cloud with Google Gemini
           </h2>
           <p className="text-lg text-gray-600 dark:text-slate-300 mb-8">
-            Fastest path to a working shortcut. Free tier available.
+            Fastest path to a working wizard. Free tier available.
           </p>
 
           <Step n="1" title="Get a Gemini API key">
@@ -365,10 +365,11 @@ brew install ollama
             </p>
           </Step>
 
-          <Step n="7" title="Run your first shortcut">
+          <Step n="7" title="Run your first wizard">
             <p className="text-gray-700 dark:text-slate-300 leading-relaxed">
               Exactly as in Track A, step 8 — copy text with <Code>⌘C</Code>, press <Code>⌘⇧Space</Code>,
-              pick a shortcut. The floating panel streams Gemini&rsquo;s response inline.
+              pick a wizard. The floating panel streams Gemini&rsquo;s response inline.
+              {/* wizard = the AI action; ⌘⇧Space is the keyboard shortcut/hotkey */}
             </p>
             <Callout icon={CheckCircle2} tone="ok">
               You should see results in 1–3 seconds for typical paragraphs.
@@ -378,7 +379,7 @@ brew install ollama
           <Step n="8" title="Check usage">
             <p className="text-gray-700 dark:text-slate-300 leading-relaxed">
               Open <em>Dashboard → Analytics</em> to see token counts, latency, and success rate per
-              provider and per shortcut. This helps you keep an eye on your free tier spend.
+              provider and per wizard. This helps you keep an eye on your free tier spend.
             </p>
           </Step>
 
@@ -402,15 +403,16 @@ brew install ollama
 
         <div className="mt-16 pt-10 border-t border-gray-200 dark:border-slate-800">
           <h2 className="text-3xl font-bold text-gray-900 dark:text-slate-100 mb-4">
-            Create your own shortcut
+            Create your own wizard
           </h2>
           <p className="text-gray-700 dark:text-slate-300 leading-relaxed mb-4">
-            TextWiz ships with eight predefined shortcuts (Proofread, Rewrite, Concise, Friendly,
-            Professional, X Post, LinkedIn Post, Improve Prompt). To add your own:
+            TextWiz ships built-in wizards grouped into collections — Everyday Edits (Proofread,
+            Rewrite, Concise, Friendly, Professional) and Social (X Post, LinkedIn Post), with the
+            new Analyst &amp; Coach collection arriving in the next update. To add your own:
           </p>
           <ol className="list-decimal ml-5 text-gray-700 dark:text-slate-300 space-y-2 leading-relaxed">
             <li>
-              <em>Dashboard → Shortcuts → New Shortcut</em>.
+              <em>Dashboard → Wizards → New Wizard</em>.
             </li>
             <li>
               <strong>Name</strong> — e.g., &ldquo;Translate to French&rdquo;
@@ -424,9 +426,9 @@ brew install ollama
             </li>
           </ol>
           <p className="text-gray-700 dark:text-slate-300 leading-relaxed mt-4">
-            The shortcut immediately appears in the floating panel&rsquo;s shortcut list. It uses{' '}
+            The wizard immediately appears in the floating panel&rsquo;s wizard list. It uses{' '}
             <strong>whichever provider and model you selected in Settings</strong> — switch
-            providers and all shortcuts follow.
+            providers and all wizards follow.
           </p>
         </div>
 
@@ -437,7 +439,7 @@ brew install ollama
           <p className="text-gray-700 dark:text-slate-300 leading-relaxed mb-4">
             Open <em>Dashboard → Settings</em>, pick a different <strong>Primary Provider</strong>,
             and either configure its key or point it at its local server. The change is saved
-            immediately — you don&rsquo;t need to restart the app. The next shortcut you run uses
+            immediately — you don&rsquo;t need to restart the app. The next wizard you run uses
             the new provider.
           </p>
           <p className="text-gray-700 dark:text-slate-300 leading-relaxed">This is handy for:</p>

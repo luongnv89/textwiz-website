@@ -168,7 +168,7 @@ export default function ApiKeysSection() {
       <h3 className="text-xl font-bold text-gray-900 dark:text-slate-100 mt-8 mb-4">OpenAI &amp; Claude</h3>
       <p className="text-gray-700 dark:text-slate-300 leading-relaxed mb-8">
         TextWiz supports them with the same Keychain flow. Free tiers are narrower than Gemini/Groq for daily writing
-        shortcuts—use API keys from each provider&apos;s developer console.
+        wizards—use API keys from each provider&apos;s developer console.
       </p>
 
       <h3 className="text-xl font-bold text-gray-900 dark:text-slate-100 mb-4">Key &amp; connection troubleshooting</h3>
