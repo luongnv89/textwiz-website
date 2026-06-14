@@ -1,4 +1,4 @@
-# https://textwiz.luongnv.com/
+# https://www.textwiz.pro/
 User-agent: *
 Allow: /
 
@@ -42,4 +42,4 @@ Allow: /
 User-agent: Meta-ExternalAgent
 Allow: /
 
-Sitemap: https://textwiz.luongnv.com/sitemap.xml
+Sitemap: https://www.textwiz.pro/sitemap.xml

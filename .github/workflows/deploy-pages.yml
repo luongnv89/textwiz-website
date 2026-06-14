@@ -31,8 +31,7 @@ jobs:
         run: npm ci --legacy-peer-deps
 
       - name: Build for GitHub Pages
-        env:
-          VITE_BASE_PATH: /${{ github.event.repository.name }}/
+        # Custom domain (www.textwiz.pro) serves from root, so base path stays '/'.
         run: npm run build
 
       - name: SPA fallback (GitHub Pages 404)

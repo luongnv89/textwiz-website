@@ -1,21 +1,21 @@
 # TextWiz
 
-> TextWiz is a private, local-first native macOS productivity app that runs AI "wizards" on text you select—via clipboard + global hotkey (⌘⇧Space) or macOS Services—without Accessibility APIs. A wizard (a "wiz") is one AI spell: a named prompt that transforms your selected text. The built-in wizards are grouped into collections by job—Everyday Edits (Proofread, Rewrite, Concise, Friendly, Professional) and Social (X Post, LinkedIn Post) ship today; an Analyst & Coach collection (Clarity Critic, Executive Summary, Decision Extractor, Rewrite Coach, Argument Stress Test, Structure Tightener) arrives in the next update—plus unlimited custom wizards. It defaults to on-device AI so your text stays on your Mac: the free Apple Foundation Model (Apple Intelligence) on supported Macs, plus Ollama, LM Studio, and MLX-LM locally—run on local AI and there is no per-token cost. Or bring your own cloud key (Gemini, OpenAI, Claude, Mistral, Groq, OpenRouter); that's nine BYOK providers in addition to Apple Intelligence. TextWiz is a one-time purchase, runs no servers, and collects none of your data (inline diff and request history all live locally). Marketing site: https://textwiz.luongnv.com — source: https://github.com/luongnv89/textwiz
+> TextWiz is a private, local-first native macOS productivity app that runs AI "wizards" on text you select—via clipboard + global hotkey (⌘⇧Space) or macOS Services—without Accessibility APIs. A wizard (a "wiz") is one AI spell: a named prompt that transforms your selected text. The built-in wizards are grouped into collections by job—Everyday Edits (Proofread, Rewrite, Concise, Friendly, Professional) and Social (X Post, LinkedIn Post) ship today; an Analyst & Coach collection (Clarity Critic, Executive Summary, Decision Extractor, Rewrite Coach, Argument Stress Test, Structure Tightener) arrives in the next update—plus unlimited custom wizards. It defaults to on-device AI so your text stays on your Mac: the free Apple Foundation Model (Apple Intelligence) on supported Macs, plus Ollama, LM Studio, and MLX-LM locally—run on local AI and there is no per-token cost. Or bring your own cloud key (Gemini, OpenAI, Claude, Mistral, Groq, OpenRouter); that's nine BYOK providers in addition to Apple Intelligence. TextWiz is a one-time purchase, runs no servers, and collects none of your data (inline diff and request history all live locally). Marketing site: https://www.textwiz.pro — source: https://github.com/luongnv89/textwiz
 
 ## Product
 
-- [Home](https://textwiz.luongnv.com/): Overview, features, demo video, FAQ
-- [Setup & API keys](https://textwiz.luongnv.com/getting-started): Ollama and Gemini setup, free-tier provider keys, hotkey, Services, troubleshooting
+- [Home](https://www.textwiz.pro/): Overview, features, demo video, FAQ
+- [Setup & API keys](https://www.textwiz.pro/getting-started): Ollama and Gemini setup, free-tier provider keys, hotkey, Services, troubleshooting
 
 ## Updates & policy
 
-- [Changelog](https://textwiz.luongnv.com/changelog): Release notes
-- [Privacy policy](https://textwiz.luongnv.com/privacy): Static site, Keychain, local SQLite, third-party AI providers
-- [Terms of service](https://textwiz.luongnv.com/terms): Website and app terms
+- [Changelog](https://www.textwiz.pro/changelog): Release notes
+- [Privacy policy](https://www.textwiz.pro/privacy): Static site, Keychain, local SQLite, third-party AI providers
+- [Terms of service](https://www.textwiz.pro/terms): Website and app terms
 
 ## Optional
 
-- [Full context for AI](https://textwiz.luongnv.com/llms-full.txt): Extended product, setup, FAQ, and privacy text
-- [Feedback](https://textwiz.luongnv.com/feedback): GitHub issue templates
+- [Full context for AI](https://www.textwiz.pro/llms-full.txt): Extended product, setup, FAQ, and privacy text
+- [Feedback](https://www.textwiz.pro/feedback): GitHub issue templates
 - [GitHub repository](https://github.com/luongnv89/textwiz): macOS app source (Swift/SwiftUI)
 - [GitHub issues / feedback](https://github.com/luongnv89/textwiz-feedback): Public issue tracker

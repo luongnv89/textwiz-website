@@ -9,14 +9,14 @@ const MULTILINE_SHELL = `<!doctype html>
 <head>
 <title>TextWiz — AI Text Shortcuts for macOS</title>
 <meta name="description" content="homepage desc" />
-<link rel="canonical" href="https://textwiz.luongnv.com/" />
-<meta property="og:url" content="https://textwiz.luongnv.com/" />
+<link rel="canonical" href="https://www.textwiz.pro/" />
+<meta property="og:url" content="https://www.textwiz.pro/" />
 <meta property="og:title" content="TextWiz — AI Text Shortcuts for macOS" />
 <meta
   property="og:description"
   content="homepage og desc"
 />
-<meta name="twitter:url" content="https://textwiz.luongnv.com/" />
+<meta name="twitter:url" content="https://www.textwiz.pro/" />
 <meta name="twitter:title" content="TextWiz — AI Text Shortcuts for macOS" />
 <meta
   name="twitter:description"
@@ -35,7 +35,7 @@ test('patchHtml replaces multiline og:description for subroute', () => {
     html,
     /<meta property="og:description" content="Set up TextWiz on macOS: Ollama and Gemini walkthroughs, free-tier API keys \(Gemini, Groq, OpenRouter, Mistral\), hotkey ⌘⇧Space, and Services\." \/>/,
   );
-  assert.match(html, /<link rel="canonical" href="https:\/\/textwiz\.luongnv\.com\/getting-started" \/>/);
+  assert.match(html, /<link rel="canonical" href="https:\/\/www\.textwiz\.pro\/getting-started" \/>/);
   assert.doesNotMatch(html, /homepage og desc/);
   assert.match(html, /<h1>Setup and API keys<\/h1>/);
 });

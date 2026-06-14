@@ -36,13 +36,15 @@ Pushes to **`main`** run [`.github/workflows/deploy-pages.yml`](.github/workflow
 
 Default URL: **https://luongnv89.github.io/textwiz-website/**
 
-### Custom domain (`textwiz.luongnv.com`)
+### Custom domain (`www.textwiz.pro`)
 
-1. **Settings → Pages → Custom domain** → `textwiz.luongnv.com`.
-2. Add DNS records per GitHub’s instructions.
-3. Set build `VITE_BASE_PATH=/` in the deploy workflow (and remove the `/repo-name/` prefix), or use a user/org site repo if you prefer root hosting.
+The site is served at `https://www.textwiz.pro`; the apex `textwiz.pro` redirects to it. [`public/CNAME`](public/CNAME) tells GitHub Pages the custom domain (`www.textwiz.pro`), and the deploy workflow builds with base path `/` (no `VITE_BASE_PATH`) so assets and routes resolve from root.
 
-Canonical SEO URLs in `shared/seo-routes.mjs` still point at `https://textwiz.luongnv.com`; update when DNS points at GitHub Pages.
+1. **Settings → Pages → Custom domain** → `www.textwiz.pro`.
+2. DNS at the registrar: `CNAME www → luongnv89.github.io`, plus apex `A`/`AAAA` records to GitHub Pages so `textwiz.pro` redirects to `www`.
+3. Enable **Enforce HTTPS** once the certificate is issued.
+
+Canonical SEO URLs live in `shared/seo-routes.mjs` (`SITE_URL = https://www.textwiz.pro`).
 
 ## Netlify (optional)
 

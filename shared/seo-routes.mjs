@@ -1,6 +1,6 @@
 /** Single source for per-route SEO + prerender crawl bodies (Helmet, prerender, llms). */
 
-export const SITE_URL = 'https://textwiz.luongnv.com';
+export const SITE_URL = 'https://www.textwiz.pro';
 export const SITE_NAME = 'TextWiz';
 
 export const DEFAULT_DESCRIPTION =

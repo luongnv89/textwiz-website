@@ -6,4 +6,4 @@ export {
 } from '../../shared/seo-routes.mjs';
 
 /** Default social / OG image (absolute URL) */
-export const DEFAULT_OG_IMAGE = 'https://textwiz.luongnv.com/writing-screen-light.png';
+export const DEFAULT_OG_IMAGE = 'https://www.textwiz.pro/writing-screen-light.png';
