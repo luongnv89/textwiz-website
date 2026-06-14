@@ -42,15 +42,15 @@ export default function Hero() {
           <div className="flex flex-col sm:flex-row items-center gap-5 mb-4">
             <MacAppStoreBadge height={48} />
             <a
-              href="#features"
+              href="#screenshots"
               className="inline-flex items-center justify-center px-8 py-3.5 text-lg font-semibold text-primary-600 bg-primary-100 hover:bg-primary-200 dark:text-primary-200 dark:bg-slate-800 dark:hover:bg-slate-700 rounded-lg transition duration-200"
             >
-              Explore Features
+              See how it works
             </a>
           </div>
 
           <p className="text-sm text-gray-500 dark:text-slate-400">
-            One-time purchase • Free local AI on macOS 15.2+ • Cloud &amp; local engines on macOS 14+
+            One-time purchase • No Accessibility permission • Free local AI on macOS 15.2+
           </p>
         </div>
 

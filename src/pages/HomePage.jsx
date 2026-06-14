@@ -5,6 +5,7 @@ import Wizards from '../components/Wizards';
 import Screenshots from '../components/Screenshots';
 import FAQ from '../components/FAQ';
 import HonestNote from '../components/HonestNote';
+import FinalCTA from '../components/FinalCTA';
 import StructuredData from '../components/StructuredData';
 import { faqData } from '../lib/faqData';
 
@@ -19,6 +20,7 @@ export default function HomePage() {
       <Screenshots />
       <FAQ />
       <HonestNote />
+      <FinalCTA />
     </>
   );
 }
