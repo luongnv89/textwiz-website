@@ -22,7 +22,7 @@ export default function PrivacyPage() {
               The TextWiz marketing site is static. We do not run email signup, feedback forms, CAPTCHA, or analytics
               scripts that collect personal data on this domain. Feedback is handled on{' '}
               <a
-                href="https://github.com/luongnv89/textwiz-feedback"
+                href="https://github.com/luongnv89/textwiz-website/issues/new/choose"
                 className="text-primary-600 dark:text-primary-400 underline"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -49,12 +49,12 @@ export default function PrivacyPage() {
             <p>
               Questions about privacy: open an issue on{' '}
               <a
-                href="https://github.com/luongnv89/textwiz-feedback/issues/new"
+                href="https://github.com/luongnv89/textwiz-website/issues/new/choose"
                 className="text-primary-600 dark:text-primary-400 underline"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                textwiz-feedback
+                textwiz-website
               </a>
               .
             </p>

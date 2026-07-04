@@ -50,7 +50,7 @@ export default function HonestNote() {
             Send me feedback
           </a>
           <a
-            href="https://github.com/luongnv89/textwiz-feedback"
+            href="https://github.com/luongnv89/textwiz-website/issues/new/choose"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white dark:bg-slate-900 hover:bg-gray-50 dark:hover:bg-slate-800 border border-gray-200 dark:border-slate-700 text-gray-900 dark:text-slate-100 font-semibold rounded-xl transition-all"

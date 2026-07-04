@@ -47,7 +47,7 @@ export default function Footer() {
                 Feedback
               </Link>
               <a
-                href="https://github.com/luongnv89/textwiz-feedback"
+                href="https://github.com/luongnv89/textwiz-website/issues/new/choose"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block text-gray-400 transition hover:text-white"
