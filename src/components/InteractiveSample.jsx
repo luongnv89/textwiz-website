@@ -42,7 +42,7 @@ export default function InteractiveSample() {
                 aria-label={`Show the ${item.label} result`}
                 className={`px-4 py-2 rounded-full text-sm font-medium border transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500 ${
                   index === active
-                    ? 'bg-primary-600 border-primary-600 text-white'
+                    ? 'bg-primary-800 border-primary-800 text-white'
                     : 'bg-white dark:bg-slate-900 border-gray-200 dark:border-slate-700 text-gray-700 dark:text-slate-300 hover:border-primary-400'
                 }`}
               >
@@ -51,7 +51,10 @@ export default function InteractiveSample() {
             ))}
           </div>
 
-          <div className="rounded-xl border border-gray-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6">
+          <div
+            className="rounded-xl border border-gray-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6"
+            aria-live="polite"
+          >
             <div className="flex items-center justify-between gap-3 flex-wrap mb-2">
               <p className="text-sm font-semibold uppercase tracking-wide text-gray-500 dark:text-slate-400">
                 After — {current.label}
