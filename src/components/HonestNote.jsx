@@ -13,8 +13,29 @@ export default function HonestNote() {
         </div>
 
         <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-slate-100 mb-6">
-          No testimonials yet. Just a solo dev and an app I&rsquo;d use every day.
+          Just a solo dev and an app I&rsquo;d use every day.
         </h2>
+
+        <div className="mb-10 flex items-start gap-4 rounded-2xl border border-gray-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6">
+          <div
+            className="flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-full bg-primary-100 dark:bg-primary-500/15 text-2xl font-bold text-primary-700 dark:text-primary-300"
+            aria-hidden="true"
+          >
+            LN
+          </div>
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-wide text-primary-700 dark:text-primary-300">
+              Why I built TextWiz
+            </p>
+            <p className="mt-1 font-semibold text-gray-900 dark:text-slate-100">
+              Luong Nguyen &mdash; solo developer
+            </p>
+            <p className="mt-2 text-sm text-gray-600 dark:text-slate-300">
+              Select text, press <span className="font-mono">⌘⇧Space</span>, get the rewrite back &mdash; that
+              loop is the whole reason TextWiz exists.
+            </p>
+          </div>
+        </div>
 
         <div className="space-y-5 text-lg text-gray-600 dark:text-slate-300 leading-relaxed">
           <p>
@@ -41,28 +62,28 @@ export default function HonestNote() {
           </p>
         </div>
 
-        <div className="mt-10 flex flex-col sm:flex-row gap-4">
+        <div className="mt-10 flex flex-col sm:flex-row gap-6">
           <a
             href="/feedback"
-            className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-primary-600 hover:bg-primary-700 text-white font-semibold rounded-xl transition-all shadow-md hover:shadow-lg"
+            className="inline-flex items-center gap-2 text-sm font-medium text-gray-600 dark:text-slate-300 underline underline-offset-4 decoration-gray-300 dark:decoration-slate-600 hover:text-gray-900 dark:hover:text-slate-100 transition-colors"
           >
-            <MessageCircle className="h-5 w-5" />
+            <MessageCircle className="h-4 w-4" />
             Send me feedback
           </a>
           <a
             href="https://github.com/luongnv89/textwiz-website/issues/new/choose"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white dark:bg-slate-900 hover:bg-gray-50 dark:hover:bg-slate-800 border border-gray-200 dark:border-slate-700 text-gray-900 dark:text-slate-100 font-semibold rounded-xl transition-all"
+            className="inline-flex items-center gap-2 text-sm font-medium text-gray-600 dark:text-slate-300 underline underline-offset-4 decoration-gray-300 dark:decoration-slate-600 hover:text-gray-900 dark:hover:text-slate-100 transition-colors"
           >
-            <Github className="h-5 w-5" />
+            <Github className="h-4 w-4" />
             Report on GitHub
           </a>
         </div>
 
         <p className="mt-8 text-sm text-gray-500 dark:text-slate-400">
-          Once real users start sharing their experience, I&rsquo;ll put their words here — with their names and their
-          permission. Until then, this space stays honest.
+          Once real users start sharing their experience, their words will show up in the First users section
+          above — with their names and their permission. Until then, this space stays honest.
         </p>
       </div>
     </section>
