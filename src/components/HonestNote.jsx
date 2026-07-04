@@ -65,7 +65,7 @@ export default function HonestNote() {
         <div className="mt-10 flex flex-col sm:flex-row gap-6">
           <a
             href="/feedback"
-            className="inline-flex items-center gap-2 text-sm font-medium text-gray-600 dark:text-slate-300 underline underline-offset-4 decoration-gray-300 dark:decoration-slate-600 hover:text-gray-900 dark:hover:text-slate-100 transition-colors"
+            className="inline-flex items-center gap-2 py-2 text-sm font-medium text-gray-600 dark:text-slate-300 underline underline-offset-4 decoration-gray-300 dark:decoration-slate-600 hover:text-gray-900 dark:hover:text-slate-100 transition-colors"
           >
             <MessageCircle className="h-4 w-4" />
             Send me feedback
@@ -74,7 +74,7 @@ export default function HonestNote() {
             href="https://github.com/luongnv89/textwiz-website/issues/new/choose"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-sm font-medium text-gray-600 dark:text-slate-300 underline underline-offset-4 decoration-gray-300 dark:decoration-slate-600 hover:text-gray-900 dark:hover:text-slate-100 transition-colors"
+            className="inline-flex items-center gap-2 py-2 text-sm font-medium text-gray-600 dark:text-slate-300 underline underline-offset-4 decoration-gray-300 dark:decoration-slate-600 hover:text-gray-900 dark:hover:text-slate-100 transition-colors"
           >
             <Github className="h-4 w-4" />
             Report on GitHub

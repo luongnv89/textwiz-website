@@ -91,7 +91,7 @@ export default function Hero() {
           <div className="mt-3 text-center">
             <a
               href="#screenshots"
-              className="text-sm font-medium text-gray-600 dark:text-slate-300 underline underline-offset-4 decoration-gray-300 dark:decoration-slate-600 hover:text-gray-900 dark:hover:text-slate-100 transition-colors"
+              className="inline-block py-2 text-sm font-medium text-gray-600 dark:text-slate-300 underline underline-offset-4 decoration-gray-300 dark:decoration-slate-600 hover:text-gray-900 dark:hover:text-slate-100 transition-colors"
             >
               See how it works →
             </a>

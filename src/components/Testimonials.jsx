@@ -49,7 +49,7 @@ export default function Testimonials() {
             </p>
             <a
               href="/feedback"
-              className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-primary-700 dark:text-primary-300 underline underline-offset-4 decoration-primary-300 dark:decoration-primary-700 hover:text-primary-800 dark:hover:text-primary-200 transition-colors"
+              className="mt-5 inline-flex items-center gap-2 py-2 text-sm font-semibold text-primary-800 dark:text-primary-300 underline underline-offset-4 decoration-primary-300 dark:decoration-primary-700 hover:text-primary-900 dark:hover:text-primary-200 transition-colors"
             >
               <MessageCircle className="h-4 w-4" />
               Share what TextWiz replaced for you
