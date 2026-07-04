@@ -40,7 +40,7 @@ export default function InteractiveSample() {
                 onClick={() => setActive(index)}
                 aria-pressed={index === active}
                 aria-label={`Show the ${item.label} result`}
-                className={`px-4 py-2 rounded-full text-sm font-medium border transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500 ${
+                className={`px-4 py-2 rounded-full text-sm font-medium border transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-800 ${
                   index === active
                     ? 'bg-primary-800 border-primary-800 text-white'
                     : 'bg-white dark:bg-slate-900 border-gray-200 dark:border-slate-700 text-gray-700 dark:text-slate-300 hover:border-primary-400'
@@ -59,7 +59,7 @@ export default function InteractiveSample() {
               <p className="text-sm font-semibold uppercase tracking-wide text-gray-500 dark:text-slate-400">
                 After — {current.label}
               </p>
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary-100 dark:bg-primary-500/10 text-primary-700 dark:text-primary-300 text-xs font-semibold">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary-100 dark:bg-primary-500/10 text-primary-900 dark:text-primary-300 text-xs font-semibold">
                 <Sparkles className="h-3.5 w-3.5" aria-hidden="true" />
                 Sample result
               </span>
