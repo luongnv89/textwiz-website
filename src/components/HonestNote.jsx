@@ -24,7 +24,7 @@ export default function HonestNote() {
             LN
           </div>
           <div>
-            <p className="text-sm font-semibold uppercase tracking-wide text-primary-700 dark:text-primary-300">
+            <p className="text-sm font-semibold uppercase tracking-wide text-primary-800 dark:text-primary-300">
               Why I built TextWiz
             </p>
             <p className="mt-1 font-semibold text-gray-900 dark:text-slate-100">
