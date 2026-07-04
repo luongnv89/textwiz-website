@@ -33,13 +33,13 @@ export default function FinalCTA() {
           })}
         </ul>
 
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-5">
+        <div className="flex flex-col items-center justify-center gap-4">
           <MacAppStoreBadge height={48} />
           <a
             href="/getting-started"
-            className="inline-flex items-center justify-center px-8 py-3.5 text-lg font-semibold text-primary-600 bg-primary-100 hover:bg-primary-200 dark:text-primary-200 dark:bg-slate-800 dark:hover:bg-slate-700 rounded-lg transition duration-200"
+            className="text-sm font-medium text-gray-600 dark:text-slate-300 underline underline-offset-4 decoration-gray-300 dark:decoration-slate-600 hover:text-gray-900 dark:hover:text-slate-100 transition-colors"
           >
-            Read the setup guide
+            Read the setup guide →
           </a>
         </div>
       </div>
