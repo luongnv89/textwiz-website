@@ -1,0 +1,72 @@
+name: Feature Request
+description: Suggest a new feature or improvement for TextWiz
+title: "[Feature]: "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for suggesting a feature! Tell us what you want to build and why it would help.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem or Use Case
+      description: What are you trying to accomplish? What's missing today?
+      placeholder: "I want to be able to..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed Solution
+      description: How do you think this should work?
+      placeholder: "TextWiz could..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives Considered
+      description: Any workarounds or other approaches you've considered?
+      placeholder: "I've tried..."
+    validations:
+      required: false
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Feature Area
+      description: Which part of TextWiz does this relate to?
+      options:
+        - Text Capture (Clipboard / Services menu)
+        - Floating Panel (UI, streaming, diff)
+        - Wizards (defaults + manager)
+        - Providers / Models
+        - Request History
+        - Analytics / Usage
+        - Settings / Preferences
+        - Global Hotkey
+        - macOS Services Integration
+        - Other
+    validations:
+      required: true
+
+  - type: input
+    id: app-version
+    attributes:
+      label: TextWiz Version
+      description: Find this in TextWiz → Settings → About
+      placeholder: "1.1.1 (8)"
+    validations:
+      required: false
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional Context
+      description: Mockups, screenshots, links, or any other details that help us understand the idea.
+    validations:
+      required: false

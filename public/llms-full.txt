@@ -75,5 +75,5 @@ No. TextWiz captures text through two fully compliant paths: the system clipboar
 ## Links
 
 - GitHub (app): https://github.com/luongnv89/textwiz
-- GitHub (feedback issues): https://github.com/luongnv89/textwiz-feedback
+- GitHub (feedback issues): https://github.com/luongnv89/textwiz-website/issues/new/choose
 - Developer X: https://twitter.com/luongnv89
