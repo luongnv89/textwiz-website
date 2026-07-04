@@ -18,4 +18,4 @@
 - [Full context for AI](https://www.textwiz.pro/llms-full.txt): Extended product, setup, FAQ, and privacy text
 - [Feedback](https://www.textwiz.pro/feedback): GitHub issue templates
 - [GitHub repository](https://github.com/luongnv89/textwiz): macOS app source (Swift/SwiftUI)
-- [GitHub issues / feedback](https://github.com/luongnv89/textwiz-feedback): Public issue tracker
+- [GitHub issues / feedback](https://github.com/luongnv89/textwiz-website/issues/new/choose): Public issue tracker
