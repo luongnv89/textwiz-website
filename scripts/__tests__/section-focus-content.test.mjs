@@ -68,8 +68,13 @@ test('Wizards.jsx mutes and re-tags upcoming items inside the per-wizard loop, s
   assert.notEqual(listEnd, -1, 'expected the per-wizard loop to close inside a <ul>');
   const perItemBlock = wizards.slice(mapStart, listEnd);
 
-  // muted styling + a repeated tag now live inside the loop itself, not only on the collection header
-  assert.match(perItemBlock, /opacity-60/);
+  // muted styling + a repeated tag now live inside the loop itself, not only on the collection header.
+  // Muting uses explicit muted text-color tokens (the same "still legible" pair already used for
+  // collection.tagline), not opacity—opacity would also wash out the "Coming soon" badge's own
+  // contrast since it composites the whole <li> subtree against the backdrop.
+  assert.doesNotMatch(perItemBlock, /opacity-60/);
+  assert.match(perItemBlock, /text-gray-500/);
+  assert.match(perItemBlock, /dark:text-slate-400/);
   assert.match(perItemBlock, /Coming soon/);
   assert.match(perItemBlock, /Sparkles/);
   assert.match(perItemBlock, /bg-amber-100/);

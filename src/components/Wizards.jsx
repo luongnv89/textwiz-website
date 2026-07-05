@@ -43,12 +43,15 @@ export default function Wizards() {
 
               <ul className="space-y-3">
                 {collection.wizards.map((wiz) => (
-                  <li
-                    key={wiz.name}
-                    className={`flex flex-col ${collection.upcoming ? 'opacity-60' : ''}`}
-                  >
+                  <li key={wiz.name} className="flex flex-col">
                     <div className="flex flex-wrap items-center gap-2">
-                      <span className="text-sm font-semibold text-gray-900 dark:text-slate-100">{wiz.name}</span>
+                      <span
+                        className={`text-sm font-semibold ${
+                          collection.upcoming ? 'text-gray-500 dark:text-slate-400' : 'text-gray-900 dark:text-slate-100'
+                        }`}
+                      >
+                        {wiz.name}
+                      </span>
                       {collection.upcoming ? (
                         <span className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-full bg-amber-100 dark:bg-amber-500/15 text-amber-800 dark:text-amber-200 text-[10px] font-semibold">
                           <Sparkles className="h-2.5 w-2.5" />
@@ -56,7 +59,13 @@ export default function Wizards() {
                         </span>
                       ) : null}
                     </div>
-                    <span className="text-sm text-gray-600 dark:text-slate-300 leading-snug">{wiz.desc}</span>
+                    <span
+                      className={`text-sm leading-snug ${
+                        collection.upcoming ? 'text-gray-500 dark:text-slate-400' : 'text-gray-600 dark:text-slate-300'
+                      }`}
+                    >
+                      {wiz.desc}
+                    </span>
                   </li>
                 ))}
               </ul>
