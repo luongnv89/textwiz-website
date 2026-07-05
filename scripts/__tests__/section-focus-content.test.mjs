@@ -16,6 +16,7 @@ const features = readSrc('components/Features.jsx');
 const freeLocalAI = readSrc('components/FreeLocalAI.jsx');
 const screenshots = readSrc('components/Screenshots.jsx');
 const wizards = readSrc('components/Wizards.jsx');
+const wizardData = readSrc('lib/wizardData.js');
 const homePage = readSrc('pages/HomePage.jsx');
 
 const REMOVED_FEATURE_TITLES = [
@@ -58,6 +59,55 @@ test('Screenshots and Wizards share the same "Next update" roadmap badge convent
 test('Screenshots badges the "Wizards out of the box" caption instead of announcing the roadmap item inline (#10)', () => {
   assert.match(screenshots, /upcoming:\s*true/);
   assert.doesNotMatch(screenshots, /arrive in the next update/i);
+});
+
+test('Wizards.jsx mutes and re-tags upcoming items inside the per-wizard loop, scoped by collection.upcoming (#20)', () => {
+  const mapStart = wizards.indexOf('collection.wizards.map');
+  assert.notEqual(mapStart, -1, 'expected a per-wizard map loop in Wizards.jsx');
+  const listEnd = wizards.indexOf('</ul>', mapStart);
+  assert.notEqual(listEnd, -1, 'expected the per-wizard loop to close inside a <ul>');
+  const perItemBlock = wizards.slice(mapStart, listEnd);
+
+  // muted styling + a repeated tag now live inside the loop itself, not only on the collection header
+  assert.match(perItemBlock, /opacity-60/);
+  assert.match(perItemBlock, /Coming soon/);
+  assert.match(perItemBlock, /Sparkles/);
+  assert.match(perItemBlock, /bg-amber-100/);
+
+  // gated by the generic per-collection flag, never hardcoded to one collection's name—this is
+  // what makes the treatment apply automatically to any future `upcoming` collection (#20 AC3)
+  assert.match(perItemBlock, /collection\.upcoming/);
+  assert.doesNotMatch(perItemBlock, /Analyst/);
+  assert.doesNotMatch(perItemBlock, /Coach/);
+
+  // no viewport-only gating—the same conditional markup must render on mobile and desktop (#20 AC2)
+  assert.doesNotMatch(perItemBlock, /\bhidden\b/);
+});
+
+test('Wizards.jsx keeps the collection-level "Next update" badge intact alongside the new per-item tag (#20)', () => {
+  const mapStart = wizards.indexOf('collection.wizards.map');
+  const headerBlock = wizards.slice(0, mapStart);
+  assert.match(headerBlock, /Next update/);
+  assert.match(headerBlock, /collection\.upcoming/);
+});
+
+test('wizardData.js keeps shipped collections upcoming:false and Analyst & Coach upcoming:true, so the Wizards.jsx per-item treatment stays correctly scoped (#20)', () => {
+  const everydayIdx = wizardData.indexOf("name: 'Everyday Edits'");
+  const socialIdx = wizardData.indexOf("name: 'Social'");
+  const analystIdx = wizardData.indexOf("name: 'Analyst & Coach'");
+  assert.ok(
+    everydayIdx !== -1 && socialIdx !== -1 && analystIdx !== -1,
+    'expected all three named collections to still exist',
+  );
+  assert.ok(everydayIdx < socialIdx && socialIdx < analystIdx, 'expected the known collection order');
+
+  const everydayBlock = wizardData.slice(everydayIdx, socialIdx);
+  const socialBlock = wizardData.slice(socialIdx, analystIdx);
+  const analystBlock = wizardData.slice(analystIdx);
+
+  assert.match(everydayBlock, /upcoming:\s*false/);
+  assert.match(socialBlock, /upcoming:\s*false/);
+  assert.match(analystBlock, /upcoming:\s*true/);
 });
 
 test('HomePage mount order is untouched: Features before Comparison before Wizards, Pricing after Hero and before FreeLocalAI (#10)', () => {
