@@ -37,7 +37,9 @@ export default function Pricing() {
         <div className="inline-flex flex-col items-center gap-6 rounded-2xl border border-gray-200 dark:border-slate-800 bg-gray-50 dark:bg-slate-900 px-8 py-8 mb-8">
           <div className="text-5xl font-extrabold text-gray-900 dark:text-slate-100">
             {PRICE_DISPLAY}
-            <span className="ml-2 text-base font-medium text-gray-500 dark:text-slate-400">one-time</span>
+            <span className="ml-2 text-base font-medium text-gray-500 dark:text-slate-400">
+              one-time — no subscription
+            </span>
           </div>
           <ul className="text-left space-y-2">
             {perks.map((perk) => (
