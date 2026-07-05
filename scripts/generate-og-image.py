@@ -1,5 +1,8 @@
 """Generate the site's Open Graph / Twitter share image (public/og-image.png).
 
+Addresses viral principle #5 (see issue #12): a punchy, one-idea 1200x630
+share image outperforms a raw product screenshot for link-preview shares.
+
 This is a MANUAL, one-off asset-generation utility. It is NOT part of
 `npm run build` and is NOT an npm/Node dependency — nothing in the JS
 toolchain imports or invokes this script. Run it by hand whenever the
@@ -12,6 +15,10 @@ required for the core image. If the `cairosvg` package also happens to be
 installed, the script additionally composites a small rasterized wordmark
 onto the image as a best-effort nice-to-have; its absence (or any
 rendering failure) is silently ignored and never blocks the main output.
+Font rendering prefers Linux TrueType fonts (the `fonts-liberation` and/or
+`fonts-dejavu-core` packages); without them it falls back to Pillow's
+built-in bitmap font, so output still degrades gracefully on macOS,
+Windows, or a minimal container instead of crashing.
 
 Composites, in order, onto a 1200x630 canvas (the standard OG image size):
   1. A center-cropped, downscaled `public/background.png` backdrop.
@@ -89,7 +96,17 @@ def _font(path, size):
     try:
         return ImageFont.truetype(path, size)
     except OSError:
-        return ImageFont.truetype(FONT_BOLD_FALLBACK, size)
+        try:
+            return ImageFont.truetype(FONT_BOLD_FALLBACK, size)
+        except OSError:
+            # Neither hardcoded Linux TrueType path exists (e.g. macOS, Windows,
+            # or a minimal container) — degrade to Pillow's built-in bitmap font
+            # rather than raising an uncaught OSError.
+            try:
+                return ImageFont.load_default(size=size)
+            except TypeError:
+                # Pillow < 9.2 doesn't accept a `size` kwarg here.
+                return ImageFont.load_default()
 
 
 def _fit_font(draw, text, start_size, min_size, max_width):

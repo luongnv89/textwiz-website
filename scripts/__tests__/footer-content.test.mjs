@@ -23,3 +23,7 @@ test('Footer ends with a memorable line before the copyright fine print (#12)', 
   assert.notEqual(copyrightIdx, -1, 'expected the copyright fine print');
   assert.ok(taglineIdx < copyrightIdx, 'shareable line must render before the copyright/legal row');
 });
+
+test('Footer cites viral principle #4 in a comment explaining the closing block (#12)', () => {
+  assert.match(footer, /viral principle #4/i);
+});

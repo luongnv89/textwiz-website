@@ -98,12 +98,13 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-gray-900 pt-8 space-y-8">
+          {/* Viral principle #4 (see issue #12): footer ends with a memorable line + the primary CTA, not a bare legal close. */}
           <div className="text-center">
             <p className="text-lg md:text-xl font-medium text-gray-100">
               Your words stay on your Mac. The polish shows everywhere.
             </p>
             <div className="mt-5 flex justify-center">
-              <MacAppStoreBadge height={40} />
+              <MacAppStoreBadge height={44} />
             </div>
           </div>
 

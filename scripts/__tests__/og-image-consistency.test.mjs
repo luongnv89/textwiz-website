@@ -13,6 +13,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const rootDir = path.join(__dirname, '../..');
 const html = readFileSync(path.join(rootDir, 'index.html'), 'utf8');
 const site = readFileSync(path.join(rootDir, 'src/lib/site.js'), 'utf8');
+const generatorSource = readFileSync(path.join(rootDir, 'scripts/generate-og-image.py'), 'utf8');
 
 const ogImageMatch = html.match(/<meta property="og:image" content="([^"]+)"/);
 const twitterImageMatch = html.match(/<meta name="twitter:image" content="([^"]+)"/);
@@ -41,4 +42,8 @@ test('public/og-image.png is exactly 1200x630 (#12)', () => {
   const height = png.readUInt32BE(20);
   assert.equal(width, 1200);
   assert.equal(height, 630);
+});
+
+test('generate-og-image.py cites viral principle #5 in its docstring (#12)', () => {
+  assert.match(generatorSource, /viral principle #5/i);
 });
