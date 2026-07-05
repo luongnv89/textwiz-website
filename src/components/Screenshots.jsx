@@ -12,7 +12,7 @@ const screenshots = [
   {
     src: '/shortcuts-preview/1.0.0/appstore-shortcut-list.png',
     title: 'Wizards out of the box',
-    caption: 'Proofread, Rewrite, Concise, Friendly, Professional, X Post, LinkedIn Post, and more—each a one-keystroke spell.',
+    caption: 'Proofread, Rewrite, Concise, Friendly, Professional, X Post, LinkedIn Post, and more—each a one-keystroke spell, live today. The Analyst & Coach collection joins next update.',
     alt: 'TextWiz wizard list',
     upcoming: true,
   },
