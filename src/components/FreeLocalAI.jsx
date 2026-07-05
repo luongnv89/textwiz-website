@@ -72,11 +72,7 @@ export default function FreeLocalAI() {
         </div>
 
         <p className="mt-10 text-center text-gray-600 dark:text-slate-300">
-          Prefer another engine?{' '}
-          <a href="#features" className="text-primary-600 dark:text-primary-300 font-medium hover:underline">
-            See every engine
-          </a>{' '}
-          (four run locally) or read the{' '}
+          Need the full setup? Read the{' '}
           <a href="/getting-started" className="text-primary-600 dark:text-primary-300 font-medium hover:underline">
             setup guide
           </a>
