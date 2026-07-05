@@ -81,19 +81,19 @@ export default function Navigation() {
             </button>
             <Link
               to="/getting-started"
-              className="text-gray-600 dark:text-slate-300 hover:text-primary-600 dark:hover:text-primary-300 font-medium transition"
+              className="hidden lg:inline-block text-gray-600 dark:text-slate-300 hover:text-primary-600 dark:hover:text-primary-300 font-medium transition"
             >
               Setup & API keys
             </Link>
             <Link
               to="/changelog"
-              className="text-gray-600 dark:text-slate-300 hover:text-primary-600 dark:hover:text-primary-300 font-medium transition"
+              className="hidden lg:inline-block text-gray-600 dark:text-slate-300 hover:text-primary-600 dark:hover:text-primary-300 font-medium transition"
             >
               Changelog
             </Link>
             <Link
               to="/feedback"
-              className="text-gray-600 dark:text-slate-300 hover:text-primary-600 dark:hover:text-primary-300 font-medium transition"
+              className="hidden lg:inline-block text-gray-600 dark:text-slate-300 hover:text-primary-600 dark:hover:text-primary-300 font-medium transition"
             >
               Feedback
             </Link>
