@@ -56,6 +56,12 @@ export default function Navigation() {
           {/* Navigation Links */}
           <div className="hidden md:flex items-center space-x-6">
             <button
+              onClick={() => scrollToSection('pricing')}
+              className="text-gray-600 dark:text-slate-300 hover:text-primary-600 dark:hover:text-primary-300 font-medium transition"
+            >
+              Pricing
+            </button>
+            <button
               onClick={() => scrollToSection('features')}
               className="text-gray-600 dark:text-slate-300 hover:text-primary-600 dark:hover:text-primary-300 font-medium transition"
             >
