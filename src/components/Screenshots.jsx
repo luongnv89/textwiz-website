@@ -86,15 +86,17 @@ export default function Screenshots() {
             className="w-full h-auto"
           />
           <div className="bg-white dark:bg-slate-900 p-6 text-center">
-            <h3 className="text-2xl font-semibold text-gray-900 dark:text-slate-100 mb-2 flex items-center justify-center gap-2">
-              {current.title}
+            <div className="flex flex-col items-center gap-2 mb-2">
+              <h3 className="text-2xl font-semibold text-gray-900 dark:text-slate-100">
+                {current.title}
+              </h3>
               {current.upcoming ? (
                 <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-amber-100 dark:bg-amber-500/15 text-amber-800 dark:text-amber-200 text-xs font-semibold">
                   <Sparkles className="h-3 w-3" />
                   Next update
                 </span>
               ) : null}
-            </h3>
+            </div>
             <p className="text-gray-600 dark:text-slate-300 max-w-2xl mx-auto">
               {current.caption}
             </p>
