@@ -1,6 +1,7 @@
 import Hero from '../components/Hero';
 import FreeLocalAI from '../components/FreeLocalAI';
 import Features from '../components/Features';
+import Comparison from '../components/Comparison';
 import Wizards from '../components/Wizards';
 import Screenshots from '../components/Screenshots';
 import InteractiveSample from '../components/InteractiveSample';
@@ -18,6 +19,7 @@ export default function HomePage() {
       <Hero />
       <FreeLocalAI />
       <Features />
+      <Comparison />
       <Wizards />
       <Screenshots />
       <InteractiveSample />

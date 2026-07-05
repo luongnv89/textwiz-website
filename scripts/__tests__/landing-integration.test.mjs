@@ -60,3 +60,14 @@ test('Testimonials links back to the feedback flow that will supply real quotes 
   const shareLinkMatch = testimonials.match(/href="\/feedback"[\s\S]{0,200}/);
   assert.ok(shareLinkMatch, 'expected a feedback link in the honest-placeholder state');
 });
+
+test('HomePage mounts Comparison directly after Features and before Wizards (#7)', () => {
+  const featuresIdx = homePage.indexOf('<Features');
+  const comparisonIdx = homePage.indexOf('<Comparison');
+  const wizardsIdx = homePage.indexOf('<Wizards');
+  assert.notEqual(featuresIdx, -1, 'Features must be mounted on the homepage');
+  assert.notEqual(comparisonIdx, -1, 'Comparison must be mounted on the homepage');
+  assert.notEqual(wizardsIdx, -1, 'Wizards must still be mounted on the homepage');
+  assert.ok(featuresIdx < comparisonIdx, 'Comparison must render immediately after Features');
+  assert.ok(comparisonIdx < wizardsIdx, 'Comparison must render before Wizards');
+});
