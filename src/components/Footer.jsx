@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { Github, Linkedin } from 'lucide-react';
 import { APP_VERSION_FULL } from '../lib/version';
 import { publicUrl } from '../lib/publicUrl';
+import MacAppStoreBadge from './MacAppStoreBadge';
 
 function XLogo({ className = 'h-5 w-5' }) {
   return (
@@ -96,27 +97,39 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="flex flex-col gap-4 border-t border-gray-900 pt-8 text-sm text-gray-500 md:flex-row md:items-center md:justify-between">
-          <div className="flex flex-col gap-1 md:flex-row md:items-center md:gap-4">
-            <p>&copy; {new Date().getFullYear()} TextWiz. All rights reserved.</p>
-            <span className="hidden md:inline text-gray-700">•</span>
-            <p className="font-mono text-xs text-gray-500">
-              TextWiz v{APP_VERSION_FULL}
+        <div className="border-t border-gray-900 pt-8 space-y-8">
+          {/* Viral principle #4 (see issue #12): footer ends with a memorable line + the primary CTA, not a bare legal close. */}
+          <div className="text-center">
+            <p className="text-lg md:text-xl font-medium text-gray-100">
+              Your words stay on your Mac. The polish shows everywhere.
             </p>
+            <div className="mt-5 flex justify-center">
+              <MacAppStoreBadge height={44} />
+            </div>
           </div>
-          <div className="flex gap-6">
-            <Link
-              to="/privacy"
-              className="text-gray-400 transition hover:text-white"
-            >
-              Privacy Policy
-            </Link>
-            <Link
-              to="/terms"
-              className="text-gray-400 transition hover:text-white"
-            >
-              Terms of Service
-            </Link>
+
+          <div className="flex flex-col gap-4 text-sm text-gray-500 md:flex-row md:items-center md:justify-between">
+            <div className="flex flex-col gap-1 md:flex-row md:items-center md:gap-4">
+              <p>&copy; {new Date().getFullYear()} TextWiz. All rights reserved.</p>
+              <span className="hidden md:inline text-gray-700">•</span>
+              <p className="font-mono text-xs text-gray-500">
+                TextWiz v{APP_VERSION_FULL}
+              </p>
+            </div>
+            <div className="flex gap-6">
+              <Link
+                to="/privacy"
+                className="text-gray-400 transition hover:text-white"
+              >
+                Privacy Policy
+              </Link>
+              <Link
+                to="/terms"
+                className="text-gray-400 transition hover:text-white"
+              >
+                Terms of Service
+              </Link>
+            </div>
           </div>
         </div>
       </div>
