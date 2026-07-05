@@ -144,7 +144,7 @@ export default function Navigation() {
               aria-expanded={isMenuOpen}
               aria-controls="mobile-menu"
               aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
-              className="inline-flex items-center justify-center rounded-lg p-2 text-gray-600 dark:text-slate-300 hover:text-primary-600 dark:hover:text-primary-300 transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500"
+              className="inline-flex items-center justify-center rounded-lg p-2.5 text-gray-600 dark:text-slate-300 hover:text-primary-600 dark:hover:text-primary-300 transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500"
             >
               {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
@@ -152,7 +152,10 @@ export default function Navigation() {
         </div>
 
         {isMenuOpen && (
-          <div id="mobile-menu" className="md:hidden mt-4 flex flex-col space-y-4 pb-2">
+          <div
+            id="mobile-menu"
+            className="md:hidden mt-4 flex flex-col space-y-4 pb-2 max-h-[calc(100vh-4.5rem)] overflow-y-auto overscroll-contain"
+          >
             <button
               onClick={() => handleMobileNavClick('pricing')}
               className="w-full text-left text-gray-600 dark:text-slate-300 hover:text-primary-600 dark:hover:text-primary-300 font-medium transition"
