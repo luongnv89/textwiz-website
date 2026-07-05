@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Sparkles } from 'lucide-react';
 import { publicUrl } from '../lib/publicUrl';
 
 const screenshots = [
@@ -11,8 +12,9 @@ const screenshots = [
   {
     src: '/shortcuts-preview/1.0.0/appstore-shortcut-list.png',
     title: 'Wizards out of the box',
-    caption: 'Proofread, Rewrite, Concise, Friendly, Professional, X Post, LinkedIn Post, and more—each a one-keystroke spell. (More analyst & coach wizards arrive in the next update.)',
+    caption: 'Proofread, Rewrite, Concise, Friendly, Professional, X Post, LinkedIn Post, and more—each a one-keystroke spell.',
     alt: 'TextWiz wizard list',
+    upcoming: true,
   },
   {
     src: '/shortcuts-preview/1.0.0/appstore-shortcut-edit.png',
@@ -84,8 +86,14 @@ export default function Screenshots() {
             className="w-full h-auto"
           />
           <div className="bg-white dark:bg-slate-900 p-6 text-center">
-            <h3 className="text-2xl font-semibold text-gray-900 dark:text-slate-100 mb-2">
+            <h3 className="text-2xl font-semibold text-gray-900 dark:text-slate-100 mb-2 flex items-center justify-center gap-2">
               {current.title}
+              {current.upcoming ? (
+                <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-amber-100 dark:bg-amber-500/15 text-amber-800 dark:text-amber-200 text-xs font-semibold">
+                  <Sparkles className="h-3 w-3" />
+                  Next update
+                </span>
+              ) : null}
             </h3>
             <p className="text-gray-600 dark:text-slate-300 max-w-2xl mx-auto">
               {current.caption}
