@@ -43,3 +43,14 @@ export const PRICE_PREMIUM_COPY =
 /** Zero-ongoing-cost framing for local AI, reused by the FAQ and pricing section. */
 export const PRICE_ONGOING_COST_COPY =
   'Run it on local AI and there is no per-token cost either — pay once, process as much text as you want.';
+
+/**
+ * Brief, single-sentence reference to the local-AI / no-per-token-cost
+ * story, for sections that mention it in passing rather than owning the
+ * full pricing pitch (issue #21). The full explanation — one-time
+ * purchase, no subscription, local AI, no per-token cost, all together —
+ * lives only in Pricing.jsx via PRICE_TAGLINE + PRICE_PREMIUM_COPY +
+ * PRICE_ONGOING_COST_COPY; everywhere else should link back here instead
+ * of restating it.
+ */
+export const PRICE_LOCAL_AI_BRIEF = 'Local AI runs on your Mac at no extra per-token cost.';
