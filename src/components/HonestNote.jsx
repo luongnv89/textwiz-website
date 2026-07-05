@@ -49,7 +49,7 @@ export default function HonestNote() {
             local-only providers. If something feels clunky or missing, there&rsquo;s a good chance I haven&rsquo;t
             noticed yet — tell me.
           </p>
-          <p className="border-l-4 border-primary-300 dark:border-primary-500 pl-4 text-xl font-bold text-gray-900 dark:text-slate-100">
+          <p className="border-l-4 border-primary-700 dark:border-primary-500 pl-4 text-xl font-bold text-gray-900 dark:text-slate-100">
             This launch is me pushing past my own laziness so TextWiz can actually reach people instead of sitting on
             my Mac.
           </p>
