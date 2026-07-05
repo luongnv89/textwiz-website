@@ -17,7 +17,13 @@
  *         faqData.js, StructuredData.jsx) don't each have to invent it.
  *
  * PRICE_USD is the live Mac App Store price for app id 6762037101 (see
- * appStore.js), independently verified via the public iTunes lookup API.
+ * appStore.js). This is independently verified against the public iTunes
+ * lookup API by a live, reproducible check —
+ * scripts/__tests__/pricing-verification.test.mjs — rather than by this
+ * comment alone; that test fetches
+ * https://itunes.apple.com/lookup?id=6762037101&country=us and fails if the
+ * live price no longer matches PRICE_USD (it skips, rather than fails, if
+ * the network call itself can't be made).
  * Every file that displays or references the price — Pricing.jsx,
  * StructuredData.jsx, faqData.js — imports from here instead of
  * hardcoding '4.99', so a future price change is a one-line edit instead
