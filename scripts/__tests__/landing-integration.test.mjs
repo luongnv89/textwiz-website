@@ -105,3 +105,71 @@ test('StructuredData and faqData import the shared price constant instead of har
   assert.doesNotMatch(structuredData, /['"`]4\.99['"`]/, 'StructuredData must not hardcode the price literal');
   assert.doesNotMatch(faqDataSrc, /['"`]4\.99['"`]/, 'faqData must not hardcode the price literal');
 });
+
+test('Navigation renders a mobile menu toggle button wired with aria-expanded/aria-controls/aria-label for keyboard and screen-reader use (#19)', () => {
+  assert.match(navigation, /id="mobile-menu"/, 'expected a mobile menu panel with id="mobile-menu"');
+  assert.match(navigation, /aria-controls="mobile-menu"/);
+  assert.match(navigation, /aria-expanded=\{isMenuOpen\}/);
+  assert.match(navigation, /aria-label=\{isMenuOpen \? ['"]Close menu['"] : ['"]Open menu['"]\}/);
+});
+
+test('Navigation mobile toggle uses the Menu/X icon swap and the shared focus-visible ring convention, while keeping the Mac App Store badge (#19)', () => {
+  assert.match(navigation, /import\s*{\s*Menu,\s*X\s*}\s*from ['"]lucide-react['"]/);
+  assert.match(navigation, /<Menu\b/, 'expected a Menu icon for the closed state');
+  assert.match(navigation, /<X\b/, 'expected an X icon for the open state');
+  assert.match(
+    navigation,
+    /focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500/,
+    'expected the toggle button to reuse the existing focus-visible convention',
+  );
+  assert.match(navigation, /<MacAppStoreBadge height=\{32\} \/>/, 'the compact badge must remain next to the new toggle');
+});
+
+test('Navigation mobile menu uses a plain useState idiom for open/close state, matching the FAQ disclosure precedent (#19)', () => {
+  assert.match(navigation, /const \[isMenuOpen, setIsMenuOpen\] = useState\(false\)/);
+});
+
+test('Navigation mobile menu panel exposes all seven desktop nav destinations (#19)', () => {
+  const panelIdx = navigation.indexOf('id="mobile-menu"');
+  assert.notEqual(panelIdx, -1, 'expected a mobile menu panel to locate the remaining assertions against');
+  const panel = navigation.slice(panelIdx);
+  const expectedLabels = ['Pricing', 'Features', 'Wizards', 'FAQ', 'Setup & API keys', 'Changelog', 'Feedback'];
+  for (const label of expectedLabels) {
+    assert.match(panel, new RegExp(`>\\s*${label}\\s*<`), `expected mobile menu to expose a "${label}" link`);
+  }
+});
+
+test('Navigation mobile menu wires an Escape-to-close handler that returns focus to the toggle button (#19)', () => {
+  assert.match(navigation, /addEventListener\('keydown', handleKeyDown\)/);
+  assert.match(navigation, /event\.key === ['"]Escape['"]/);
+  assert.match(navigation, /menuToggleRef\.current\?\.focus\(\)/, 'Escape must return focus to the toggle button');
+});
+
+test('Navigation mobile menu wires an outside-click handler using mousedown + ref containment, only while open (#19)', () => {
+  assert.match(navigation, /if \(!isMenuOpen\) return;/, 'listeners must only attach while the menu is open');
+  assert.match(navigation, /addEventListener\('mousedown', handleClickOutside\)/);
+  assert.match(navigation, /!navContentRef\.current\.contains\(event\.target\)/);
+});
+
+test('Navigation mobile menu effect cleans up its document listeners, mirroring the existing scroll-listener idiom (#19)', () => {
+  assert.match(navigation, /removeEventListener\('mousedown', handleClickOutside\)/);
+  assert.match(navigation, /removeEventListener\('keydown', handleKeyDown\)/);
+});
+
+test('Every mobile nav destination closes the menu when selected (#19)', () => {
+  const panelIdx = navigation.indexOf('id="mobile-menu"');
+  assert.notEqual(panelIdx, -1, 'expected a mobile menu panel to locate the remaining assertions against');
+  const panel = navigation.slice(panelIdx);
+
+  const scrollButtonCloses = (panel.match(/handleMobileNavClick\(/g) || []).length;
+  assert.equal(scrollButtonCloses, 4, 'expected the 4 scrollToSection-backed buttons (Pricing/Features/Wizards/FAQ) to close the menu on click');
+
+  const linkCloses = (panel.match(/onClick=\{closeMenu\}/g) || []).length;
+  assert.equal(linkCloses, 3, 'expected the 3 route-based links (Setup & API keys/Changelog/Feedback) to close the menu on click');
+
+  const handlerIdx = navigation.indexOf('handleMobileNavClick = (sectionId) => {');
+  assert.notEqual(handlerIdx, -1, 'expected a handleMobileNavClick helper that scrolls and then closes the menu');
+  const handlerBody = navigation.slice(handlerIdx, handlerIdx + 200);
+  assert.match(handlerBody, /scrollToSection\(sectionId\)/);
+  assert.match(handlerBody, /closeMenu\(\)/);
+});
