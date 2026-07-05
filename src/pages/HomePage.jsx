@@ -3,6 +3,7 @@ import FreeLocalAI from '../components/FreeLocalAI';
 import Features from '../components/Features';
 import Wizards from '../components/Wizards';
 import Screenshots from '../components/Screenshots';
+import InteractiveSample from '../components/InteractiveSample';
 import FAQ from '../components/FAQ';
 import Testimonials from '../components/Testimonials';
 import HonestNote from '../components/HonestNote';
@@ -19,6 +20,7 @@ export default function HomePage() {
       <Features />
       <Wizards />
       <Screenshots />
+      <InteractiveSample />
       <FAQ />
       <Testimonials />
       <HonestNote />
