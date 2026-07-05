@@ -38,3 +38,37 @@ test('HonestNote no longer flatly claims "No testimonials yet" (#6 reconciliatio
 test('HonestNote closing note points to the new First users section instead of promising to add quotes inline (#6)', () => {
   assert.match(honestNote, /First users section/);
 });
+
+// Helper shared by the #22 scannability tests below: isolate the founder-note
+// prose block (the space-y-5 wrapper) from the rest of the file so paragraph
+// counts aren't skewed by the founder card, CTAs, or closing note.
+function getProseBlock(source) {
+  const proseStart = source.indexOf('text-lg text-gray-600 dark:text-slate-300 leading-relaxed');
+  assert.notEqual(proseStart, -1, 'expected to find the founder-note prose wrapper');
+  const proseEnd = source.indexOf('</div>', proseStart);
+  assert.notEqual(proseEnd, -1, 'expected the prose wrapper to close with </div>');
+  return source.slice(proseStart, proseEnd);
+}
+
+test('HonestNote breaks the founder note into 2-3 plain narrative paragraphs, down from 4 (#22)', () => {
+  const proseBlock = getProseBlock(honestNote);
+  const plainParagraphs = proseBlock.match(/<p>/g) || [];
+  assert.ok(
+    plainParagraphs.length >= 2 && plainParagraphs.length <= 3,
+    `expected 2-3 plain narrative paragraphs, found ${plainParagraphs.length}`
+  );
+});
+
+test('HonestNote introduces exactly one visually distinct pull-quote as a scannable break (#22)', () => {
+  const proseBlock = getProseBlock(honestNote);
+  const pullQuotes = proseBlock.match(/<p className="[^"]*font-bold[^"]*">/g) || [];
+  assert.equal(pullQuotes.length, 1, 'expected exactly one bolded pull-quote paragraph');
+});
+
+test('HonestNote preserves key substance of the founder note after restructuring (#22)', () => {
+  assert.match(honestNote, /six months/);
+  assert.match(honestNote, /Mac App Store/);
+  assert.match(honestNote, /fake five-star reviews/);
+  assert.match(honestNote, /word of mouth/);
+  assert.match(honestNote, /one more pass/);
+});
