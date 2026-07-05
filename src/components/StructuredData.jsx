@@ -1,6 +1,7 @@
 import { Helmet } from 'react-helmet-async';
 import { SITE_URL, SITE_NAME, DEFAULT_DESCRIPTION } from '../lib/site';
 import { MAC_APP_STORE_URL } from '../lib/appStore';
+import { PRICE_USD, PRICE_CURRENCY, PRICE_DISPLAY } from '../lib/pricing';
 
 const organization = {
   '@context': 'https://schema.org',
@@ -28,7 +29,9 @@ const softwareApp = {
     '@type': 'Offer',
     availability: 'https://schema.org/InStock',
     url: MAC_APP_STORE_URL,
-    description: 'One-time purchase on the Mac App Store — no subscription. See the App Store for current pricing.',
+    price: PRICE_USD,
+    priceCurrency: PRICE_CURRENCY,
+    description: `One-time purchase on the Mac App Store (${PRICE_DISPLAY}) — no subscription.`,
   },
   featureList: [
     'Local-first: on-device AI keeps your text on your Mac',

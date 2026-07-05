@@ -1,8 +1,10 @@
+import { PRICE_DISPLAY } from './pricing.js';
+
 /** Shared FAQ copy for UI and FAQPage structured data */
 export const faqData = [
   {
     q: 'How much does TextWiz cost?',
-    a: 'A one-time purchase on the Mac App Store—no subscription (see the listing for the current price). Run it on local AI and there are no per-token costs either: pay once, process as much text as you like.',
+    a: `A one-time purchase on the Mac App Store—${PRICE_DISPLAY}, no subscription. Run it on local AI and there are no per-token costs either: pay once, process as much text as you like.`,
   },
   {
     q: 'How do I use TextWiz?',

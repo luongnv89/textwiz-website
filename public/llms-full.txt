@@ -35,7 +35,7 @@ Other providers follow the same Settings pattern (API key or server URL for loca
 ## FAQ
 
 ### How much does TextWiz cost?
-A one-time purchase on the Mac App Store—no subscription (see the listing for the current price). Run it on local AI and there are no per-token costs either: pay once, process as much text as you like.
+A one-time purchase on the Mac App Store—$4.99, no subscription. Run it on local AI and there are no per-token costs either: pay once, process as much text as you like.
 
 ### How do I use TextWiz?
 Two flows. Copy text with ⌘C and press ⌘⇧Space — the floating panel opens with your clipboard as input and runs the wizard you pick. Or right-click the selection → Services → Process with TextWiz, and macOS replaces it in place. Choose any built-in wizard — Proofread, Rewrite, Concise, Friendly, Professional, X Post, LinkedIn Post, and more — or run one you built yourself.
