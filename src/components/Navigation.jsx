@@ -38,14 +38,26 @@ export default function Navigation() {
         menuToggleRef.current?.focus();
       }
     };
+    const handleFocusOut = (event) => {
+      if (!event.relatedTarget) return;
+      if (navContentRef.current && !navContentRef.current.contains(event.relatedTarget)) {
+        setIsMenuOpen(false);
+      }
+    };
 
     document.addEventListener('mousedown', handleClickOutside);
     document.addEventListener('keydown', handleKeyDown);
+    document.addEventListener('focusout', handleFocusOut);
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
       document.removeEventListener('keydown', handleKeyDown);
+      document.removeEventListener('focusout', handleFocusOut);
     };
   }, [isMenuOpen]);
+
+  useEffect(() => {
+    setIsMenuOpen(false);
+  }, [location.pathname]);
 
   const scrollToSection = (sectionId) => {
     if (!isHome) {
@@ -154,50 +166,50 @@ export default function Navigation() {
         {isMenuOpen && (
           <div
             id="mobile-menu"
-            className="md:hidden mt-4 flex flex-col space-y-4 pb-2 max-h-[calc(100vh-4.5rem)] overflow-y-auto overscroll-contain"
+            className="md:hidden mt-4 flex flex-col space-y-4 pb-2 max-h-[calc(100svh-4.5rem)] overflow-y-auto overscroll-contain"
           >
             <button
               onClick={() => handleMobileNavClick('pricing')}
-              className="w-full text-left text-gray-600 dark:text-slate-300 hover:text-primary-600 dark:hover:text-primary-300 font-medium transition"
+              className="w-full py-2 text-left text-gray-600 dark:text-slate-300 hover:text-primary-600 dark:hover:text-primary-300 font-medium transition"
             >
               Pricing
             </button>
             <button
               onClick={() => handleMobileNavClick('features')}
-              className="w-full text-left text-gray-600 dark:text-slate-300 hover:text-primary-600 dark:hover:text-primary-300 font-medium transition"
+              className="w-full py-2 text-left text-gray-600 dark:text-slate-300 hover:text-primary-600 dark:hover:text-primary-300 font-medium transition"
             >
               Features
             </button>
             <button
               onClick={() => handleMobileNavClick('wizards')}
-              className="w-full text-left text-gray-600 dark:text-slate-300 hover:text-primary-600 dark:hover:text-primary-300 font-medium transition"
+              className="w-full py-2 text-left text-gray-600 dark:text-slate-300 hover:text-primary-600 dark:hover:text-primary-300 font-medium transition"
             >
               Wizards
             </button>
             <button
               onClick={() => handleMobileNavClick('faq')}
-              className="w-full text-left text-gray-600 dark:text-slate-300 hover:text-primary-600 dark:hover:text-primary-300 font-medium transition"
+              className="w-full py-2 text-left text-gray-600 dark:text-slate-300 hover:text-primary-600 dark:hover:text-primary-300 font-medium transition"
             >
               FAQ
             </button>
             <Link
               to="/getting-started"
               onClick={closeMenu}
-              className="text-gray-600 dark:text-slate-300 hover:text-primary-600 dark:hover:text-primary-300 font-medium transition"
+              className="block w-full py-2 text-gray-600 dark:text-slate-300 hover:text-primary-600 dark:hover:text-primary-300 font-medium transition"
             >
               Setup & API keys
             </Link>
             <Link
               to="/changelog"
               onClick={closeMenu}
-              className="text-gray-600 dark:text-slate-300 hover:text-primary-600 dark:hover:text-primary-300 font-medium transition"
+              className="block w-full py-2 text-gray-600 dark:text-slate-300 hover:text-primary-600 dark:hover:text-primary-300 font-medium transition"
             >
               Changelog
             </Link>
             <Link
               to="/feedback"
               onClick={closeMenu}
-              className="text-gray-600 dark:text-slate-300 hover:text-primary-600 dark:hover:text-primary-300 font-medium transition"
+              className="block w-full py-2 text-gray-600 dark:text-slate-300 hover:text-primary-600 dark:hover:text-primary-300 font-medium transition"
             >
               Feedback
             </Link>
