@@ -15,6 +15,9 @@ const honestNote = readSrc('components/HonestNote.jsx');
 const finalCta = readSrc('components/FinalCTA.jsx');
 const testimonials = readSrc('components/Testimonials.jsx');
 const homePage = readSrc('pages/HomePage.jsx');
+const navigation = readSrc('components/Navigation.jsx');
+const structuredData = readSrc('components/StructuredData.jsx');
+const faqDataSrc = readSrc('lib/faqData.js');
 
 test('exactly one primary CTA style (MacAppStoreBadge) is used across Hero and FinalCTA (#5)', () => {
   assert.equal((hero.match(/<MacAppStoreBadge/g) || []).length, 1);
@@ -70,4 +73,35 @@ test('HomePage mounts Comparison directly after Features and before Wizards (#7)
   assert.notEqual(wizardsIdx, -1, 'Wizards must still be mounted on the homepage');
   assert.ok(featuresIdx < comparisonIdx, 'Comparison must render immediately after Features');
   assert.ok(comparisonIdx < wizardsIdx, 'Comparison must render before Wizards');
+});
+
+test('HomePage mounts Pricing directly after Hero and before FreeLocalAI (#3)', () => {
+  assert.match(homePage, /import Pricing from ['"]\.\.\/components\/Pricing['"]/);
+  assert.match(homePage, /<Pricing\s*\/>/);
+  const heroIdx = homePage.indexOf('<Hero');
+  const pricingIdx = homePage.indexOf('<Pricing');
+  const freeLocalAiIdx = homePage.indexOf('<FreeLocalAI');
+  assert.ok(heroIdx !== -1 && pricingIdx !== -1 && freeLocalAiIdx !== -1);
+  assert.ok(heroIdx < pricingIdx, 'Pricing must render after Hero');
+  assert.ok(pricingIdx < freeLocalAiIdx, 'Pricing must render before FreeLocalAI');
+});
+
+test('Navigation exposes a Pricing link using the existing scrollToSection pattern (#3)', () => {
+  assert.match(navigation, /scrollToSection\(['"]pricing['"]\)/);
+  assert.match(navigation, />\s*Pricing\s*</);
+});
+
+test('Navigation places Pricing first, ahead of Features, matching the post-Hero scroll order (#3)', () => {
+  const pricingIdx = navigation.indexOf("scrollToSection('pricing')");
+  const featuresIdx = navigation.indexOf("scrollToSection('features')");
+  assert.notEqual(pricingIdx, -1, 'expected a Pricing nav button');
+  assert.notEqual(featuresIdx, -1, 'expected a Features nav button');
+  assert.ok(pricingIdx < featuresIdx, 'Pricing button must come before Features to match scroll order');
+});
+
+test('StructuredData and faqData import the shared price constant instead of hardcoding a duplicate literal (#3)', () => {
+  assert.match(structuredData, /from ['"]\.\.\/lib\/pricing['"]/);
+  assert.match(faqDataSrc, /from ['"]\.\/pricing['"]/);
+  assert.doesNotMatch(structuredData, /['"`]4\.99['"`]/, 'StructuredData must not hardcode the price literal');
+  assert.doesNotMatch(faqDataSrc, /['"`]4\.99['"`]/, 'faqData must not hardcode the price literal');
 });
