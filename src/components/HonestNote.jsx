@@ -44,21 +44,21 @@ export default function HonestNote() {
             keystroke, and get a better version back. So I built that.
           </p>
           <p>
-            I&rsquo;m not going to paste fake five-star reviews here to make the page look bigger than it is. TextWiz is
-            new. It&rsquo;s heading to the Mac App Store, and the first wave of users are going to be people who find
-            it by word of mouth, GitHub, or this page. If that&rsquo;s you: thank you. You&rsquo;re early, and it
+            I&rsquo;m not going to paste fake five-star reviews here to pad out this page — TextWiz is new, heading
+            to the Mac App Store. Everything I ship, I use daily: the diff view, wizard manager, request history,
+            local-only providers. If something feels clunky or missing, there&rsquo;s a good chance I haven&rsquo;t
+            noticed yet — tell me.
+          </p>
+          <p className="border-l-4 border-primary-700 dark:border-primary-500 pl-4 text-xl font-bold text-gray-900 dark:text-slate-100">
+            This launch is me pushing past my own laziness so TextWiz can actually reach people instead of sitting on
+            my Mac.
+          </p>
+          <p>
+            Full disclosure: I&rsquo;ve been building TextWiz for six months, and I was lazy about polishing it
+            enough to publish — I kept telling myself &ldquo;one more pass.&rdquo; If rough edges still show,
+            that&rsquo;s why, and it&rsquo;s why your feedback matters right now. The first users will find TextWiz
+            by word of mouth, GitHub, or this page — if that&rsquo;s you: thank you, you&rsquo;re early, and it
             matters.
-          </p>
-          <p>
-            Everything I ship, I use every day. The diff view, the wizard manager, request history, the local-only
-            providers — they exist because I wanted them. If something in TextWiz feels clunky or missing, there&rsquo;s
-            a good chance I haven&rsquo;t noticed yet. Please tell me.
-          </p>
-          <p>
-            Full disclosure: I&rsquo;ve been building and using TextWiz for the last six months. I was lazy about
-            polishing it enough to publish — kept telling myself &ldquo;one more pass.&rdquo; This launch is me pushing
-            past that laziness so the app can actually reach people instead of sitting on my Mac. If the rough edges
-            still show, that&rsquo;s why — and it&rsquo;s also why your feedback matters so much right now.
           </p>
         </div>
 
