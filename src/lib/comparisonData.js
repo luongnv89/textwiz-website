@@ -14,8 +14,9 @@
  *         TextWiz wins on every time.
  *
  * Every TextWiz claim below is sourced from copy that already exists
- * elsewhere on the page — Features.jsx ("Works Everywhere", "Native macOS
- * Integration", "Built-In Wizards") and FreeLocalAI.jsx ("Local AI by
+ * elsewhere on the page — Hero.jsx / Screenshots.jsx (works everywhere via
+ * ⌘⇧Space and Services), Features.jsx ("Native macOS Integration"),
+ * Wizards.jsx (one-keystroke wizards), and FreeLocalAI.jsx ("Local AI by
  * default", "Zero token cost", one-time-purchase positioning). This file
  * introduces no new TextWiz claims.
  *
