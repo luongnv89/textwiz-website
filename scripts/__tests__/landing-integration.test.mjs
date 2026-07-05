@@ -101,7 +101,7 @@ test('Navigation places Pricing first, ahead of Features, matching the post-Hero
 
 test('StructuredData and faqData import the shared price constant instead of hardcoding a duplicate literal (#3)', () => {
   assert.match(structuredData, /from ['"]\.\.\/lib\/pricing['"]/);
-  assert.match(faqDataSrc, /from ['"]\.\/pricing['"]/);
+  assert.match(faqDataSrc, /from ['"]\.\/pricing\.js['"]/);
   assert.doesNotMatch(structuredData, /['"`]4\.99['"`]/, 'StructuredData must not hardcode the price literal');
   assert.doesNotMatch(faqDataSrc, /['"`]4\.99['"`]/, 'faqData must not hardcode the price literal');
 });

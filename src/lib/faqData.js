@@ -1,4 +1,4 @@
-import { PRICE_DISPLAY } from './pricing';
+import { PRICE_DISPLAY } from './pricing.js';
 
 /** Shared FAQ copy for UI and FAQPage structured data */
 export const faqData = [
