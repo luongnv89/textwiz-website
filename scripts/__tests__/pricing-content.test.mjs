@@ -3,7 +3,13 @@ import test from 'node:test';
 import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
-import { PRO_PLANS, PRICING_SUMMARY, PRO_NAME } from '../../src/lib/pricing.js';
+import {
+  PRO_NAME,
+  PRO_PLANS,
+  PRICING_SUMMARY,
+  PRO_SWITCH_DATE,
+  PRO_SWITCH_DATE_LABEL,
+} from '../../src/lib/pricing.js';
 
 // Subscription pricing (#37): prices live in shared/pricing.mjs and flow through
 // Pricing.jsx, faqData.js, and StructuredData.jsx.
@@ -19,6 +25,20 @@ test('pricing.js re-exports subscription plan constants from shared/pricing.mjs 
   assert.equal(PRO_PLANS[2].price, '$59.99');
   assert.match(PRICING_SUMMARY, /free download/i);
   assert.match(PRICING_SUMMARY, /\$0\.99 for the first week/);
+});
+
+test('the Pro switch date matches the 17 September 2026 launch record (#29)', () => {
+  assert.equal(PRO_SWITCH_DATE, '2026-09-17');
+  assert.equal(PRO_SWITCH_DATE_LABEL, '17 September 2026');
+
+  const formattedDate = new Intl.DateTimeFormat('en-GB', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+    timeZone: 'UTC',
+  }).format(new Date(`${PRO_SWITCH_DATE}T00:00:00Z`));
+
+  assert.equal(PRO_SWITCH_DATE_LABEL, formattedDate);
 });
 
 test('Pricing renders its content from lib/pricing.js rather than hardcoding prices (#37)', () => {
