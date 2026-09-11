@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Website
+    url: https://textwiz.pro
+    about: Visit the TextWiz website for more information
+  - name: Privacy Policy
+    url: https://textwiz.pro/privacy
+    about: Read our privacy policy
+  - name: Email
+    url: mailto:luongnv89@gmail.com
+    about: Prefer email? Send us a note directly.

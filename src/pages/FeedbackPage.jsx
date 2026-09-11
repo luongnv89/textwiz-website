@@ -1,7 +1,7 @@
 import { AlertCircle, Bug, Lightbulb, MessageSquare, ArrowRight } from 'lucide-react';
 import { cn } from '../lib/utils';
 
-const FEEDBACK_BASE_URL = 'https://github.com/luongnv89/textwiz-feedback/issues/new';
+const FEEDBACK_BASE_URL = 'https://github.com/luongnv89/textwiz-website/issues/new';
 
 const OPTIONS = [
   {
@@ -45,12 +45,12 @@ export default function FeedbackPage() {
           <p className="text-sm text-gray-700 dark:text-slate-200">
             Each link opens a guided issue form on{' '}
             <a
-              href="https://github.com/luongnv89/textwiz-feedback"
+              href="https://github.com/luongnv89/textwiz-website"
               className="text-primary-600 dark:text-primary-400 underline hover:no-underline"
               target="_blank"
               rel="noopener noreferrer"
             >
-              luongnv89/textwiz-feedback
+              luongnv89/textwiz-website
             </a>
             . We do not collect email or run CAPTCHA on this site.
           </p>

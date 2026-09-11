@@ -300,7 +300,7 @@ export default function ChangelogPage() {
               <p className="text-base text-gray-600 dark:text-slate-300">
                 Report issues or request features in the{' '}
                 <a
-                  href="https://github.com/luongnv89/textwiz-feedback/issues"
+                  href="https://github.com/luongnv89/textwiz-website/issues"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-primary-600 dark:text-primary-300 hover:underline"

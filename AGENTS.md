@@ -13,4 +13,4 @@ Two-space indents, single quotes, semicolons. `PascalCase` for components, `came
 GitHub Pages via `.github/workflows/deploy-pages.yml` on push to `main`. Set `VITE_BASE_PATH` in CI for project-site hosting.
 
 ## Feedback & privacy
-Do not reintroduce email capture, Netlify Forms, or Cloudflare Turnstile. Feedback links to `luongnv89/textwiz-feedback` GitHub issue templates.
+Do not reintroduce email capture, Netlify Forms, or Cloudflare Turnstile. Feedback links to `luongnv89/textwiz-website` GitHub issue templates.
