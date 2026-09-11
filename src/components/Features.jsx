@@ -14,7 +14,7 @@ const features = [
   {
     icon: Network,
     title: 'Local First, Your Choice of Cloud',
-    description: 'Four on-device engines—Apple Intelligence (free, no key), Ollama, LM Studio, MLX-LM. Or bring your own OpenAI, Anthropic, Gemini, Mistral, Groq, or OpenRouter key. Ten engines, one panel, you decide.',
+    description: 'Four on-device engines—Apple Intelligence (no API key, TextWiz Pro), Ollama, LM Studio, MLX-LM. Or bring your own OpenAI, Anthropic, Gemini, Mistral, Groq, or OpenRouter key. Ten engines, one panel, you decide.',
   },
   {
     icon: Zap,
@@ -44,7 +44,7 @@ const features = [
 ];
 export default function Features() {
   return (
-    <section id="features" className="py-24 px-6 bg-white dark:bg-slate-950 transition-colors duration-300">
+    <section id="features" className="scroll-mt-20 py-24 px-6 bg-white dark:bg-slate-950 transition-colors duration-300">
       <div className="max-w-7xl mx-auto">
         <h2 className="text-4xl md:text-5xl font-bold text-center text-gray-900 dark:text-slate-100 mb-4">
           Private, fast, and entirely under your control

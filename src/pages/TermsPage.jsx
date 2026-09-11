@@ -97,9 +97,9 @@ export default function TermsPage() {
                   <table className="w-full text-left text-sm border border-gray-200 dark:border-slate-700 rounded-lg">
                     <thead className="bg-gray-50 dark:bg-slate-900">
                       <tr>
-                        <th className="px-4 py-3 font-semibold text-gray-900 dark:text-slate-100">Plan</th>
-                        <th className="px-4 py-3 font-semibold text-gray-900 dark:text-slate-100">Period</th>
-                        <th className="px-4 py-3 font-semibold text-gray-900 dark:text-slate-100">Price per period</th>
+                        <th scope="col" className="px-4 py-3 font-semibold text-gray-900 dark:text-slate-100">Plan</th>
+                        <th scope="col" className="px-4 py-3 font-semibold text-gray-900 dark:text-slate-100">Period</th>
+                        <th scope="col" className="px-4 py-3 font-semibold text-gray-900 dark:text-slate-100">Price per period</th>
                       </tr>
                     </thead>
                     <tbody>

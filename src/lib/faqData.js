@@ -1,8 +1,12 @@
+import { PRICING_SUMMARY, PRO_PLANS } from './pricing.js';
+
+const weeklyPlan = PRO_PLANS.find((p) => p.id === 'weekly');
+
 /** Shared FAQ copy for UI and FAQPage structured data */
 export const faqData = [
   {
     q: 'How much does TextWiz cost?',
-    a: 'TextWiz is a free download on the Mac App Store. TextWiz Pro is an auto-renewable subscription: $2.99 per week, $7.99 per month, or $59.99 per year. The weekly plan has an introductory offer of $0.99 for the first week, charged up front and available once per Apple Account, after which it renews at $2.99 per week. Monthly and yearly have no introductory offer. Prices are US dollars and vary by region because Apple equalizes them per storefront.',
+    a: `${PRICING_SUMMARY.replace('TextWiz is a free download.', 'TextWiz is a free download on the Mac App Store.')} ${weeklyPlan.note} Monthly and yearly have no introductory offer. Prices vary by region because Apple equalizes them per storefront.`,
   },
   {
     q: 'What is free and what needs TextWiz Pro?',
@@ -26,11 +30,11 @@ export const faqData = [
   },
   {
     q: 'Which AI providers does TextWiz support?',
-    a: 'Ten engines out of the box, four of them on-device: Apple Intelligence (Apple Foundation Model—free, no API key on supported Macs), Ollama, LM Studio, and MLX-LM. Cloud: Gemini, OpenAI, Claude, Mistral, Groq, and OpenRouter. Choose one Primary Provider and Model in Settings—all wizards use that pair unless you override in a custom wizard.',
+    a: 'Ten engines out of the box, four of them on-device: Apple Intelligence (Apple Foundation Model—no API key on supported Macs, requires TextWiz Pro), Ollama, LM Studio, and MLX-LM. Cloud: Gemini, OpenAI, Claude, Mistral, Groq, and OpenRouter. Every real provider requires TextWiz Pro except the Demo provider. Choose one Primary Provider and Model in Settings—all wizards use that pair unless you override in a custom wizard.',
   },
   {
     q: 'Do I need an API key?',
-    a: "Only for cloud providers. Apple Intelligence, Ollama, LM Studio, and MLX-LM run on-device with no API key. For cloud models, bring your own key—stored in the macOS Keychain and only sent to the provider you chose.",
+    a: 'Cloud providers need your own API key—stored in the macOS Keychain and only sent to the provider you chose. On-device engines (Apple Intelligence, Ollama, LM Studio, and MLX-LM) need no API key, but TextWiz Pro is still required for every real provider except the Demo provider.',
   },
   {
     q: 'What are wizards and collections?',

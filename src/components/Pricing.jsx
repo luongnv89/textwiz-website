@@ -19,7 +19,7 @@ export default function Pricing() {
   return (
     <section
       id="pricing"
-      className="py-24 px-6 bg-white dark:bg-slate-950 border-t border-gray-200 dark:border-slate-800 transition-colors duration-300"
+      className="scroll-mt-20 py-24 px-6 bg-white dark:bg-slate-950 border-t border-gray-200 dark:border-slate-800 transition-colors duration-300"
     >
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-14">
