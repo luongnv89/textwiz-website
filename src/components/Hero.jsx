@@ -25,7 +25,7 @@ export default function Hero() {
         {/* Left: message */}
         <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
           <p className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-100 dark:bg-emerald-500/15 text-emerald-800 dark:text-emerald-200 text-sm font-medium mb-5">
-            <span className="font-semibold">Pay once, run free</span> — local AI, no token bills
+            <span className="font-semibold">Free download</span> · TextWiz Pro from $0.99 for the first week
           </p>
           <h1 className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-slate-100 mb-4 leading-tight">
             Select. Click. Perfect.
@@ -42,15 +42,15 @@ export default function Hero() {
           <div className="flex flex-col sm:flex-row items-center gap-5 mb-4">
             <MacAppStoreBadge height={48} />
             <a
-              href="#screenshots"
+              href="#pricing"
               className="inline-flex items-center justify-center px-8 py-3.5 text-lg font-semibold text-primary-600 bg-primary-100 hover:bg-primary-200 dark:text-primary-200 dark:bg-slate-800 dark:hover:bg-slate-700 rounded-lg transition duration-200"
             >
-              See how it works
+              See pricing
             </a>
           </div>
 
           <p className="text-sm text-gray-500 dark:text-slate-400">
-            One-time purchase • No Accessibility permission • Free local AI on macOS 15.2+
+            Free to download • Demo provider free forever • TextWiz Pro unlocks every real provider
           </p>
         </div>
 

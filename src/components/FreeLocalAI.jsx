@@ -9,9 +9,9 @@ const highlights = [
   },
   {
     icon: Sparkles,
-    title: 'Zero token cost',
+    title: 'No token bills',
     description:
-      'Run on-device and there is no per-token bill, ever. Pay once, process as much text as you want.',
+      'On-device engines charge nothing per token. TextWiz Pro covers the app, so local runs cost you nothing extra.',
   },
   {
     icon: KeyRound,
@@ -36,17 +36,21 @@ export default function FreeLocalAI() {
         <div className="text-center mb-12">
           <p className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-100 dark:bg-emerald-500/15 text-emerald-800 dark:text-emerald-200 text-sm font-semibold mb-4">
             <Sparkles className="h-4 w-4" />
-            Pay once. Run free with local AI.
+            Free download. Local AI with no token bills.
           </p>
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-slate-100 mb-4">
             Private by default—your text stays on your Mac
           </h2>
           <p className="text-lg md:text-xl text-gray-600 dark:text-slate-300 max-w-3xl mx-auto leading-relaxed">
-            A{' '}
-            <strong className="text-gray-900 dark:text-slate-100">one-time purchase</strong>, no subscription. Run on{' '}
-            <strong className="text-emerald-700 dark:text-emerald-300">local AI</strong>{' '}
-            and there is{' '}
-            <strong className="text-emerald-700 dark:text-emerald-300">no per-token cost</strong>—your text stays on your Mac.
+            The app is a{' '}
+            <strong className="text-gray-900 dark:text-slate-100">free download</strong>, and{' '}
+            <a href="#pricing" className="text-primary-600 dark:text-primary-300 font-semibold hover:underline">
+              TextWiz Pro
+            </a>{' '}
+            unlocks every real provider. Run on{' '}
+            <strong className="text-emerald-700 dark:text-emerald-300">local AI</strong> and there is{' '}
+            <strong className="text-emerald-700 dark:text-emerald-300">no per-token cost</strong> on top of it. Your
+            text stays on your Mac.
           </p>
           <p className="mt-4 text-sm text-gray-500 dark:text-slate-400">
             Apple Foundation Model needs macOS 15.2+ with Apple Intelligence; Ollama, LM Studio, and MLX-LM run on macOS 14+.

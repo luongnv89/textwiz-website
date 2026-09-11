@@ -3,6 +3,7 @@ import FreeLocalAI from '../components/FreeLocalAI';
 import Features from '../components/Features';
 import Wizards from '../components/Wizards';
 import Screenshots from '../components/Screenshots';
+import Pricing from '../components/Pricing';
 import FAQ from '../components/FAQ';
 import HonestNote from '../components/HonestNote';
 import FinalCTA from '../components/FinalCTA';
@@ -18,6 +19,7 @@ export default function HomePage() {
       <Features />
       <Wizards />
       <Screenshots />
+      <Pricing />
       <FAQ />
       <HonestNote />
       <FinalCTA />

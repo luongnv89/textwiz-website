@@ -2,7 +2,23 @@
 export const faqData = [
   {
     q: 'How much does TextWiz cost?',
-    a: 'A one-time purchase on the Mac App Store—no subscription (see the listing for the current price). Run it on local AI and there are no per-token costs either: pay once, process as much text as you like.',
+    a: 'TextWiz is a free download on the Mac App Store. TextWiz Pro is an auto-renewable subscription: $2.99 per week, $7.99 per month, or $59.99 per year. The weekly plan has an introductory offer of $0.99 for the first week, charged up front and available once per Apple Account, after which it renews at $2.99 per week. Monthly and yearly have no introductory offer. Prices are US dollars and vary by region because Apple equalizes them per storefront.',
+  },
+  {
+    q: 'What is free and what needs TextWiz Pro?',
+    a: 'The download is free and stays free, and the built-in Demo provider runs free and ungated forever so you can see exactly how the app behaves. Every run against a real provider needs TextWiz Pro: OpenAI, Anthropic, Gemini, Ollama, Apple Intelligence, LM Studio, MLX-LM, Mistral, Groq, and OpenRouter all sit behind it, local engines included.',
+  },
+  {
+    q: 'Can I try TextWiz before subscribing?',
+    a: 'Yes. Download the app and run the Demo provider, which is free, ungated, and permanent. It is the real interface with real wizards, so nothing about the flow is hidden from you. There is no trial period on any paid plan, because the free Demo provider does that job without a clock running. If you want the cheapest way into a real provider, the weekly plan starts at $0.99 for the first week.',
+  },
+  {
+    q: 'How do I cancel TextWiz Pro?',
+    a: 'Open System Settings > Apple Account > Media & Purchases > Subscriptions, pick TextWiz, and cancel. Cancel at least 24 hours before the current period ends, otherwise the next period is charged. Pro stays active until the end of the period you already paid for. Apple handles billing, so refunds go through reportaproblem.apple.com.',
+  },
+  {
+    q: 'I already bought TextWiz. What happens to me?',
+    a: 'You keep TextWiz Pro for life at no cost. Anyone who bought the paid app before the switch to free keeps full Pro access with nothing to buy and nothing to renew. Sign in with the same Apple Account you bought it with and TextWiz restores your access.',
   },
   {
     q: 'How do I use TextWiz?',
