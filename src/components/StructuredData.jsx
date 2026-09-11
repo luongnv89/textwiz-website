@@ -1,7 +1,7 @@
 import { Helmet } from 'react-helmet-async';
 import { SITE_URL, SITE_NAME, DEFAULT_DESCRIPTION } from '../lib/site';
 import { MAC_APP_STORE_URL } from '../lib/appStore';
-import { PRICE_USD, PRICE_CURRENCY, PRICE_DISPLAY } from '../lib/pricing';
+import { PRICING_SUMMARY } from '../lib/pricing';
 
 const organization = {
   '@context': 'https://schema.org',
@@ -29,16 +29,17 @@ const softwareApp = {
     '@type': 'Offer',
     availability: 'https://schema.org/InStock',
     url: MAC_APP_STORE_URL,
-    price: PRICE_USD,
-    priceCurrency: PRICE_CURRENCY,
-    description: `One-time purchase on the Mac App Store (${PRICE_DISPLAY}) — no subscription.`,
+    price: '0',
+    priceCurrency: 'USD',
+    description: PRICING_SUMMARY,
   },
   featureList: [
     'Local-first: on-device AI keeps your text on your Mac',
-    'Free on-device Apple Foundation Model (Apple Intelligence) on supported Macs — no per-token cost',
+    'On-device Apple Foundation Model (Apple Intelligence) on supported Macs with no per-token cost',
     'Ten AI engines including Apple Intelligence, Ollama, LM Studio, MLX-LM, and your choice of cloud',
     'No servers and no data collection by TextWiz',
     'Built-in AI wizards plus unlimited custom wizards',
+    'Free Demo provider, ungated forever; TextWiz Pro subscription unlocks every real provider',
     'Diff view and local request history',
     'API keys stored in macOS Keychain',
   ],

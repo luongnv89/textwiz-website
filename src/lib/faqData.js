@@ -1,10 +1,28 @@
-import { PRICE_DISPLAY } from './pricing.js';
+import { PRICING_SUMMARY, PRO_PLANS } from './pricing.js';
+
+const weeklyPlan = PRO_PLANS.find((p) => p.id === 'weekly');
 
 /** Shared FAQ copy for UI and FAQPage structured data */
 export const faqData = [
   {
     q: 'How much does TextWiz cost?',
-    a: `A one-time purchase on the Mac App Store—${PRICE_DISPLAY}, no subscription. Run it on local AI and there are no per-token costs either: pay once, process as much text as you like.`,
+    a: `${PRICING_SUMMARY.replace('TextWiz is a free download.', 'TextWiz is a free download on the Mac App Store.')} ${weeklyPlan.note} Monthly and yearly have no introductory offer. Prices vary by region because Apple equalizes them per storefront.`,
+  },
+  {
+    q: 'What is free and what needs TextWiz Pro?',
+    a: 'The download is free and stays free, and the built-in Demo provider runs free and ungated forever so you can see exactly how the app behaves. Every run against a real provider needs TextWiz Pro: OpenAI, Anthropic, Gemini, Ollama, Apple Intelligence, LM Studio, MLX-LM, Mistral, Groq, and OpenRouter all sit behind it, local engines included.',
+  },
+  {
+    q: 'Can I try TextWiz before subscribing?',
+    a: 'Yes. Download the app and run the Demo provider, which is free, ungated, and permanent. It is the real interface with real wizards, so nothing about the flow is hidden from you. There is no trial period on any paid plan, because the free Demo provider does that job without a clock running. If you want the cheapest way into a real provider, the weekly plan starts at $0.99 for the first week.',
+  },
+  {
+    q: 'How do I cancel TextWiz Pro?',
+    a: 'Open System Settings > Apple Account > Media & Purchases > Subscriptions, pick TextWiz, and cancel. Cancel at least 24 hours before the current period ends, otherwise the next period is charged. Pro stays active until the end of the period you already paid for. Apple handles billing, so refunds go through reportaproblem.apple.com.',
+  },
+  {
+    q: 'I already bought TextWiz. What happens to me?',
+    a: 'You keep TextWiz Pro for life at no cost. Anyone who bought the paid app before the switch to free keeps full Pro access with nothing to buy and nothing to renew. Sign in with the same Apple Account you bought it with and TextWiz restores your access.',
   },
   {
     q: 'How do I use TextWiz?',
@@ -12,11 +30,11 @@ export const faqData = [
   },
   {
     q: 'Which AI providers does TextWiz support?',
-    a: 'Ten engines out of the box, four of them on-device: Apple Intelligence (Apple Foundation Model—free, no API key on supported Macs), Ollama, LM Studio, and MLX-LM. Cloud: Gemini, OpenAI, Claude, Mistral, Groq, and OpenRouter. Choose one Primary Provider and Model in Settings—all wizards use that pair unless you override in a custom wizard.',
+    a: 'Ten engines out of the box, four of them on-device: Apple Intelligence (Apple Foundation Model—no API key on supported Macs, requires TextWiz Pro), Ollama, LM Studio, and MLX-LM. Cloud: Gemini, OpenAI, Claude, Mistral, Groq, and OpenRouter. Every real provider requires TextWiz Pro except the Demo provider. Choose one Primary Provider and Model in Settings—all wizards use that pair unless you override in a custom wizard.',
   },
   {
     q: 'Do I need an API key?',
-    a: "Only for cloud providers. Apple Intelligence, Ollama, LM Studio, and MLX-LM run on-device with no API key. For cloud models, bring your own key—stored in the macOS Keychain and only sent to the provider you chose.",
+    a: 'Cloud providers need your own API key—stored in the macOS Keychain and only sent to the provider you chose. On-device engines (Apple Intelligence, Ollama, LM Studio, and MLX-LM) need no API key, but TextWiz Pro is still required for every real provider except the Demo provider.',
   },
   {
     q: 'What are wizards and collections?',

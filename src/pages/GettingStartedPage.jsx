@@ -32,7 +32,21 @@ export default function GettingStartedPage() {
           </p>
         </div>
 
-        <Callout icon={Sparkles} tone="ok" title="Fastest free path on a supported Mac">
+        <Callout icon={Zap} tone="info" title="What you need before these steps">
+          TextWiz is a free download and the built-in <strong>Demo provider</strong> runs free and ungated forever.
+          Every run against a real provider on this page, cloud and on-device alike, needs{' '}
+          <strong>TextWiz Pro</strong>. See{' '}
+          <Link to="/#pricing" className="underline font-medium">
+            pricing
+          </Link>{' '}
+          for the plans, or the{' '}
+          <Link to="/terms" className="underline font-medium">
+            subscription terms
+          </Link>
+          .
+        </Callout>
+
+        <Callout icon={Sparkles} tone="ok" title="Fastest path on a supported Mac">
           If your Mac has <strong>Apple Intelligence</strong> enabled (macOS 15.2+, supported Apple Silicon), open TextWiz →{' '}
           <strong>Settings</strong> → choose <strong>Apple Intelligence</strong> as Primary Provider. No API key, no extra
           install—proofread and rewrite runs on the on-device <strong>Apple Foundation Model</strong>.
@@ -64,6 +78,11 @@ export default function GettingStartedPage() {
             ],
           ]}
         />
+
+        <p className="text-sm text-gray-500 dark:text-slate-400 leading-relaxed mb-4">
+          The cost column is what the <em>provider</em> charges you. Access to TextWiz itself is covered by TextWiz
+          Pro on every one of these paths.
+        </p>
 
         <p className="text-gray-600 dark:text-slate-300 leading-relaxed">
           TextWiz also supports Claude, OpenAI, Mistral, Groq, OpenRouter, LM Studio, and MLX-LM — they follow the same
@@ -110,7 +129,7 @@ export default function GettingStartedPage() {
             Local with Ollama
           </h2>
           <p className="text-lg text-gray-600 dark:text-slate-300 mb-8">
-            Private, offline, free. Everything runs on your Mac.
+            Private and offline, with no provider bill. Everything runs on your Mac.
           </p>
 
           <Step n="1" title="Install Ollama">

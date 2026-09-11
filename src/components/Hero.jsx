@@ -25,7 +25,7 @@ export default function Hero() {
         {/* Left: message */}
         <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
           <p className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-100 dark:bg-emerald-500/15 text-emerald-800 dark:text-emerald-200 text-sm font-medium mb-5">
-            <span className="font-semibold">Pay once, run free</span> — local AI, no token bills
+            <span className="font-semibold">Free download</span> · TextWiz Pro from $0.99 for the first week
           </p>
 
           <p className="text-lg md:text-xl font-medium text-gray-700 dark:text-slate-300 mb-4 max-w-xl">
@@ -49,8 +49,15 @@ export default function Hero() {
             <MacAppStoreBadge height={48} />
           </div>
 
+          <a
+            href="#screenshots"
+            className="mb-4 inline-flex items-center py-2 text-sm font-medium text-gray-600 dark:text-slate-300 underline underline-offset-4 decoration-gray-300 dark:decoration-slate-600 hover:text-gray-900 dark:hover:text-slate-100 transition-colors"
+          >
+            See how it works
+          </a>
+
           <p className="text-sm text-gray-500 dark:text-slate-400">
-            One-time purchase • No Accessibility permission • Free local AI on macOS 15.2+
+            Free to download • Demo provider free forever • TextWiz Pro unlocks every real provider
           </p>
         </div>
 
@@ -88,14 +95,6 @@ export default function Hero() {
           <p className="mt-4 text-sm text-gray-600 dark:text-slate-300 text-center">
             Copy text, press ⌘⇧Space, and transform it anywhere on macOS.
           </p>
-          <div className="mt-3 text-center">
-            <a
-              href="#screenshots"
-              className="inline-block py-2 text-sm font-medium text-gray-600 dark:text-slate-300 underline underline-offset-4 decoration-gray-300 dark:decoration-slate-600 hover:text-gray-900 dark:hover:text-slate-100 transition-colors"
-            >
-              See how it works →
-            </a>
-          </div>
         </div>
       </div>
     </section>

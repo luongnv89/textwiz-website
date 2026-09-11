@@ -6,15 +6,28 @@ import Seo from './Seo';
 import { ROUTE_SEO } from '../lib/routeSeo';
 
 export default function Layout({ children }) {
-  const { pathname } = useLocation();
+  const { pathname, hash } = useLocation();
   const seo = ROUTE_SEO[pathname] ?? {
     title: 'Page',
     description: ROUTE_SEO['/'].description,
   };
 
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
+    if (hash) {
+      const sectionId = hash.slice(1);
+      requestAnimationFrame(() => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          const offset = 80;
+          const elementPosition = element.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - offset;
+          window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+        }
+      });
+    } else {
+      window.scrollTo(0, 0);
+    }
+  }, [pathname, hash]);
 
   return (
     <div className="min-h-screen bg-white text-gray-900 dark:bg-slate-950 dark:text-slate-100 transition-colors duration-300">

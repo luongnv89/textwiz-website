@@ -23,7 +23,7 @@ const features = [
 ];
 export default function Features() {
   return (
-    <section id="features" className="py-24 px-6 bg-white dark:bg-slate-950 transition-colors duration-300">
+    <section id="features" className="scroll-mt-20 py-24 px-6 bg-white dark:bg-slate-950 transition-colors duration-300">
       <div className="max-w-7xl mx-auto">
         <h2 className="text-4xl md:text-5xl font-bold text-center text-gray-900 dark:text-slate-100 mb-4">
           Fits invisibly into your workflow

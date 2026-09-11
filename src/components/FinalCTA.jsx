@@ -3,7 +3,7 @@ import MacAppStoreBadge from './MacAppStoreBadge';
 
 const signals = [
   { icon: ShieldCheck, text: 'No servers, no data collection, no Accessibility permission' },
-  { icon: Coins, text: 'One-time purchase—run free on local AI, no token bills' },
+  { icon: Coins, text: 'Free download, free Demo provider, TextWiz Pro for every real provider' },
   { icon: Cpu, text: 'On-device by default, or your own cloud provider' },
 ];
 
@@ -36,10 +36,10 @@ export default function FinalCTA() {
         <div className="flex flex-col items-center justify-center gap-4">
           <MacAppStoreBadge height={48} />
           <a
-            href="/getting-started"
-            className="inline-block py-2 text-sm font-medium text-gray-600 dark:text-slate-300 underline underline-offset-4 decoration-gray-300 dark:decoration-slate-600 hover:text-gray-900 dark:hover:text-slate-100 transition-colors"
+            href="#pricing"
+            className="inline-flex items-center py-2 text-sm font-medium text-gray-600 dark:text-slate-300 underline underline-offset-4 decoration-gray-300 dark:decoration-slate-600 hover:text-gray-900 dark:hover:text-slate-100 transition-colors"
           >
-            Read the setup guide →
+            See pricing
           </a>
         </div>
       </div>

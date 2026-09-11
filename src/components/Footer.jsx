@@ -38,6 +38,9 @@ export default function Footer() {
               <Link to="/" className="block text-gray-400 transition hover:text-white">
                 Home
               </Link>
+              <Link to="/#pricing" className="block text-gray-400 transition hover:text-white">
+                Pricing
+              </Link>
               <Link to="/getting-started" className="block text-gray-400 transition hover:text-white">
                 Setup & API keys
               </Link>
