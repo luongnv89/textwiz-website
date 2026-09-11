@@ -94,20 +94,28 @@ export default function TermsPage() {
                   period:</strong>
                 </p>
                 <div className="overflow-x-auto">
-                  <table className="w-full text-left text-sm border border-gray-200 dark:border-slate-700 rounded-lg">
+                  <table
+                    className="w-full text-left text-sm border border-gray-200 dark:border-slate-700 rounded-lg"
+                    aria-describedby="terms-intro-offer"
+                  >
+                    <caption className="sr-only">
+                      TextWiz Pro subscription plans, periods, prices, and introductory offers
+                    </caption>
                     <thead className="bg-gray-50 dark:bg-slate-900">
                       <tr>
                         <th scope="col" className="px-4 py-3 font-semibold text-gray-900 dark:text-slate-100">Plan</th>
                         <th scope="col" className="px-4 py-3 font-semibold text-gray-900 dark:text-slate-100">Period</th>
                         <th scope="col" className="px-4 py-3 font-semibold text-gray-900 dark:text-slate-100">Price per period</th>
+                        <th scope="col" className="px-4 py-3 font-semibold text-gray-900 dark:text-slate-100">Introductory offer</th>
                       </tr>
                     </thead>
                     <tbody>
                       {PRO_PLANS.map((plan) => (
                         <tr key={plan.id} className="border-t border-gray-200 dark:border-slate-700">
-                          <td className="px-4 py-3">{plan.name}</td>
+                          <th scope="row" className="px-4 py-3 font-medium text-gray-900 dark:text-slate-100">{plan.name}</th>
                           <td className="px-4 py-3">{plan.period}</td>
                           <td className="px-4 py-3">{plan.price}</td>
+                          <td className="px-4 py-3">{plan.intro ?? 'None'}</td>
                         </tr>
                       ))}
                     </tbody>
@@ -119,7 +127,7 @@ export default function TermsPage() {
                 </p>
               </div>
 
-              <p>
+              <p id="terms-intro-offer">
                 <strong className="text-gray-900 dark:text-slate-100">Introductory offer:</strong> the weekly plan is
                 offered at $0.99 for the first week. The $0.99 is charged up front and covers one week only. It is
                 available once per Apple Account. After that first week the weekly plan renews at $2.99 per week

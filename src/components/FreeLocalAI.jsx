@@ -16,7 +16,8 @@ const highlights = [
   {
     icon: KeyRound,
     title: 'No API key needed',
-    description: 'Enable Apple Intelligence in System Settings and you are ready. Local engines need no key either.',
+    description:
+      'Enable Apple Intelligence in System Settings and you are ready with TextWiz Pro. Local engines need no key either.',
   },
   {
     icon: Shield,
