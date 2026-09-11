@@ -12,17 +12,17 @@ export const PRO_NAME = 'TextWiz Pro';
  * TextWiz Pro subscription. Customers who bought the paid app before this
  * date keep Pro for life at no cost.
  *
- * PLACEHOLDER: this date is not final. Confirm it with the App Store Connect
+ * Set to the planned launch date. Confirm against the actual App Store Connect
  * release before launch and update it here only.
  */
-export const PRO_SWITCH_DATE = '2026-10-15';
+export const PRO_SWITCH_DATE = '2026-09-17';
 
 /**
  * Human-readable form of PRO_SWITCH_DATE for body copy.
- * PLACEHOLDER: keep in sync with PRO_SWITCH_DATE above; both must be confirmed
- * against the App Store Connect release before launch.
+ * Keep in sync with PRO_SWITCH_DATE above; both must be confirmed against the
+ * App Store Connect release before launch.
  */
-export const PRO_SWITCH_DATE_LABEL = '15 October 2026';
+export const PRO_SWITCH_DATE_LABEL = '17 September 2026';
 
 /**
  * Reference US prices. Apple equalizes prices per storefront, so the amount
