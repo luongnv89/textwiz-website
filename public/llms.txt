@@ -17,6 +17,9 @@
 
 - [Full context for AI](https://textwiz.pro/llms-full.txt): Extended product, setup, FAQ, and privacy text
 - [Markdown alternates](https://textwiz.pro/index.md): Every page ships a .md variant (e.g. /getting-started.md)
+- [Agent card](https://textwiz.pro/.well-known/agent-card.json): A2A discovery manifest (documentation-only entity)
+- [Agent skills index](https://textwiz.pro/.well-known/agent-skills/index.json): Published agent skills with SHA-256 digests
+- [MCP server card](https://textwiz.pro/.well-known/mcp/server-card.json): SEP-2127 card (informational; no live transport)
 - [Feedback](https://textwiz.pro/feedback): GitHub issue templates
 - [GitHub repository](https://github.com/luongnv89/textwiz): macOS app source (Swift/SwiftUI)
 - [GitHub issues / feedback](https://github.com/luongnv89/textwiz-website/issues/new/choose): Public issue tracker
