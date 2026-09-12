@@ -14,6 +14,10 @@ const interactiveSample = readFileSync(
   path.join(__dirname, '../../src/components/InteractiveSample.jsx'),
   'utf8',
 );
+const howItWorks = readFileSync(
+  path.join(__dirname, '../../src/components/HowItWorks.jsx'),
+  'utf8',
+);
 const homePage = readFileSync(path.join(__dirname, '../../src/pages/HomePage.jsx'), 'utf8');
 
 test('sampleTransformations offers exactly Proofread, Concise, and Professional (#8)', () => {
@@ -52,7 +56,7 @@ test('InteractiveSample traces to viral principle #25 in source (#8)', () => {
   assert.match(interactiveSample, /#25/);
 });
 
-test('HomePage mounts InteractiveSample (#8)', () => {
-  assert.match(homePage, /import InteractiveSample from ['"]\.\.\/components\/InteractiveSample['"]/);
-  assert.match(homePage, /<InteractiveSample\s*\/>/);
+test('HowItWorks mounts InteractiveSample and HomePage mounts HowItWorks (#8)', () => {
+  assert.match(howItWorks, /<InteractiveSample/);
+  assert.match(homePage, /<HowItWorks/);
 });

@@ -12,7 +12,6 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const readSrc = (rel) => readFileSync(path.join(__dirname, '../../src', rel), 'utf8');
 
 const pricing = readSrc('components/Pricing.jsx');
-const freeLocalAI = readSrc('components/FreeLocalAI.jsx');
 
 const FULL_EXPLANATION_PATTERNS = [/TextWiz Pro/, /\$2\.99 per week/, /\$7\.99 per month/, /\$59\.99 per year/];
 
@@ -30,18 +29,4 @@ test('the full subscription explanation is rendered by Pricing.jsx via shared co
   }
 });
 
-test('FreeLocalAI links to #pricing for Pro instead of restating every plan price (#37)', () => {
-  assert.match(freeLocalAI, /href="#pricing"/);
-  assert.doesNotMatch(freeLocalAI, /\$59\.99 per year/);
-});
 
-test('FreeLocalAI no longer hardcodes one-time-purchase copy (#37)', () => {
-  assert.doesNotMatch(freeLocalAI, /one-time purchase/i);
-  assert.doesNotMatch(freeLocalAI, /Pay once\.\s*Run free with local AI\./);
-});
-
-test('FreeLocalAI preserves its heading, section id, and highlight grid layout (#37)', () => {
-  assert.match(freeLocalAI, /id="free-local-ai"/);
-  assert.match(freeLocalAI, /Private by default—your text stays on your Mac/);
-  assert.match(freeLocalAI, /grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4/);
-});

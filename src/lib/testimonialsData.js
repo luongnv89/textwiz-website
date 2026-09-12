@@ -3,8 +3,7 @@
  *
  * TextWiz does not ship fabricated reviews. This array starts empty and is
  * meant to be populated with real, permissioned quotes as early users share
- * them — see the "First users" section (`Testimonials.jsx`) and the honest
- * note (`HonestNote.jsx`) it reconciles with.
+ * them.
  *
  * Shape of each entry once a real quote is added:
  *   { quote: string, author: string, context: string }

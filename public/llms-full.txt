@@ -76,6 +76,9 @@ Inline highlighting of what changed between your original text and the AI result
 ### Where does my data go? Is it private?
 TextWiz runs no servers and collects none of your data. With on-device providers (Apple Intelligence, Ollama, LM Studio, MLX-LM), nothing ever leaves your Mac. With cloud providers, only the text you process is sent—directly to the provider you chose, never to us. History and analytics live in local SQLite; API keys stay in the macOS Keychain.
 
+### How is TextWiz different from ChatGPT, Grammarly, or other Mac AI writing apps?
+Browser-tab assistants mean copying your text into someone else's server and back. Grammarly is a cloud service. Most Mac AI writing utilities need the macOS Accessibility permission to read your screen. TextWiz runs on-device by default, uses only the clipboard and the Services menu (no Accessibility permission), and puts every action behind one keystroke. Provider costs, where they exist, stay between you and the provider you chose.
+
 ### Does TextWiz need the Accessibility permission?
 No. TextWiz captures text through two fully compliant paths: the system clipboard (you press ⌘C, then ⌘⇧Space) and the macOS Services menu (right-click → Services → Process with TextWiz). It does not call any Accessibility APIs. You won't see any permission prompts on first launch — it just works, even in Slack, VS Code, and other sandboxed apps.
 

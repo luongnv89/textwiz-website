@@ -4,6 +4,11 @@ import { Menu, X } from 'lucide-react';
 import MacAppStoreBadge from './MacAppStoreBadge';
 import { publicUrl } from '../lib/publicUrl';
 
+const linkClass =
+  'text-sm font-medium text-gray-600 dark:text-slate-300 hover:text-gray-950 dark:hover:text-white transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-700 dark:focus-visible:outline-primary-400';
+
+const mobileLinkClass = `w-full py-2 text-left ${linkClass}`;
+
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -80,10 +85,8 @@ export default function Navigation() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? 'bg-white shadow-md dark:bg-slate-900/95 dark:shadow-slate-900/40'
-          : 'bg-white/80 backdrop-blur-sm dark:bg-slate-900/70 dark:backdrop-blur-sm'
+      className={`fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-slate-950/80 backdrop-blur-md transition-all duration-300 ${
+        isScrolled ? 'border-b border-gray-200 dark:border-slate-800' : ''
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 py-4" ref={navContentRef}>
@@ -92,56 +95,32 @@ export default function Navigation() {
           <div className="flex items-center">
             <Link
               to="/"
-              className="flex items-center space-x-2 hover:opacity-80 transition"
+              className="flex min-h-11 items-center space-x-2 hover:opacity-80 transition"
             >
-              <img src={publicUrl('/AppIcon.svg')} alt="TextWiz" className="h-10 w-10" />
-              <span className="text-xl font-bold text-gray-900 dark:text-slate-100">TextWiz</span>
+              <img src={publicUrl('/AppIcon.svg')} alt="TextWiz" className="h-8 w-8" />
+              <span className="text-lg font-semibold tracking-tight text-gray-950 dark:text-white">TextWiz</span>
             </Link>
           </div>
 
           {/* Navigation Links */}
           <div className="hidden md:flex items-center space-x-6">
-            <button
-              onClick={() => scrollToSection('pricing')}
-              className="text-gray-600 dark:text-slate-300 hover:text-primary-600 dark:hover:text-primary-300 font-medium transition"
-            >
-              Pricing
+            <button onClick={() => scrollToSection('how-it-works')} className={linkClass}>
+              How it works
             </button>
-            <button
-              onClick={() => scrollToSection('features')}
-              className="text-gray-600 dark:text-slate-300 hover:text-primary-600 dark:hover:text-primary-300 font-medium transition"
-            >
-              Features
-            </button>
-            <button
-              onClick={() => scrollToSection('wizards')}
-              className="text-gray-600 dark:text-slate-300 hover:text-primary-600 dark:hover:text-primary-300 font-medium transition"
-            >
+            <button onClick={() => scrollToSection('wizards')} className={linkClass}>
               Wizards
             </button>
-            <button
-              onClick={() => scrollToSection('faq')}
-              className="text-gray-600 dark:text-slate-300 hover:text-primary-600 dark:hover:text-primary-300 font-medium transition"
-            >
+            <button onClick={() => scrollToSection('pricing')} className={linkClass}>
+              Pricing
+            </button>
+            <button onClick={() => scrollToSection('faq')} className={linkClass}>
               FAQ
             </button>
-            <Link
-              to="/getting-started"
-              className="hidden lg:inline-block text-gray-600 dark:text-slate-300 hover:text-primary-600 dark:hover:text-primary-300 font-medium transition"
-            >
-              Setup & API keys
+            <Link to="/getting-started" className={`hidden lg:inline-block ${linkClass}`}>
+              Setup guide
             </Link>
-            <Link
-              to="/changelog"
-              className="hidden lg:inline-block text-gray-600 dark:text-slate-300 hover:text-primary-600 dark:hover:text-primary-300 font-medium transition"
-            >
+            <Link to="/changelog" className={`hidden lg:inline-block ${linkClass}`}>
               Changelog
-            </Link>
-            <Link
-              to="/feedback"
-              className="hidden lg:inline-block text-gray-600 dark:text-slate-300 hover:text-primary-600 dark:hover:text-primary-300 font-medium transition"
-            >
-              Feedback
             </Link>
             <MacAppStoreBadge height={36} />
           </div>
@@ -156,7 +135,7 @@ export default function Navigation() {
               aria-expanded={isMenuOpen}
               aria-controls="mobile-menu"
               aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
-              className="inline-flex items-center justify-center rounded-lg p-2.5 text-gray-600 dark:text-slate-300 hover:text-primary-600 dark:hover:text-primary-300 transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500"
+              className="inline-flex items-center justify-center rounded-lg p-2.5 text-gray-600 dark:text-slate-300 hover:text-gray-950 dark:hover:text-white transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-700 dark:focus-visible:outline-primary-400"
             >
               {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
@@ -168,49 +147,25 @@ export default function Navigation() {
             id="mobile-menu"
             className="md:hidden mt-4 flex flex-col space-y-4 pb-2 max-h-[calc(100svh-4.5rem)] overflow-y-auto overscroll-contain"
           >
-            <button
-              onClick={() => handleMobileNavClick('pricing')}
-              className="w-full py-2 text-left text-gray-600 dark:text-slate-300 hover:text-primary-600 dark:hover:text-primary-300 font-medium transition"
-            >
-              Pricing
+            <button onClick={() => handleMobileNavClick('how-it-works')} className={mobileLinkClass}>
+              How it works
             </button>
-            <button
-              onClick={() => handleMobileNavClick('features')}
-              className="w-full py-2 text-left text-gray-600 dark:text-slate-300 hover:text-primary-600 dark:hover:text-primary-300 font-medium transition"
-            >
-              Features
-            </button>
-            <button
-              onClick={() => handleMobileNavClick('wizards')}
-              className="w-full py-2 text-left text-gray-600 dark:text-slate-300 hover:text-primary-600 dark:hover:text-primary-300 font-medium transition"
-            >
+            <button onClick={() => handleMobileNavClick('wizards')} className={mobileLinkClass}>
               Wizards
             </button>
-            <button
-              onClick={() => handleMobileNavClick('faq')}
-              className="w-full py-2 text-left text-gray-600 dark:text-slate-300 hover:text-primary-600 dark:hover:text-primary-300 font-medium transition"
-            >
+            <button onClick={() => handleMobileNavClick('pricing')} className={mobileLinkClass}>
+              Pricing
+            </button>
+            <button onClick={() => handleMobileNavClick('faq')} className={mobileLinkClass}>
               FAQ
             </button>
-            <Link
-              to="/getting-started"
-              onClick={closeMenu}
-              className="block w-full py-2 text-gray-600 dark:text-slate-300 hover:text-primary-600 dark:hover:text-primary-300 font-medium transition"
-            >
-              Setup & API keys
+            <Link to="/getting-started" onClick={closeMenu} className={`block ${mobileLinkClass}`}>
+              Setup guide
             </Link>
-            <Link
-              to="/changelog"
-              onClick={closeMenu}
-              className="block w-full py-2 text-gray-600 dark:text-slate-300 hover:text-primary-600 dark:hover:text-primary-300 font-medium transition"
-            >
+            <Link to="/changelog" onClick={closeMenu} className={`block ${mobileLinkClass}`}>
               Changelog
             </Link>
-            <Link
-              to="/feedback"
-              onClick={closeMenu}
-              className="block w-full py-2 text-gray-600 dark:text-slate-300 hover:text-primary-600 dark:hover:text-primary-300 font-medium transition"
-            >
+            <Link to="/feedback" onClick={closeMenu} className={`block ${mobileLinkClass}`}>
               Feedback
             </Link>
           </div>
