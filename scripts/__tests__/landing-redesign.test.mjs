@@ -118,6 +118,29 @@ test('Palette: green and amber are never backgrounds on the landing page', () =>
   }
 });
 
+test('Landing captions meet contrast and standalone links meet mobile target sizing', () => {
+  const contrastSources = [
+    hero,
+    howItWorks,
+    wizards,
+    privacy,
+    pricing,
+    readSrc('components/InteractiveSample.jsx'),
+    readSrc('components/FAQ.jsx'),
+    readSrc('components/MacWindow.jsx'),
+  ];
+
+  for (const source of contrastSources) {
+    assert.doesNotMatch(source, /<(?:p|span)[^>]*text-primary-700/);
+    assert.doesNotMatch(source, /dark:text-slate-500/);
+  }
+
+  assert.match(hero, /href="#how-it-works"[\s\S]*?className="[^"]*min-h-11/);
+  assert.match(wizards, /to="\/getting-started"[\s\S]*?className="[^"]*min-h-11/);
+  assert.match(privacy, /to="\/getting-started"[\s\S]*?className="[^"]*min-h-11/);
+  assert.match(finalCta, /quietLink\s*=\s*[^;]*min-h-11/);
+});
+
 test('FAQ data carries the comparison answer and nothing imports the deleted comparison table', () => {
   assert.match(faqDataSrc, /different from ChatGPT, Grammarly/);
   const srcRoot = path.join(__dirname, '../../src');

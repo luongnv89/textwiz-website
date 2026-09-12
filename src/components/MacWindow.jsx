@@ -7,7 +7,7 @@ export default function MacWindow({ title, children, className = '' }) {
         <span className="h-3 w-3 rounded-full bg-gray-300 dark:bg-slate-600" aria-hidden="true" />
         <span className="h-3 w-3 rounded-full bg-gray-300 dark:bg-slate-600" aria-hidden="true" />
         <span className="h-3 w-3 rounded-full bg-gray-300 dark:bg-slate-600" aria-hidden="true" />
-        <span className="flex-1 text-center pr-12 text-xs text-gray-500">{title}</span>
+        <span className="flex-1 text-center pr-12 text-xs text-gray-500 dark:text-slate-400">{title}</span>
       </div>
       {children}
     </div>

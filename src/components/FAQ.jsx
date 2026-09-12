@@ -42,7 +42,7 @@ export default function FAQ() {
     >
       <div className="max-w-6xl mx-auto">
         <div className="mb-14">
-          <p className="text-sm font-semibold uppercase tracking-[0.14em] text-primary-700 dark:text-primary-400 mb-3">
+          <p className="text-sm font-semibold uppercase tracking-[0.14em] text-primary-800 dark:text-primary-400 mb-3">
             FAQ
           </p>
           <h2 className="text-3xl md:text-5xl font-semibold tracking-tight text-gray-950 dark:text-white">

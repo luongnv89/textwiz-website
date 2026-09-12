@@ -15,7 +15,7 @@ export default function Hero() {
 
       <div className="max-w-3xl mx-auto text-center">
         <p
-          className="rise text-sm font-semibold uppercase tracking-[0.14em] text-primary-700 dark:text-primary-400"
+          className="rise text-sm font-semibold uppercase tracking-[0.14em] text-primary-800 dark:text-primary-400"
           style={{ animationDelay: '0ms' }}
         >
           Free on the Mac App Store
@@ -42,14 +42,14 @@ export default function Hero() {
           <MacAppStoreBadge height={52} />
           <a
             href="#how-it-works"
-            className="inline-flex items-center gap-1 text-sm font-medium text-gray-900 dark:text-slate-100 underline underline-offset-4 decoration-gray-300 dark:decoration-slate-600 hover:decoration-current transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500"
+            className="inline-flex min-h-11 items-center gap-1 text-sm font-medium text-gray-900 dark:text-slate-100 underline underline-offset-4 decoration-gray-300 dark:decoration-slate-600 hover:decoration-current transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500"
           >
             See how it works
             <ArrowRight className="h-4 w-4" aria-hidden="true" />
           </a>
         </div>
 
-        <p className="mt-6 text-sm text-gray-500 dark:text-slate-500">
+        <p className="mt-6 text-sm text-gray-500 dark:text-slate-400">
           Free download · Demo provider free forever · TextWiz Pro unlocks real providers
         </p>
       </div>
@@ -87,7 +87,7 @@ export default function Hero() {
             )}
           </div>
         </MacWindow>
-        <p className="text-sm text-gray-500 dark:text-slate-500 text-center mt-4">
+        <p className="text-sm text-gray-500 dark:text-slate-400 text-center mt-4">
           Copy text, press ⌘⇧Space, pick a wizard. That's the whole workflow.
         </p>
       </div>

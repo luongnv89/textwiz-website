@@ -34,7 +34,7 @@ export default function Privacy() {
     >
       <div className="max-w-6xl mx-auto">
         <div className="mb-14">
-          <p className="text-sm font-semibold uppercase tracking-[0.14em] text-primary-700 dark:text-primary-400 mb-3">
+          <p className="text-sm font-semibold uppercase tracking-[0.14em] text-primary-800 dark:text-primary-400 mb-3">
             Private by design
           </p>
           <h2 className="text-3xl md:text-5xl font-semibold tracking-tight text-gray-950 dark:text-white">
@@ -61,12 +61,12 @@ export default function Privacy() {
                 );
               })}
             </ul>
-            <p className="mt-6 text-sm text-gray-500">
+            <p className="mt-6 text-sm text-gray-500 dark:text-slate-400">
               10 engines, 4 on-device. Apple Intelligence needs macOS 15.2+; everything else runs on macOS 14+.
             </p>
             <Link
               to="/getting-started"
-              className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-gray-900 dark:text-slate-100 underline underline-offset-4 decoration-gray-300 dark:decoration-slate-600 hover:decoration-current transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500"
+              className="mt-4 inline-flex min-h-11 items-center gap-1 text-sm font-medium text-gray-900 dark:text-slate-100 underline underline-offset-4 decoration-gray-300 dark:decoration-slate-600 hover:decoration-current transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500"
             >
               Setup guide
               <ArrowRight className="h-4 w-4" aria-hidden="true" />

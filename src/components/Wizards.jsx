@@ -10,7 +10,7 @@ export default function Wizards() {
     >
       <div className="max-w-6xl mx-auto">
         <div className="mb-14">
-          <p className="text-sm font-semibold uppercase tracking-[0.14em] text-primary-700 dark:text-primary-400 mb-3">
+          <p className="text-sm font-semibold uppercase tracking-[0.14em] text-primary-800 dark:text-primary-400 mb-3">
             Wizards
           </p>
           <h2 className="text-3xl md:text-5xl font-semibold tracking-tight text-gray-950 dark:text-white">
@@ -35,7 +35,7 @@ export default function Wizards() {
                   </span>
                 ) : null}
               </div>
-              <p className="mt-1 text-sm text-gray-500">{collection.tagline}</p>
+              <p className="mt-1 text-sm text-gray-500 dark:text-slate-400">{collection.tagline}</p>
 
               <ul className="mt-5 divide-y divide-gray-200 dark:divide-slate-800 border-y border-gray-200 dark:border-slate-800">
                 {collection.wizards.map((wiz) => (
@@ -66,7 +66,7 @@ export default function Wizards() {
           </div>
           <Link
             to="/getting-started"
-            className="inline-flex items-center gap-1 text-sm font-medium text-gray-900 dark:text-slate-100 underline underline-offset-4 decoration-gray-300 dark:decoration-slate-600 hover:decoration-current transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500"
+            className="inline-flex min-h-11 items-center gap-1 text-sm font-medium text-gray-900 dark:text-slate-100 underline underline-offset-4 decoration-gray-300 dark:decoration-slate-600 hover:decoration-current transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500"
           >
             Setup guide
             <ArrowRight className="h-4 w-4" aria-hidden="true" />

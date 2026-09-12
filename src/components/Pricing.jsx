@@ -23,7 +23,7 @@ export default function Pricing() {
     >
       <div className="max-w-6xl mx-auto">
         <div className="mb-14">
-          <p className="text-sm font-semibold uppercase tracking-[0.14em] text-primary-700 dark:text-primary-400 mb-3">
+          <p className="text-sm font-semibold uppercase tracking-[0.14em] text-primary-800 dark:text-primary-400 mb-3">
             Pricing
           </p>
           <h2 className="text-3xl md:text-5xl font-semibold tracking-tight text-gray-950 dark:text-white">
@@ -73,13 +73,13 @@ export default function Pricing() {
                   <span className="text-sm font-medium text-gray-950 dark:text-white">
                     {plan.name}
                     {plan.intro ? (
-                      <span className="block text-xs font-normal text-primary-700 dark:text-primary-400">
+                      <span className="block text-xs font-normal text-primary-800 dark:text-primary-400">
                         {plan.intro}
                       </span>
                     ) : null}
                   </span>
                   <span className="text-sm text-gray-950 dark:text-white">
-                    {plan.price} <span className="text-gray-500">/ {plan.period}</span>
+                    {plan.price} <span className="text-gray-500 dark:text-slate-400">/ {plan.period}</span>
                   </span>
                 </li>
               ))}
@@ -89,7 +89,7 @@ export default function Pricing() {
 
         <div className="mt-10 flex flex-col items-center gap-4">
           <MacAppStoreBadge height={52} />
-          <p className="text-sm text-gray-500 dark:text-slate-500">TextWiz is a free download.</p>
+          <p className="text-sm text-gray-500 dark:text-slate-400">TextWiz is a free download.</p>
         </div>
 
         <div className="mt-10 max-w-3xl mx-auto">

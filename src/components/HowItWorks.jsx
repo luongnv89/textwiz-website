@@ -31,7 +31,7 @@ export default function HowItWorks() {
     >
       <div className="max-w-6xl mx-auto">
         <div className="mb-14">
-          <p className="text-sm font-semibold uppercase tracking-[0.14em] text-primary-700 dark:text-primary-400 mb-3">
+          <p className="text-sm font-semibold uppercase tracking-[0.14em] text-primary-800 dark:text-primary-400 mb-3">
             How it works
           </p>
           <h2 className="text-3xl md:text-5xl font-semibold tracking-tight text-gray-950 dark:text-white">
@@ -45,7 +45,7 @@ export default function HowItWorks() {
         <div className="grid md:grid-cols-3 gap-px bg-gray-200 dark:bg-slate-800 rounded-2xl overflow-hidden border border-gray-200 dark:border-slate-800">
           {steps.map((step) => (
             <div key={step.numeral} className="bg-white dark:bg-slate-950 p-8">
-              <p className="font-mono text-sm text-primary-700 dark:text-primary-400">{step.numeral}</p>
+              <p className="font-mono text-sm text-primary-800 dark:text-primary-400">{step.numeral}</p>
               <h3 className="mt-4 text-xl font-semibold text-gray-950 dark:text-white">{step.title}</h3>
               <p className="mt-2 text-gray-600 dark:text-slate-400 leading-relaxed">{step.body}</p>
             </div>
@@ -56,7 +56,7 @@ export default function HowItWorks() {
           <InteractiveSample />
         </div>
 
-        <p className="mt-6 text-sm text-gray-500 dark:text-slate-500">
+        <p className="mt-6 text-sm text-gray-500 dark:text-slate-400">
           No Accessibility permission. No prompts on first launch. Works inside sandboxed apps.
         </p>
       </div>

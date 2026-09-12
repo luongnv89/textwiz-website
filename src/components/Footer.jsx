@@ -111,11 +111,11 @@ export default function Footer() {
             </div>
           </div>
 
-          <div className="flex flex-col gap-4 text-sm text-gray-500 md:flex-row md:items-center md:justify-between">
+          <div className="flex flex-col gap-4 text-sm text-gray-400 md:flex-row md:items-center md:justify-between">
             <div className="flex flex-col gap-1 md:flex-row md:items-center md:gap-4">
               <p>&copy; {new Date().getFullYear()} TextWiz. All rights reserved.</p>
               <span className="hidden md:inline text-gray-700">•</span>
-              <p className="font-mono text-xs text-gray-500">
+              <p className="font-mono text-xs text-gray-400">
                 TextWiz v{APP_VERSION_FULL}
               </p>
             </div>

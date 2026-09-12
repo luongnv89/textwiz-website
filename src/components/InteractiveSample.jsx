@@ -15,10 +15,10 @@ export default function InteractiveSample() {
       className="rounded-2xl border border-gray-200 dark:border-slate-800 p-6 md:p-8"
     >
       <div className="flex flex-wrap items-baseline justify-between gap-2 mb-6">
-        <p className="text-sm font-semibold uppercase tracking-[0.14em] text-gray-500">
+        <p className="text-sm font-semibold uppercase tracking-[0.14em] text-gray-500 dark:text-slate-400">
           Try a sample
         </p>
-        <p className="text-sm text-gray-500">Illustrative — not a live AI call</p>
+        <p className="text-sm text-gray-500 dark:text-slate-400">Illustrative — not a live AI call</p>
       </div>
 
       <div className="mb-6">
@@ -54,7 +54,7 @@ export default function InteractiveSample() {
           <p className="text-sm font-semibold uppercase tracking-wide text-gray-500 dark:text-slate-400">
             After — {current.label}
           </p>
-          <p className="text-xs font-semibold uppercase tracking-wide text-primary-700 dark:text-primary-400">
+          <p className="text-xs font-semibold uppercase tracking-wide text-primary-800 dark:text-primary-400">
             Sample result
           </p>
         </div>
