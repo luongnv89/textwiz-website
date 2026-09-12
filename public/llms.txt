@@ -16,6 +16,7 @@
 ## Optional
 
 - [Full context for AI](https://textwiz.pro/llms-full.txt): Extended product, setup, FAQ, and privacy text
+- [Markdown alternates](https://textwiz.pro/index.md): Every page ships a .md variant (e.g. /getting-started.md)
 - [Feedback](https://textwiz.pro/feedback): GitHub issue templates
 - [GitHub repository](https://github.com/luongnv89/textwiz): macOS app source (Swift/SwiftUI)
 - [GitHub issues / feedback](https://github.com/luongnv89/textwiz-website/issues/new/choose): Public issue tracker

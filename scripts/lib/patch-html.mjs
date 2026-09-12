@@ -1,6 +1,7 @@
 import { SITE_URL, pageTitle } from '../../shared/seo-routes.mjs';
 import { buildStructuredData } from '../../shared/structured-data.mjs';
 import { faqData } from '../../src/lib/faqData.js';
+import { markdownHrefFor } from './route-markdown.mjs';
 
 export { pageTitle };
 
@@ -50,6 +51,16 @@ export function patchHtml(shell, route, siteOrigin = SITE_URL) {
     /<meta\s+name="twitter:description"\s+content="[\s\S]*?"\s*\/>/,
     `<meta name="twitter:description" content="${desc}" />`,
   );
+
+  // Per-route markdown alternate (RFC 8288 link relation in head — the
+  // static-hosting stand-in for Accept: text/markdown negotiation, #48).
+  const mdLink = `<link rel="alternate" type="text/markdown" href="${siteOrigin}${markdownHrefFor(route.path)}" title="Markdown version" />`;
+  const mdLinkRe = /<link rel="alternate" type="text\/markdown" href="[^"]*"[^>]*\/>/;
+  if (mdLinkRe.test(html)) {
+    html = html.replace(mdLinkRe, () => mdLink);
+  } else {
+    html = html.replace('</head>', () => `    ${mdLink}\n  </head>`);
+  }
 
   const jsonLd = `<script type="application/ld+json" data-rh="true">${JSON.stringify(
     buildStructuredData(route, faqData),

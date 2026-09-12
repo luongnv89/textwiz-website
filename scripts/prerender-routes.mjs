@@ -8,6 +8,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import { SEO_ROUTES } from '../shared/seo-routes.mjs';
 import { patchHtml } from './lib/patch-html.mjs';
+import { markdownFileFor, routeToMarkdown } from './lib/route-markdown.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const distDir = path.join(__dirname, '..', 'dist');
@@ -22,6 +23,7 @@ const shell = fs.readFileSync(shellPath, 'utf8');
 
 for (const route of SEO_ROUTES) {
   const html = patchHtml(shell, route);
+  fs.writeFileSync(path.join(distDir, markdownFileFor(route.path)), routeToMarkdown(route));
   if (route.path === '/') {
     fs.writeFileSync(shellPath, html);
     continue;
@@ -29,4 +31,4 @@ for (const route of SEO_ROUTES) {
   fs.writeFileSync(path.join(distDir, `${route.path.slice(1)}.html`), html);
 }
 
-console.log(`prerender-routes: wrote ${SEO_ROUTES.length} route HTML file(s)`);
+console.log(`prerender-routes: wrote ${SEO_ROUTES.length} route HTML + markdown file(s)`);
