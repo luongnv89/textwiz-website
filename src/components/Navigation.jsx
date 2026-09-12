@@ -5,7 +5,7 @@ import MacAppStoreBadge from './MacAppStoreBadge';
 import { publicUrl } from '../lib/publicUrl';
 
 const linkClass =
-  'text-sm font-medium text-gray-600 dark:text-slate-300 hover:text-gray-950 dark:hover:text-white transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500';
+  'text-sm font-medium text-gray-600 dark:text-slate-300 hover:text-gray-950 dark:hover:text-white transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-700 dark:focus-visible:outline-primary-400';
 
 const mobileLinkClass = `w-full py-2 text-left ${linkClass}`;
 
@@ -95,7 +95,7 @@ export default function Navigation() {
           <div className="flex items-center">
             <Link
               to="/"
-              className="flex items-center space-x-2 hover:opacity-80 transition"
+              className="flex min-h-11 items-center space-x-2 hover:opacity-80 transition"
             >
               <img src={publicUrl('/AppIcon.svg')} alt="TextWiz" className="h-8 w-8" />
               <span className="text-lg font-semibold tracking-tight text-gray-950 dark:text-white">TextWiz</span>
@@ -135,7 +135,7 @@ export default function Navigation() {
               aria-expanded={isMenuOpen}
               aria-controls="mobile-menu"
               aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
-              className="inline-flex items-center justify-center rounded-lg p-2.5 text-gray-600 dark:text-slate-300 hover:text-gray-950 dark:hover:text-white transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500"
+              className="inline-flex items-center justify-center rounded-lg p-2.5 text-gray-600 dark:text-slate-300 hover:text-gray-950 dark:hover:text-white transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-700 dark:focus-visible:outline-primary-400"
             >
               {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>

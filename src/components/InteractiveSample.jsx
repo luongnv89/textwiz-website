@@ -35,7 +35,7 @@ export default function InteractiveSample() {
             onClick={() => setActive(index)}
             aria-pressed={index === active}
             aria-label={`Show the ${item.label} result`}
-            className={`px-4 py-2 rounded-full text-sm font-medium border transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500 ${
+            className={`px-4 py-2 rounded-full text-sm font-medium border transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-700 dark:focus-visible:outline-primary-400 ${
               index === active
                 ? 'bg-gray-950 text-white border-gray-950 dark:bg-white dark:text-gray-950 dark:border-white'
                 : 'bg-transparent border-gray-300 dark:border-slate-600 text-gray-700 dark:text-slate-300 hover:border-gray-900 dark:hover:border-white'

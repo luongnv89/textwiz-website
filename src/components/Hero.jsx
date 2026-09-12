@@ -42,7 +42,7 @@ export default function Hero() {
           <MacAppStoreBadge height={52} />
           <a
             href="#how-it-works"
-            className="inline-flex min-h-11 items-center gap-1 text-sm font-medium text-gray-900 dark:text-slate-100 underline underline-offset-4 decoration-gray-300 dark:decoration-slate-600 hover:decoration-current transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500"
+            className="inline-flex min-h-11 items-center gap-1 text-sm font-medium text-gray-900 dark:text-slate-100 underline underline-offset-4 decoration-gray-300 dark:decoration-slate-600 hover:decoration-current transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-700 dark:focus-visible:outline-primary-400"
           >
             See how it works
             <ArrowRight className="h-4 w-4" aria-hidden="true" />
@@ -77,7 +77,7 @@ export default function Hero() {
               <button
                 type="button"
                 onClick={() => videoRef.current?.play()}
-                className="absolute inset-x-0 top-0 bottom-16 flex items-center justify-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500"
+                className="absolute inset-x-0 top-0 bottom-16 flex items-center justify-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-700 dark:focus-visible:outline-primary-400"
                 aria-label="Play the 40-second demo"
               >
                 <span className="h-16 w-16 rounded-full bg-white/95 text-gray-950 shadow-lg flex items-center justify-center">

@@ -94,7 +94,7 @@ export default function Pricing() {
 
         <div className="mt-10 max-w-3xl mx-auto">
           <details className="group rounded-xl border border-gray-200 dark:border-slate-800 p-5 text-sm text-gray-600 dark:text-slate-400">
-            <summary className="cursor-pointer font-medium text-gray-950 dark:text-white list-none flex items-center justify-between focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500">
+            <summary className="cursor-pointer font-medium text-gray-950 dark:text-white list-none flex min-h-11 items-center justify-between py-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-700 dark:focus-visible:outline-primary-400">
               Billing details, intro offer, and regional pricing
               <ChevronDown className="h-4 w-4 transition-transform group-open:rotate-180" aria-hidden="true" />
             </summary>
@@ -125,14 +125,14 @@ export default function Pricing() {
                 Full detail lives in the{' '}
                 <Link
                   to="/terms"
-                  className="text-gray-900 dark:text-slate-100 font-medium underline underline-offset-4 decoration-gray-300 dark:decoration-slate-600 hover:decoration-current transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500"
+                  className="text-gray-900 dark:text-slate-100 font-medium underline underline-offset-4 decoration-gray-300 dark:decoration-slate-600 hover:decoration-current transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-700 dark:focus-visible:outline-primary-400"
                 >
                   Terms of Service
                 </Link>{' '}
                 and the{' '}
                 <Link
                   to="/privacy"
-                  className="text-gray-900 dark:text-slate-100 font-medium underline underline-offset-4 decoration-gray-300 dark:decoration-slate-600 hover:decoration-current transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500"
+                  className="text-gray-900 dark:text-slate-100 font-medium underline underline-offset-4 decoration-gray-300 dark:decoration-slate-600 hover:decoration-current transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-700 dark:focus-visible:outline-primary-400"
                 >
                   Privacy Policy
                 </Link>

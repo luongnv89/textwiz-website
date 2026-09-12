@@ -139,6 +139,23 @@ test('Landing captions meet contrast and standalone links meet mobile target siz
   assert.match(wizards, /to="\/getting-started"[\s\S]*?className="[^"]*min-h-11/);
   assert.match(privacy, /to="\/getting-started"[\s\S]*?className="[^"]*min-h-11/);
   assert.match(finalCta, /quietLink\s*=\s*[^;]*min-h-11/);
+  assert.match(pricing, /<summary className="[^"]*min-h-11[^"]*items-center/);
+  assert.match(navigation, /to="\/"[\s\S]*?className="[^"]*min-h-11[^"]*items-center/);
+
+  const changedControlSources = [
+    hero,
+    wizards,
+    privacy,
+    pricing,
+    finalCta,
+    navigation,
+    readSrc('components/InteractiveSample.jsx'),
+    readSrc('components/FAQ.jsx'),
+  ];
+  for (const source of changedControlSources) {
+    assert.doesNotMatch(source, /focus-visible:outline-primary-500/);
+    assert.match(source, /focus-visible:outline-primary-700 dark:focus-visible:outline-primary-400/);
+  }
 });
 
 test('FAQ data carries the comparison answer and nothing imports the deleted comparison table', () => {

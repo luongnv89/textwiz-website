@@ -10,7 +10,7 @@ const FaqItem = ({ q, a, isOpen, onClick, id }) => (
         onClick={onClick}
         aria-expanded={isOpen}
         aria-controls={id}
-        className="w-full flex justify-between items-start text-left text-gray-900 dark:text-slate-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500"
+        className="w-full flex justify-between items-start text-left text-gray-900 dark:text-slate-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-700 dark:focus-visible:outline-primary-400"
       >
         <span className="text-lg font-medium">{q}</span>
         <span className="ml-6 h-7 flex items-center">
