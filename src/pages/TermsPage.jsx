@@ -104,19 +104,19 @@ export default function TermsPage() {
                     </caption>
                     <thead className="bg-gray-50 dark:bg-slate-900">
                       <tr>
-                        <th scope="col" className="px-4 py-3 font-semibold text-gray-900 dark:text-slate-100">Plan</th>
-                        <th scope="col" className="px-4 py-3 font-semibold text-gray-900 dark:text-slate-100">Period</th>
-                        <th scope="col" className="px-4 py-3 font-semibold text-gray-900 dark:text-slate-100">Price per period</th>
-                        <th scope="col" className="px-4 py-3 font-semibold text-gray-900 dark:text-slate-100">Introductory offer</th>
+                        <th scope="col" className="px-2 py-3 sm:px-4 font-semibold text-gray-900 dark:text-slate-100">Plan</th>
+                        <th scope="col" className="px-2 py-3 sm:px-4 font-semibold text-gray-900 dark:text-slate-100">Period</th>
+                        <th scope="col" className="px-2 py-3 sm:px-4 font-semibold text-gray-900 dark:text-slate-100">Price per period</th>
+                        <th scope="col" className="px-2 py-3 sm:px-4 font-semibold text-gray-900 dark:text-slate-100">Introductory offer</th>
                       </tr>
                     </thead>
                     <tbody>
                       {PRO_PLANS.map((plan) => (
                         <tr key={plan.id} className="border-t border-gray-200 dark:border-slate-700">
-                          <th scope="row" className="px-4 py-3 font-medium text-gray-900 dark:text-slate-100">{plan.name}</th>
-                          <td className="px-4 py-3">{plan.period}</td>
-                          <td className="px-4 py-3">{plan.price}</td>
-                          <td className="px-4 py-3">{plan.intro ?? 'None'}</td>
+                          <th scope="row" className="px-2 py-3 sm:px-4 font-medium text-gray-900 dark:text-slate-100">{plan.name}</th>
+                          <td className="px-2 py-3 sm:px-4">{plan.period}</td>
+                          <td className="px-2 py-3 sm:px-4">{plan.price}</td>
+                          <td className="px-2 py-3 sm:px-4">{plan.intro ?? 'None'}</td>
                         </tr>
                       ))}
                     </tbody>
