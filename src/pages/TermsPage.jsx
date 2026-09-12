@@ -44,7 +44,8 @@ export default function TermsPage() {
           <Section title="1. Acceptance of these terms">
             <p>
               By downloading, installing, or using TextWiz, you agree to these terms. If you do not agree, do not use
-              the application. This agreement is between you and the developer of TextWiz. Apple is not a party to it.
+              the application. This agreement is between you and Luong NGUYEN, an individual software developer (sole
+              trader) and the seller of TextWiz. Apple is not a party to it.
             </p>
           </Section>
 
@@ -287,9 +288,19 @@ export default function TermsPage() {
             </p>
           </Section>
 
-          <Section title="16. Contact">
+          <Section title="16. Governing law and jurisdiction">
             <p>
-              Questions about these terms, about {PRO_NAME}, or about a purchase: open an issue on{' '}
+              These terms are governed by the laws of France. Any dispute arising from these terms or from TextWiz is
+              subject to the exclusive jurisdiction of the courts of France, except where mandatory
+              consumer-protection law in your country of residence gives you the right to bring a claim in your
+              local courts.
+            </p>
+          </Section>
+
+          <Section title="17. Contact">
+            <p>
+              Questions about these terms, about {PRO_NAME}, or about a purchase go to the developer through the
+              designated contact channel: open an issue on{' '}
               <a
                 href="https://github.com/luongnv89/textwiz-feedback/issues/new"
                 className={linkClass}
