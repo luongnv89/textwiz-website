@@ -1,0 +1,50 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/v1/server-card.schema.json",
+  "name": "pro.textwiz/website",
+  "version": "1.0.0",
+  "description": "Static marketing site for the TextWiz macOS app; no live MCP server.",
+  "title": "TextWiz",
+  "websiteUrl": "https://textwiz.pro/",
+  "repository": {
+    "url": "https://github.com/luongnv89/textwiz-website",
+    "source": "github",
+    "id": "1268491635"
+  },
+  "remotes": [],
+  "serverInfo": {
+    "name": "TextWiz",
+    "version": "1.0.0"
+  },
+  "transport": {
+    "type": "documentation",
+    "endpoint": "https://textwiz.pro/getting-started"
+  },
+  "capabilities": {
+    "tools": [],
+    "prompts": [],
+    "resources": [
+      {
+        "uri": "https://textwiz.pro/llms.txt",
+        "name": "llms.txt",
+        "description": "Concise site index for agents",
+        "mimeType": "text/plain"
+      },
+      {
+        "uri": "https://textwiz.pro/llms-full.txt",
+        "name": "llms-full.txt",
+        "description": "Full machine-readable site context",
+        "mimeType": "text/plain"
+      },
+      {
+        "uri": "https://textwiz.pro/.well-known/agent-skills/index.json",
+        "name": "agent-skills index",
+        "description": "Discovery index of published agent skills",
+        "mimeType": "application/json"
+      }
+    ]
+  },
+  "_meta": {
+    "pro.textwiz/agent-card": "https://textwiz.pro/.well-known/agent-card.json",
+    "pro.textwiz/note": "Informational card: remotes is intentionally empty — no MCP transport is served."
+  }
+}

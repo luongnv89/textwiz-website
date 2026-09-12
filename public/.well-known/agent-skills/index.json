@@ -1,0 +1,26 @@
+{
+  "$schema": "https://schemas.agentskills.io/discovery/0.2.0/schema.json",
+  "skills": [
+    {
+      "name": "site-context",
+      "type": "skill-md",
+      "description": "Read TextWiz's llms.txt and llms-full.txt for complete product, setup, pricing, privacy, and FAQ context.",
+      "url": "https://textwiz.pro/.well-known/agent-skills/site-context/SKILL.md",
+      "digest": "sha256:11f35f23604376af9847e8a6ae36ce628819a9d75f7ee3c29af874e9922e1ff1"
+    },
+    {
+      "name": "markdown-pages",
+      "type": "skill-md",
+      "description": "Fetch a markdown alternate of any textwiz.pro page by requesting its .md variant.",
+      "url": "https://textwiz.pro/.well-known/agent-skills/markdown-pages/SKILL.md",
+      "digest": "sha256:b0b8a7b525f4b29f90fc8ad190d3ce999a3e2cffeb4274dfd6c508c94e7dc842"
+    },
+    {
+      "name": "product-facts",
+      "type": "skill-md",
+      "description": "Canonical product facts for TextWiz — what it is, supported providers, pricing, and where to download.",
+      "url": "https://textwiz.pro/.well-known/agent-skills/product-facts/SKILL.md",
+      "digest": "sha256:520b69b50a176defbabfa6f90bd22db4a7dfd52139970fb2d9d424fb192183aa"
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "name": "TextWiz",
+  "version": "1.0.0",
+  "description": "Private, local-first AI text shortcuts for macOS. Documentation-only agent surface: this static site exposes readable resources (llms.txt, per-page markdown, skill docs); there is no live A2A service endpoint.",
+  "url": "https://textwiz.pro/",
+  "provider": {
+    "organization": "TextWiz",
+    "url": "https://textwiz.pro/"
+  },
+  "supportedInterfaces": [
+    {
+      "url": "https://textwiz.pro/.well-known/agent-skills/index.json",
+      "protocolBinding": "HTTP+JSON"
+    }
+  ],
+  "capabilities": {
+    "streaming": false,
+    "pushNotifications": false,
+    "stateTransitionHistory": false
+  },
+  "defaultInputModes": ["text/plain", "text/markdown"],
+  "defaultOutputModes": ["text/markdown", "application/json", "text/plain"],
+  "skills": [
+    {
+      "id": "site-context",
+      "name": "Site context",
+      "description": "Read llms.txt and llms-full.txt for complete product, setup, pricing, privacy, and FAQ context.",
+      "tags": ["documentation", "llms-txt"],
+      "examples": ["Fetch https://textwiz.pro/llms-full.txt"]
+    },
+    {
+      "id": "markdown-pages",
+      "name": "Markdown pages",
+      "description": "Fetch a markdown alternate of any textwiz.pro page via its .md variant.",
+      "tags": ["documentation", "markdown"],
+      "examples": ["Fetch https://textwiz.pro/getting-started.md"]
+    },
+    {
+      "id": "product-facts",
+      "name": "Product facts",
+      "description": "Canonical product facts for TextWiz — what it is, supported providers, pricing, and where to download.",
+      "tags": ["documentation", "product"],
+      "examples": ["What does TextWiz Pro cost?"]
+    }
+  ],
+  "documentationUrl": "https://textwiz.pro/getting-started",
+  "iconUrl": "https://textwiz.pro/AppIcon.svg"
+}
