@@ -47,6 +47,16 @@
       ]
     },
     {
+      "identifier": "urn:air:textwiz.pro:auth:policy",
+      "displayName": "TextWiz agent authentication policy",
+      "type": "text/markdown",
+      "url": "https://textwiz.pro/auth.md",
+      "representativeQueries": [
+        "how do agents authenticate to textwiz.pro",
+        "agent registration for TextWiz"
+      ]
+    },
+    {
       "identifier": "urn:air:textwiz.pro:context:llms-full",
       "displayName": "TextWiz full AI context",
       "type": "text/plain",

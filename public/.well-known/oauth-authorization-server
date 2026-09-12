@@ -1,0 +1,13 @@
+{
+  "issuer": "https://textwiz.pro",
+  "jwks_uri": "https://textwiz.pro/.well-known/jwks.json",
+  "grant_types_supported": [],
+  "response_types_supported": [],
+  "service_documentation": "https://textwiz.pro/auth.md",
+  "agent_auth": {
+    "skill": "auth.md",
+    "register_uri": "https://textwiz.pro/auth.md",
+    "registration_methods_supported": ["none"],
+    "note": "textwiz.pro is a static marketing site. No authorization, token, or registration endpoints exist; all resources are public and unauthenticated. Empty grant_types_supported/response_types_supported make endpoint omission valid per RFC 8414."
+  }
+}

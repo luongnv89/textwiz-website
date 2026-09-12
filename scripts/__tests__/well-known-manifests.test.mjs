@@ -19,6 +19,9 @@ const skillsIndex = readJson(join('agent-skills', 'index.json'));
 const serverCard = readJson(join('mcp', 'server-card.json'));
 const apiCatalog = readJson('api-catalog');
 const aiCatalog = readJson('ai-catalog.json');
+const authServer = readJson('oauth-authorization-server');
+const protectedResource = readJson('oauth-protected-resource');
+const jwks = readJson('jwks.json');
 
 const sha256 = (file) => `sha256:${createHash('sha256').update(readFileSync(file)).digest('hex')}`;
 
@@ -142,6 +145,43 @@ test('ai-catalog.json satisfies the ARD manifest requirements', () => {
       `${entry.identifier} needs 2-5 representativeQueries`,
     );
   }
+});
+
+test('oauth-authorization-server is honest RFC 8414 metadata with a real .json twin', () => {
+  const twin = readFileSync(join(wellKnown, 'oauth-authorization-server.json'));
+  assert.deepEqual(twin, readFileSync(join(wellKnown, 'oauth-authorization-server')), 'extensionless/json twins must stay byte-identical');
+  assert.equal(authServer.issuer, 'https://textwiz.pro');
+  // No live auth server: grant/response lists are empty, so RFC 8414 makes
+  // authorization_endpoint/token_endpoint omission valid — and no endpoint
+  // field may point at anything that does not exist.
+  assert.deepEqual(authServer.grant_types_supported, []);
+  assert.deepEqual(authServer.response_types_supported, []);
+  for (const field of ['authorization_endpoint', 'token_endpoint', 'registration_endpoint', 'jwks_uri']) {
+    if (authServer[field]) assertResolvable(authServer[field]);
+  }
+  assertResolvable(authServer.service_documentation);
+  assert.equal(authServer.agent_auth?.skill, 'auth.md');
+  assertResolvable(authServer.agent_auth?.register_uri);
+});
+
+test('oauth-protected-resource is consistent with the AS metadata and honest', () => {
+  const twin = readFileSync(join(wellKnown, 'oauth-protected-resource.json'));
+  assert.deepEqual(twin, readFileSync(join(wellKnown, 'oauth-protected-resource')), 'extensionless/json twins must stay byte-identical');
+  assert.equal(protectedResource.resource, 'https://textwiz.pro');
+  assert.ok(protectedResource.authorization_servers.includes(authServer.issuer), 'authorization_servers must name the AS issuer');
+  assert.deepEqual(protectedResource.scopes_supported, []);
+  assert.deepEqual(protectedResource.bearer_methods_supported, []);
+  assertResolvable(protectedResource.resource_documentation);
+  assert.ok(Array.isArray(jwks.keys), 'jwks_uri must serve a real JWKS document');
+});
+
+test('auth.md exists, is self-contained, and names the OAuth metadata docs', () => {
+  const authMd = readFileSync(join(root, 'public', 'auth.md'), 'utf8');
+  assert.match(authMd, /^# .*auth\.md/m, 'auth.md needs an H1 containing auth.md');
+  assert.ok(authMd.includes('oauth-authorization-server'), 'auth.md must reference the AS metadata');
+  assert.ok(authMd.includes('oauth-protected-resource'), 'auth.md must reference the PRM document');
+  // Honesty: the page must state there is no registration flow.
+  assert.match(authMd, /no.*registration|None exists/i);
 });
 
 test('ai-catalog is discoverable via robots.txt and index.html', () => {
