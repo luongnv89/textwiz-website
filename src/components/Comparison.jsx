@@ -42,8 +42,8 @@ export default function Comparison() {
           <p className="text-xl text-gray-600 dark:text-slate-300 max-w-3xl mx-auto leading-relaxed">
             TextWiz isn&rsquo;t a discount alternative to the tools below. It&rsquo;s the local-first way to rewrite
             text anywhere on your Mac—without an Accessibility prompt, a browser tab, or a token meter running in
-            the background. The download is free, the Demo provider never expires, and local engines cost nothing
-            to run.
+            the background. The download is free, the Demo provider never expires, and local engines add no
+            per-token cost on top of TextWiz Pro.
           </p>
         </div>
 

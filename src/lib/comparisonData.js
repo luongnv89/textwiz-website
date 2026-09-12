@@ -105,7 +105,7 @@ export const comparisonRows = [
       note: 'The download is free and the Demo provider is free and ungated forever — the real interface, not a countdown.',
     },
     cloudTabs: {
-      status: 'no',
+      status: 'partial',
       note: 'Free tiers are usually capped by message or usage limits.',
     },
     grammarly: {
