@@ -1,12 +1,8 @@
-import { HOMEPAGE_DOCUMENT_TITLE, SITE_URL } from '../../shared/seo-routes.mjs';
+import { SITE_URL, pageTitle } from '../../shared/seo-routes.mjs';
+import { buildStructuredData } from '../../shared/structured-data.mjs';
+import { faqData } from '../../src/lib/faqData.js';
 
-export function pageTitle(route) {
-  if (route.path === '/') {
-    return route.title ?? HOMEPAGE_DOCUMENT_TITLE;
-  }
-  const segmentTitle = route.title ?? 'TextWiz';
-  return `${segmentTitle} | TextWiz`;
-}
+export { pageTitle };
 
 /**
  * @param {string} shell - Built index.html from Vite
@@ -55,6 +51,16 @@ export function patchHtml(shell, route, siteOrigin = SITE_URL) {
     `<meta name="twitter:description" content="${desc}" />`,
   );
 
+  const jsonLd = `<script type="application/ld+json" data-rh="true">${JSON.stringify(
+    buildStructuredData(route, faqData),
+  ).replace(/<\//g, '<\\/')}</script>`;
+  const ldJsonRe = /<script type="application\/ld\+json"[^>]*>[\s\S]*?<\/script>/;
+  if (ldJsonRe.test(html)) {
+    html = html.replace(ldJsonRe, () => jsonLd);
+  } else {
+    html = html.replace('</head>', () => `    ${jsonLd}\n  </head>`);
+  }
+
   const crawlArticle = `
       <article style="max-width: 42rem; margin: 2rem auto; padding: 0 1.5rem; font-family: system-ui, sans-serif; line-height: 1.6;">
       ${route.body}
@@ -63,7 +69,10 @@ export function patchHtml(shell, route, siteOrigin = SITE_URL) {
       </nav>
       </article>`;
 
-  html = html.replace(/<noscript>[\s\S]*?<\/noscript>/, `<noscript>${crawlArticle}</noscript>`);
+  html = html.replace(
+    /(<!-- prerender:start -->)[\s\S]*?(<!-- prerender:end -->)/,
+    (match, start, end) => `${start}${crawlArticle}${end}`,
+  );
 
   return html;
 }

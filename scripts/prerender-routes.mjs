@@ -1,6 +1,7 @@
 /**
- * Post-build: emit route-specific index.html shells with unique meta + crawlable body text.
- * Netlify serves `/getting-started/index.html` before the SPA fallback redirect.
+ * Post-build: emit route-specific HTML shells with unique meta + crawlable body text.
+ * GitHub Pages and Netlify serve `getting-started.html` at `/getting-started`
+ * without a redirect.
  */
 import fs from 'fs';
 import path from 'path';
@@ -25,9 +26,7 @@ for (const route of SEO_ROUTES) {
     fs.writeFileSync(shellPath, html);
     continue;
   }
-  const dir = path.join(distDir, route.path.slice(1));
-  fs.mkdirSync(dir, { recursive: true });
-  fs.writeFileSync(path.join(dir, 'index.html'), html);
+  fs.writeFileSync(path.join(distDir, `${route.path.slice(1)}.html`), html);
 }
 
 console.log(`prerender-routes: wrote ${SEO_ROUTES.length} route HTML file(s)`);

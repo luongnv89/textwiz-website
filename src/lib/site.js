@@ -1,3 +1,5 @@
+import { SITE_URL } from '../../shared/seo-routes.mjs';
+
 export {
   SITE_URL,
   SITE_NAME,
@@ -6,4 +8,4 @@ export {
 } from '../../shared/seo-routes.mjs';
 
 /** Default social / OG image (absolute URL) */
-export const DEFAULT_OG_IMAGE = 'https://www.textwiz.pro/og-image.png';
+export const DEFAULT_OG_IMAGE = `${SITE_URL}/og-image.png`;

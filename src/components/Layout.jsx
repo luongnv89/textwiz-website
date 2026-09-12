@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom';
 import Navigation from './Navigation';
 import Footer from './Footer';
 import Seo from './Seo';
+import StructuredData from './StructuredData';
 import { ROUTE_SEO } from '../lib/routeSeo';
 
 export default function Layout({ children }) {
@@ -32,6 +33,7 @@ export default function Layout({ children }) {
   return (
     <div className="min-h-screen bg-white text-gray-900 dark:bg-slate-950 dark:text-slate-100 transition-colors duration-300">
       <Seo title={seo.title} description={seo.description} path={pathname} />
+      <StructuredData path={pathname} />
       <Navigation />
       <main>{children}</main>
       <Footer />

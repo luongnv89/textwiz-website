@@ -4,7 +4,7 @@ This is the home for **TextWiz** feedback. Open an issue to report a bug, flag a
 
 [**Report a bug →**](https://github.com/luongnv89/textwiz-website/issues/new) · [**Request a feature →**](https://github.com/luongnv89/textwiz-website/issues/new) · [**Browse open issues →**](https://github.com/luongnv89/textwiz-website/issues)
 
-> **TextWiz** is a private, local-first macOS app that runs AI "wizards" on selected text via a global hotkey (⌘⇧Space) or macOS Services. It defaults to on-device AI, runs no servers, and collects none of your data. Site: [www.textwiz.pro](https://www.textwiz.pro) · App source: [luongnv89/textwiz](https://github.com/luongnv89/textwiz)
+> **TextWiz** is a private, local-first macOS app that runs AI "wizards" on selected text via a global hotkey (⌘⇧Space) or macOS Services. It defaults to on-device AI, runs no servers, and collects none of your data. Site: [textwiz.pro](https://textwiz.pro) · App source: [luongnv89/textwiz](https://github.com/luongnv89/textwiz)
 
 ## Reporting a bug
 
@@ -29,8 +29,8 @@ Open a [new issue](https://github.com/luongnv89/textwiz-website/issues/new) desc
 | Check | Why |
 |---|---|
 | [Search open issues](https://github.com/luongnv89/textwiz-website/issues) | Yours may already be tracked — react or comment instead of duplicating |
-| [Read the FAQ](https://www.textwiz.pro/#faq) | Common questions are answered there |
-| [Check the getting-started guide](https://www.textwiz.pro/getting-started) | Setup, API keys, hotkeys, and Services troubleshooting |
+| [Read the FAQ](https://textwiz.pro/#faq) | Common questions are answered there |
+| [Check the getting-started guide](https://textwiz.pro/getting-started) | Setup, API keys, hotkeys, and Services troubleshooting |
 
 ---
 
@@ -76,15 +76,15 @@ Pushes to **`main`** run [`.github/workflows/deploy-pages.yml`](.github/workflow
 
 Default URL: **https://luongnv89.github.io/textwiz-website/**
 
-#### Custom domain (`www.textwiz.pro`)
+#### Custom domain (`textwiz.pro`)
 
-The site is served at `https://www.textwiz.pro`; the apex `textwiz.pro` redirects to it. [`public/CNAME`](public/CNAME) tells GitHub Pages the custom domain (`www.textwiz.pro`), and the deploy workflow builds with base path `/` (no `VITE_BASE_PATH`) so assets and routes resolve from root.
+The site is served at `https://textwiz.pro`; the `www` subdomain redirects to it. [`public/CNAME`](public/CNAME) tells GitHub Pages the custom domain (`textwiz.pro`), and the deploy workflow builds with base path `/` (no `VITE_BASE_PATH`) so assets and routes resolve from root.
 
-1. **Settings → Pages → Custom domain** → `www.textwiz.pro`.
-2. DNS at the registrar: `CNAME www → luongnv89.github.io`, plus apex `A`/`AAAA` records to GitHub Pages so `textwiz.pro` redirects to `www`.
+1. **Settings → Pages → Custom domain** → `textwiz.pro`.
+2. DNS at the registrar: apex `A`/`AAAA` records to GitHub Pages, plus `CNAME www → luongnv89.github.io` so `www` redirects to the apex.
 3. Enable **Enforce HTTPS** once the certificate is issued.
 
-Canonical SEO URLs live in `shared/seo-routes.mjs` (`SITE_URL = https://www.textwiz.pro`).
+Canonical SEO URLs live in `shared/seo-routes.mjs` (`SITE_URL = https://textwiz.pro`).
 
 ### Netlify (optional)
 

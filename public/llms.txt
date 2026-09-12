@@ -1,21 +1,21 @@
 # TextWiz
 
-> TextWiz is a private, local-first native macOS productivity app that runs AI "wizards" on text you select—via clipboard + global hotkey (⌘⇧Space) or macOS Services—without Accessibility APIs. A wizard (a "wiz") is one AI spell: a named prompt that transforms your selected text. The built-in wizards are grouped into collections by job—Everyday Edits (Proofread, Rewrite, Concise, Friendly, Professional) and Social (X Post, LinkedIn Post) ship today; an Analyst & Coach collection (Clarity Critic, Executive Summary, Decision Extractor, Rewrite Coach, Argument Stress Test, Structure Tightener) arrives in the next update—plus unlimited custom wizards. It defaults to on-device AI so your text stays on your Mac: the Apple Foundation Model (Apple Intelligence, no API key) on supported Macs, plus Ollama, LM Studio, and MLX-LM locally—run on local AI and there is no per-token cost. Or bring your own cloud key (Gemini, OpenAI, Claude, Mistral, Groq, OpenRouter); that's nine BYOK providers in addition to Apple Intelligence. TextWiz is a free download and the built-in Demo provider is free and ungated forever; every run against a real provider (OpenAI, Anthropic, Gemini, Ollama, Apple Intelligence, and the rest) requires TextWiz Pro, an auto-renewable subscription sold on the Mac App Store at $2.99 per week ($0.99 for the first week, weekly plan only), $7.99 per month, or $59.99 per year in US dollars. TextWiz runs no servers and collects none of your data (inline diff and request history all live locally). Marketing site: https://www.textwiz.pro — source: https://github.com/luongnv89/textwiz
+> TextWiz is a private, local-first native macOS productivity app that runs AI "wizards" on text you select—via clipboard + global hotkey (⌘⇧Space) or macOS Services—without Accessibility APIs. A wizard (a "wiz") is one AI spell: a named prompt that transforms your selected text. The built-in wizards are grouped into collections by job—Everyday Edits (Proofread, Rewrite, Concise, Friendly, Professional) and Social (X Post, LinkedIn Post) ship today; an Analyst & Coach collection (Clarity Critic, Executive Summary, Decision Extractor, Rewrite Coach, Argument Stress Test, Structure Tightener) arrives in the next update—plus unlimited custom wizards. It defaults to on-device AI so your text stays on your Mac: the Apple Foundation Model (Apple Intelligence, no API key) on supported Macs, plus Ollama, LM Studio, and MLX-LM locally—run on local AI and there is no per-token cost. Or bring your own cloud key (Gemini, OpenAI, Claude, Mistral, Groq, OpenRouter); that's nine BYOK providers in addition to Apple Intelligence. TextWiz is a free download and the built-in Demo provider is free and ungated forever; every run against a real provider (OpenAI, Anthropic, Gemini, Ollama, Apple Intelligence, and the rest) requires TextWiz Pro, an auto-renewable subscription sold on the Mac App Store at $2.99 per week ($0.99 for the first week, weekly plan only), $7.99 per month, or $59.99 per year in US dollars. TextWiz runs no servers and collects none of your data (inline diff and request history all live locally). Marketing site: https://textwiz.pro — source: https://github.com/luongnv89/textwiz
 
 ## Product
 
-- [Home](https://www.textwiz.pro/): Overview, features, demo video, FAQ
-- [Setup & API keys](https://www.textwiz.pro/getting-started): Ollama and Gemini setup, free-tier provider keys, hotkey, Services, troubleshooting
+- [Home](https://textwiz.pro/): Overview, features, demo video, FAQ
+- [Setup & API keys](https://textwiz.pro/getting-started): Ollama and Gemini setup, free-tier provider keys, hotkey, Services, troubleshooting
 
 ## Updates & policy
 
-- [Changelog](https://www.textwiz.pro/changelog): Release notes
-- [Privacy policy](https://www.textwiz.pro/privacy): Static site, Keychain, local SQLite, third-party AI providers, Apple-handled payments
-- [Terms of service](https://www.textwiz.pro/terms): EULA plus auto-renewing TextWiz Pro subscription terms (durations, prices, renewal, cancellation)
+- [Changelog](https://textwiz.pro/changelog): Release notes
+- [Privacy policy](https://textwiz.pro/privacy): Static site, Keychain, local SQLite, third-party AI providers, Apple-handled payments
+- [Terms of service](https://textwiz.pro/terms): EULA plus auto-renewing TextWiz Pro subscription terms (durations, prices, renewal, cancellation)
 
 ## Optional
 
-- [Full context for AI](https://www.textwiz.pro/llms-full.txt): Extended product, setup, FAQ, and privacy text
-- [Feedback](https://www.textwiz.pro/feedback): GitHub issue templates
+- [Full context for AI](https://textwiz.pro/llms-full.txt): Extended product, setup, FAQ, and privacy text
+- [Feedback](https://textwiz.pro/feedback): GitHub issue templates
 - [GitHub repository](https://github.com/luongnv89/textwiz): macOS app source (Swift/SwiftUI)
 - [GitHub issues / feedback](https://github.com/luongnv89/textwiz-website/issues/new/choose): Public issue tracker

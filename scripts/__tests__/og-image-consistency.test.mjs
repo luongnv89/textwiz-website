@@ -12,12 +12,11 @@ import path from 'node:path';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const rootDir = path.join(__dirname, '../..');
 const html = readFileSync(path.join(rootDir, 'index.html'), 'utf8');
-const site = readFileSync(path.join(rootDir, 'src/lib/site.js'), 'utf8');
+const { DEFAULT_OG_IMAGE } = await import('../../src/lib/site.js');
 const generatorSource = readFileSync(path.join(rootDir, 'scripts/generate-og-image.py'), 'utf8');
 
 const ogImageMatch = html.match(/<meta property="og:image" content="([^"]+)"/);
 const twitterImageMatch = html.match(/<meta name="twitter:image" content="([^"]+)"/);
-const defaultOgImageMatch = site.match(/DEFAULT_OG_IMAGE = '([^']+)'/);
 
 test('index.html og:image and twitter:image reference the same URL (#12)', () => {
   assert.ok(ogImageMatch, 'expected an og:image meta tag');
@@ -26,13 +25,12 @@ test('index.html og:image and twitter:image reference the same URL (#12)', () =>
 });
 
 test('static og:image matches the client-rendered DEFAULT_OG_IMAGE (#12)', () => {
-  assert.ok(defaultOgImageMatch, 'expected DEFAULT_OG_IMAGE in src/lib/site.js');
-  assert.equal(ogImageMatch[1], defaultOgImageMatch[1]);
+  assert.equal(ogImageMatch[1], DEFAULT_OG_IMAGE);
 });
 
 test('share image references are no longer the raw product screenshot (#12)', () => {
   assert.doesNotMatch(ogImageMatch[1], /writing-screen-light\.png/);
-  assert.doesNotMatch(defaultOgImageMatch[1], /writing-screen-light\.png/);
+  assert.doesNotMatch(DEFAULT_OG_IMAGE, /writing-screen-light\.png/);
 });
 
 test('public/og-image.png is exactly 1200x630 (#12)', () => {

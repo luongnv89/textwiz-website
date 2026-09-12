@@ -1,6 +1,6 @@
 # TextWiz — full site context for AI systems
 
-> TextWiz is a native macOS productivity application that runs AI writing shortcuts on text you select. Capture via clipboard (⌘C) + global hotkey (⌘⇧Space) or macOS Services (right-click → Process with TextWiz). No Accessibility APIs. Nine LLM providers; API keys in Keychain; history and analytics in local SQLite. Site: https://www.textwiz.pro — App source: https://github.com/luongnv89/textwiz
+> TextWiz is a native macOS productivity application that runs AI writing shortcuts on text you select. Capture via clipboard (⌘C) + global hotkey (⌘⇧Space) or macOS Services (right-click → Process with TextWiz). No Accessibility APIs. Nine LLM providers; API keys in Keychain; history and analytics in local SQLite. Site: https://textwiz.pro — App source: https://github.com/luongnv89/textwiz
 
 ## Product summary
 
@@ -84,12 +84,12 @@ No. TextWiz captures text through two fully compliant paths: the system clipboar
 
 ## Site map
 
-- https://www.textwiz.pro/
-- https://www.textwiz.pro/getting-started
-- https://www.textwiz.pro/changelog
-- https://www.textwiz.pro/feedback
-- https://www.textwiz.pro/privacy
-- https://www.textwiz.pro/terms
+- https://textwiz.pro/
+- https://textwiz.pro/getting-started
+- https://textwiz.pro/changelog
+- https://textwiz.pro/feedback
+- https://textwiz.pro/privacy
+- https://textwiz.pro/terms
 ## Links
 
 - GitHub (app): https://github.com/luongnv89/textwiz

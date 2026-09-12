@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "node scripts/generate-llms-full.mjs && vite build && node scripts/prerender-routes.mjs",
+    "build": "node scripts/generate-llms-full.mjs && vite build && node scripts/prerender-routes.mjs && node scripts/generate-sitemap.mjs",
     "test": "node --test scripts/__tests__/**/*.test.mjs",
     "lint": "eslint .",
     "preview": "vite preview"
