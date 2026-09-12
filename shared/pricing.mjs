@@ -20,6 +20,10 @@ export const PRO_SWITCH_DATE = '2026-09-17';
 /** Human-readable form of PRO_SWITCH_DATE for body copy. */
 export const PRO_SWITCH_DATE_LABEL = '17 September 2026';
 
+/** App Store purchase confirmation is authoritative for intro eligibility. */
+export const INTRO_OFFER_ELIGIBILITY =
+  'Eligibility and the exact price are shown in the App Store before purchase.';
+
 /**
  * Reference US prices. Apple equalizes prices per storefront, so the amount
  * a customer is charged outside the US may differ.
@@ -33,7 +37,7 @@ export const PRO_PLANS = [
     price: '$2.99',
     renews: '$2.99 per week',
     intro: '$0.99 for the first week',
-    note: 'Introductory offer: $0.99 charged up front for one week, once per Apple Account. It then renews at $2.99 per week until cancelled.',
+    note: `For eligible customers, $0.99 is charged up front for one week. It then renews at $2.99 per week until cancelled. ${INTRO_OFFER_ELIGIBILITY}`,
   },
   {
     id: 'monthly',
