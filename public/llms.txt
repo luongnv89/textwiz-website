@@ -20,6 +20,8 @@
 - [Agent card](https://textwiz.pro/.well-known/agent-card.json): A2A discovery manifest (documentation-only entity)
 - [Agent skills index](https://textwiz.pro/.well-known/agent-skills/index.json): Published agent skills with SHA-256 digests
 - [MCP server card](https://textwiz.pro/.well-known/mcp/server-card.json): SEP-2127 card (informational; no live transport)
+- [API catalog](https://textwiz.pro/.well-known/api-catalog.json): RFC 9727 linkset of machine-readable resources
+- [AI catalog](https://textwiz.pro/.well-known/ai-catalog.json): ARD manifest of published agent resources
 - [Feedback](https://textwiz.pro/feedback): GitHub issue templates
 - [GitHub repository](https://github.com/luongnv89/textwiz): macOS app source (Swift/SwiftUI)
 - [GitHub issues / feedback](https://github.com/luongnv89/textwiz-website/issues/new/choose): Public issue tracker

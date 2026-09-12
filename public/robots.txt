@@ -44,4 +44,5 @@ Allow: /
 User-agent: Meta-ExternalAgent
 Allow: /
 
+Agentmap: https://textwiz.pro/.well-known/ai-catalog.json
 Sitemap: https://textwiz.pro/sitemap.xml

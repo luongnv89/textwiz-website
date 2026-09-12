@@ -1,0 +1,60 @@
+{
+  "specVersion": "1.0",
+  "host": {
+    "displayName": "TextWiz",
+    "identifier": "did:web:textwiz.pro"
+  },
+  "entries": [
+    {
+      "identifier": "urn:air:textwiz.pro:agent-card:textwiz",
+      "displayName": "TextWiz A2A agent card",
+      "type": "application/json",
+      "url": "https://textwiz.pro/.well-known/agent-card.json",
+      "representativeQueries": [
+        "what is TextWiz",
+        "TextWiz agent card",
+        "agent-readable resources on textwiz.pro"
+      ]
+    },
+    {
+      "identifier": "urn:air:textwiz.pro:agent-skills:index",
+      "displayName": "TextWiz agent skills index",
+      "type": "application/json",
+      "url": "https://textwiz.pro/.well-known/agent-skills/index.json",
+      "representativeQueries": [
+        "skills published by textwiz.pro",
+        "agent skills discovery index for TextWiz"
+      ]
+    },
+    {
+      "identifier": "urn:air:textwiz.pro:mcp-server-card:website",
+      "displayName": "TextWiz MCP server card (informational; no live transport)",
+      "type": "application/json",
+      "url": "https://textwiz.pro/.well-known/mcp/server-card.json",
+      "representativeQueries": [
+        "MCP server card for textwiz.pro",
+        "does textwiz.pro run an MCP server"
+      ]
+    },
+    {
+      "identifier": "urn:air:textwiz.pro:api-catalog:catalog",
+      "displayName": "TextWiz API catalog",
+      "type": "application/linkset+json",
+      "url": "https://textwiz.pro/.well-known/api-catalog.json",
+      "representativeQueries": [
+        "API catalog for textwiz.pro",
+        "machine-readable resources published by textwiz.pro"
+      ]
+    },
+    {
+      "identifier": "urn:air:textwiz.pro:context:llms-full",
+      "displayName": "TextWiz full AI context",
+      "type": "text/plain",
+      "url": "https://textwiz.pro/llms-full.txt",
+      "representativeQueries": [
+        "full product context for TextWiz",
+        "TextWiz setup, pricing, privacy, and FAQ"
+      ]
+    }
+  ]
+}
