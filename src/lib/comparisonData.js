@@ -5,9 +5,9 @@
  *   #31 — Compares to competitors: a clear comparison table against named
  *         alternatives makes the reason to switch obvious (see Comparison.jsx).
  *   #32 — Priced above competitors: the point of this table is NOT to win on
- *         price. TextWiz is a one-time purchase, not "the cheap option" —
- *         Comparison.jsx frames the table around privacy/local-first/
- *         one-time-purchase positioning rather than a discount pitch.
+ *         price. TextWiz Pro is a subscription (#41), so the frame is
+ *         privacy/local-first/no-token-cost positioning rather than a
+ *         discount pitch or a claim about the billing model.
  *   #19 — Does something never seen before: no competitor category below
  *         combines local, on-device AI with zero Accessibility permission and
  *         a one-keystroke, system-wide rewrite — that combination is the row
@@ -17,14 +17,15 @@
  * elsewhere on the page — Hero.jsx / Screenshots.jsx (works everywhere via
  * ⌘⇧Space and Services), Features.jsx ("Native macOS Integration"),
  * Wizards.jsx (one-keystroke wizards), and FreeLocalAI.jsx ("Local AI by
- * default", "Zero token cost", one-time-purchase positioning). This file
+ * default", "Zero token cost"). Pricing-model claims belong to
+ * shared/pricing.mjs and the Pricing section, not to this table. This file
  * introduces no new TextWiz claims.
  *
  * Competitor claims are deliberately kept to general, well-known category
- * facts (cloud AI assistants live in a browser tab and bill by
- * subscription/usage; Grammarly is a cloud-based subscription service; Mac
- * AI writing utilities in this space commonly require Accessibility
- * permission and/or a subscription) — no specific pricing figures, version
+ * facts (cloud AI assistants live in a browser tab and cap their free
+ * tiers; Grammarly is a cloud-based service whose full feature set is paid;
+ * Mac AI writing utilities in this space commonly require Accessibility
+ * permission and offer a time-limited trial) — no specific pricing figures, version
  * numbers, or feature claims that could go stale or be wrong. See AC3 on
  * issue #7: avoid unverifiable or unfair claims and keep competitor
  * references accurate.
@@ -98,29 +99,29 @@ export const comparisonRows = [
     },
   },
   {
-    feature: 'No subscription',
+    feature: 'Usable for free, with no trial clock',
     textwiz: {
       status: 'yes',
-      note: 'A one-time purchase — pay once, keep using it.',
+      note: 'The download is free and the Demo provider is free and ungated forever — the real interface, not a countdown.',
     },
     cloudTabs: {
       status: 'no',
-      note: 'Typically billed as a monthly or annual subscription.',
+      note: 'Free tiers are usually capped by message or usage limits.',
     },
     grammarly: {
-      status: 'no',
-      note: 'A subscription service for its full feature set.',
+      status: 'partial',
+      note: 'A free tier exists, but the full feature set is behind a subscription.',
     },
     macAiApps: {
       status: 'partial',
-      note: 'Commonly subscription-based; a one-time-purchase option is the exception, not the rule.',
+      note: 'Commonly a time-limited trial rather than a permanently free mode.',
     },
   },
   {
     feature: 'No per-token bills when you run local models',
     textwiz: {
       status: 'yes',
-      note: 'Zero token cost on local engines — pay once, process as much text as you want.',
+      note: 'Zero token cost on local engines — process as much text as you want, with no provider bill.',
     },
     cloudTabs: {
       status: 'no',

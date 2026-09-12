@@ -18,7 +18,7 @@ const REQUIRED_DIFFERENTIATOR_PATTERNS = [
   /works in every mac app/i,
   /local ai option/i,
   /no macos accessibility permission/i,
-  /no subscription/i,
+  /usable for free/i,
   /no per-token bills/i,
   /one-keystroke rewrite/i,
 ];
@@ -65,7 +65,7 @@ test('the TextWiz column names every claim TextWiz already makes elsewhere on th
   const textwizNotes = comparisonRows.map((row) => row.textwiz.note).join(' ');
   assert.match(textwizNotes, /⌘⇧Space/);
   assert.match(textwizNotes, /on-device/i);
-  assert.match(textwizNotes, /one-time purchase/i);
+  assert.match(textwizNotes, /Demo provider/i);
 });
 
 test('named alternatives (ChatGPT-style, Grammarly, Elephas/BoltAI-style) appear in the comparison (#7)', () => {
@@ -88,10 +88,30 @@ test('Comparison stays readable at mobile width, not just a wide desktop table (
   assert.match(comparison, /hidden md:block/, 'expected the table to be desktop-only');
 });
 
-test('Comparison frames the section around privacy/local/one-time positioning, not price alone (#7)', () => {
+test('Comparison frames the section around privacy and local-first positioning, not price alone (#7)', () => {
   assert.match(comparison, /premium/i);
   assert.match(comparison, /local-first|local ai/i);
-  assert.match(comparison, /one-time-purchase|one-time purchase/i);
+  assert.match(comparison, /token meter|token cost|per-token/i);
+});
+
+// TextWiz Pro is an auto-renewable subscription (#41). The comparison section
+// sat three sections below the pricing cards claiming the opposite, and the
+// tests above previously required that claim. Forbid it on every surface the
+// section renders from.
+const DEAD_PRICING_CLAIMS = [/one-time purchase/i, /one-time-purchase/i, /pay once/i, /no subscription/i, /\$4\.99/];
+
+test('no comparison surface claims TextWiz is a one-time purchase (#41)', () => {
+  for (const [name, source] of [['comparisonData.js', comparisonData], ['Comparison.jsx', comparison]]) {
+    for (const claim of DEAD_PRICING_CLAIMS) {
+      assert.doesNotMatch(source, claim, `${name} still claims ${claim}; TextWiz Pro is a subscription`);
+    }
+  }
+});
+
+test('no comparison row asserts a pricing-model advantage for TextWiz (#41)', () => {
+  for (const row of comparisonRows) {
+    assert.doesNotMatch(row.feature, /subscription|purchase|price|pricing/i, `row "${row.feature}" makes the table an argument about the billing model`);
+  }
 });
 
 test('Comparison and comparisonData avoid unverifiable competitor pricing figures or absolute superlatives (#7)', () => {
