@@ -6,6 +6,7 @@ import test from 'node:test';
 import { fileURLToPath } from 'node:url';
 
 import { SEO_ROUTES } from '../../shared/seo-routes.mjs';
+import { markdownFileFor } from '../lib/route-markdown.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const root = join(__dirname, '..', '..');
@@ -16,8 +17,24 @@ const readJson = (rel) => JSON.parse(readFileSync(join(wellKnown, rel), 'utf8'))
 const agentCard = readJson('agent-card.json');
 const skillsIndex = readJson(join('agent-skills', 'index.json'));
 const serverCard = readJson(join('mcp', 'server-card.json'));
+const apiCatalog = readJson('api-catalog');
+const aiCatalog = readJson('ai-catalog.json');
 
 const sha256 = (file) => `sha256:${createHash('sha256').update(readFileSync(file)).digest('hex')}`;
+
+const routePaths = new Set(SEO_ROUTES.map((r) => r.path));
+const markdownFiles = new Set(SEO_ROUTES.map((r) => `/${markdownFileFor(r.path)}`));
+
+// True when a textwiz.pro URL path resolves to a real served artifact:
+// a prerendered route, a file in public/, or a build-generated .md alternate.
+const resolves = (path) =>
+  path === '/' || routePaths.has(path) || markdownFiles.has(path) || existsSync(join(root, 'public', path));
+
+const assertResolvable = (url) => {
+  assert.match(url, /^https:\/\/textwiz\.pro\//, `non-textwiz.pro URL: ${url}`);
+  const path = url.replace('https://textwiz.pro', '');
+  assert.ok(resolves(path), `manifest URL target missing: ${url}`);
+};
 
 test('agent-card.json satisfies the A2A card requirements', () => {
   for (const field of ['name', 'version', 'description', 'capabilities', 'skills']) {
@@ -81,11 +98,55 @@ test('manifest cross-references are consistent and never point at 404s', () => {
     serverCard._meta['pro.textwiz/agent-card'],
     ...serverCard.capabilities.resources.map((r) => r.uri),
   ];
-  const routePaths = new Set(SEO_ROUTES.map((r) => r.path));
   for (const url of urls) {
-    assert.match(url, /^https:\/\/textwiz\.pro\//, `non-textwiz.pro URL: ${url}`);
-    const rel = url.replace('https://textwiz.pro', '');
-    if (routePaths.has(rel) || rel === '/') continue; // prerendered route
-    assert.ok(existsSync(join(root, 'public', rel)), `manifest URL target missing: ${rel}`);
+    assertResolvable(url);
   }
+});
+
+test('api-catalog satisfies RFC 9727 and both variants are byte-identical', () => {
+  const extless = readFileSync(join(wellKnown, 'api-catalog'));
+  const twin = readFileSync(join(wellKnown, 'api-catalog.json'));
+  assert.deepEqual(twin, extless, 'api-catalog and api-catalog.json must stay byte-identical');
+  assert.ok(Array.isArray(apiCatalog.linkset) && apiCatalog.linkset.length >= 1);
+  for (const entry of apiCatalog.linkset) {
+    assertResolvable(entry.anchor);
+    const rels = Object.keys(entry).filter((k) => k !== 'anchor');
+    assert.ok(rels.length >= 1, `linkset entry for ${entry.anchor} has no link relations`);
+    for (const rel of rels) {
+      for (const link of entry[rel]) {
+        assertResolvable(link.href);
+      }
+    }
+  }
+  // The origin entry carries the service-desc/service-doc relations the
+  // scanner looks for.
+  const origin = apiCatalog.linkset.find((e) => e.anchor === 'https://textwiz.pro/');
+  assert.ok(origin['service-desc']?.length >= 1 && origin['service-doc']?.length >= 1);
+});
+
+test('ai-catalog.json satisfies the ARD manifest requirements', () => {
+  assert.ok(typeof aiCatalog.specVersion === 'string' && aiCatalog.specVersion.length > 0);
+  assert.ok(aiCatalog.host?.displayName && aiCatalog.host?.identifier);
+  assert.ok(Array.isArray(aiCatalog.entries) && aiCatalog.entries.length >= 1);
+  for (const entry of aiCatalog.entries) {
+    assert.match(entry.identifier, /^urn:air:textwiz\.pro:[a-z-]+:[a-z-]+$/);
+    assert.ok(entry.displayName, `entry ${entry.identifier} missing displayName`);
+    assert.ok(entry.type, `entry ${entry.identifier} missing type`);
+    // Exactly one of url/data (ARD spec §3.4).
+    assert.equal(Boolean(entry.url) !== Boolean(entry.data), true, `${entry.identifier} must set exactly one of url/data`);
+    if (entry.url) assertResolvable(entry.url);
+    assert.ok(
+      Array.isArray(entry.representativeQueries) &&
+        entry.representativeQueries.length >= 2 &&
+        entry.representativeQueries.length <= 5,
+      `${entry.identifier} needs 2-5 representativeQueries`,
+    );
+  }
+});
+
+test('ai-catalog is discoverable via robots.txt and index.html', () => {
+  const robots = readFileSync(join(root, 'public', 'robots.txt'), 'utf8');
+  assert.match(robots, /Agentmap: https:\/\/textwiz\.pro\/\.well-known\/ai-catalog\.json/);
+  const indexHtml = readFileSync(join(root, 'index.html'), 'utf8');
+  assert.match(indexHtml, /rel="ai-catalog"[^>]*href="https:\/\/textwiz\.pro\/\.well-known\/ai-catalog\.json"/);
 });

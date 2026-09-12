@@ -1,0 +1,67 @@
+{
+  "linkset": [
+    {
+      "anchor": "https://textwiz.pro/",
+      "service-desc": [
+        {
+          "href": "https://textwiz.pro/.well-known/agent-card.json",
+          "type": "application/json",
+          "title": "A2A agent card (documentation-only entity)"
+        },
+        {
+          "href": "https://textwiz.pro/.well-known/agent-skills/index.json",
+          "type": "application/json",
+          "title": "Agent skills discovery index"
+        },
+        {
+          "href": "https://textwiz.pro/.well-known/mcp/server-card.json",
+          "type": "application/json",
+          "title": "MCP server card (informational; no live transport)"
+        },
+        {
+          "href": "https://textwiz.pro/.well-known/ai-catalog.json",
+          "type": "application/json",
+          "title": "ARD ai-catalog manifest"
+        }
+      ],
+      "service-doc": [
+        { "href": "https://textwiz.pro/llms.txt", "type": "text/plain" },
+        { "href": "https://textwiz.pro/llms-full.txt", "type": "text/plain" },
+        { "href": "https://textwiz.pro/getting-started", "type": "text/html" }
+      ],
+      "alternate": [
+        { "href": "https://textwiz.pro/index.md", "type": "text/markdown" }
+      ]
+    },
+    {
+      "anchor": "https://textwiz.pro/getting-started",
+      "alternate": [
+        { "href": "https://textwiz.pro/getting-started.md", "type": "text/markdown" }
+      ]
+    },
+    {
+      "anchor": "https://textwiz.pro/changelog",
+      "alternate": [
+        { "href": "https://textwiz.pro/changelog.md", "type": "text/markdown" }
+      ]
+    },
+    {
+      "anchor": "https://textwiz.pro/feedback",
+      "alternate": [
+        { "href": "https://textwiz.pro/feedback.md", "type": "text/markdown" }
+      ]
+    },
+    {
+      "anchor": "https://textwiz.pro/privacy",
+      "alternate": [
+        { "href": "https://textwiz.pro/privacy.md", "type": "text/markdown" }
+      ]
+    },
+    {
+      "anchor": "https://textwiz.pro/terms",
+      "alternate": [
+        { "href": "https://textwiz.pro/terms.md", "type": "text/markdown" }
+      ]
+    }
+  ]
+}
