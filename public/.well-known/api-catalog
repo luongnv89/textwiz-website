@@ -22,11 +22,22 @@
           "href": "https://textwiz.pro/.well-known/ai-catalog.json",
           "type": "application/json",
           "title": "ARD ai-catalog manifest"
+        },
+        {
+          "href": "https://textwiz.pro/.well-known/oauth-authorization-server.json",
+          "type": "application/json",
+          "title": "Authorization-server metadata (no live auth endpoints)"
+        },
+        {
+          "href": "https://textwiz.pro/.well-known/oauth-protected-resource.json",
+          "type": "application/json",
+          "title": "Protected-resource metadata (all resources public)"
         }
       ],
       "service-doc": [
         { "href": "https://textwiz.pro/llms.txt", "type": "text/plain" },
         { "href": "https://textwiz.pro/llms-full.txt", "type": "text/plain" },
+        { "href": "https://textwiz.pro/auth.md", "type": "text/markdown" },
         { "href": "https://textwiz.pro/getting-started", "type": "text/html" }
       ],
       "alternate": [

@@ -1,0 +1,8 @@
+{
+  "resource": "https://textwiz.pro",
+  "resource_name": "TextWiz website",
+  "authorization_servers": ["https://textwiz.pro"],
+  "scopes_supported": [],
+  "bearer_methods_supported": [],
+  "resource_documentation": "https://textwiz.pro/auth.md"
+}
