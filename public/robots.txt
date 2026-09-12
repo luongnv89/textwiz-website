@@ -1,6 +1,8 @@
 # https://textwiz.pro/
 User-agent: *
 Allow: /
+# AI content usage preferences (Content Signals — draft-romm-aipref-contentsignals)
+Content-Signal: ai-train=yes, search=yes, ai-input=yes
 
 # AI search, on-demand fetch, and training crawlers (maximize AI visibility)
 User-agent: OAI-SearchBot
