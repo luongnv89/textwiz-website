@@ -4,6 +4,7 @@ import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 import { INTRO_OFFER_ELIGIBILITY, PRO_PLANS } from '../../src/lib/pricing.js';
+import { SEO_ROUTES } from '../../shared/seo-routes.mjs';
 
 // Intro offer eligibility (#34): the repository holds no App Store Connect
 // record, so the site may not present Apple's per-account eligibility rule as a
@@ -19,6 +20,8 @@ const PUBLIC_SURFACES = [
   'src/components/Pricing.jsx',
   'src/pages/TermsPage.jsx',
   'public/llms-full.txt',
+  'shared/seo-routes.mjs',
+  'index.html',
 ];
 
 // Account-level guarantees the repository cannot substantiate.
@@ -65,4 +68,14 @@ test('Terms and the FAQ source the eligibility wording from shared pricing data 
 
   const faq = read('src/lib/faqData.js');
   assert.match(faq, /INTRO_OFFER_ELIGIBILITY/);
+});
+
+test('the prerendered Terms crawl body carries the same conditional wording (#34)', () => {
+  const terms = SEO_ROUTES.find((route) => route.path === '/terms');
+  assert.ok(terms, 'expected a /terms route in SEO_ROUTES');
+  assert.match(terms.body, /for eligible customers/i);
+  assert.ok(
+    terms.body.includes(INTRO_OFFER_ELIGIBILITY),
+    'expected the Terms crawl body to reuse INTRO_OFFER_ELIGIBILITY',
+  );
 });

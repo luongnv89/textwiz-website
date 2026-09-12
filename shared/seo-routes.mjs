@@ -1,5 +1,7 @@
 /** Single source for per-route SEO + prerender crawl bodies (Helmet, prerender, llms). */
 
+import { INTRO_OFFER_ELIGIBILITY } from './pricing.mjs';
+
 export const SITE_URL = 'https://www.textwiz.pro';
 export const SITE_NAME = 'TextWiz';
 
@@ -68,7 +70,7 @@ export const SEO_ROUTES = [
     body: `
       <h1>Terms of service and end user license agreement</h1>
       <p>Terms governing use of the TextWiz marketing site, the Mac application, and the TextWiz Pro subscription. TextWiz is a free download; the Demo provider is free forever and every run against a real AI provider requires TextWiz Pro.</p>
-      <p>Auto-renewing subscription terms: TextWiz Pro is an auto-renewable subscription sold through the Mac App Store in three durations, $2.99 per one week, $7.99 per one month, and $59.99 per one year in US dollars. The weekly plan carries an introductory offer of $0.99 for the first week, charged up front for one period, after which it renews at $2.99 per week. Monthly and yearly plans have no introductory offer. Payment is charged to your Apple Account at confirmation of purchase. The subscription renews automatically unless it is cancelled at least 24 hours before the end of the current period, and your Apple Account is charged for renewal within 24 hours before the current period ends. Manage the subscription and turn off auto-renewal in System Settings, Apple Account, Media and Purchases, Subscriptions. No refund is given for the unused portion of a current period except where the law requires one. Customers who bought the paid app before the switch to free keep TextWiz Pro for life at no cost. See the privacy policy at https://www.textwiz.pro/privacy.</p>
+      <p>Auto-renewing subscription terms: TextWiz Pro is an auto-renewable subscription sold through the Mac App Store in three durations, $2.99 per one week, $7.99 per one month, and $59.99 per one year in US dollars. For eligible customers, the weekly plan carries an introductory offer of $0.99 for the first week, charged up front for one period, after which it renews at $2.99 per week. ${INTRO_OFFER_ELIGIBILITY} Monthly and yearly plans have no introductory offer. Payment is charged to your Apple Account at confirmation of purchase. The subscription renews automatically unless it is cancelled at least 24 hours before the end of the current period, and your Apple Account is charged for renewal within 24 hours before the current period ends. Manage the subscription and turn off auto-renewal in System Settings, Apple Account, Media and Purchases, Subscriptions. No refund is given for the unused portion of a current period except where the law requires one. Customers who bought the paid app before the switch to free keep TextWiz Pro for life at no cost. See the privacy policy at https://www.textwiz.pro/privacy.</p>
     `,
   },
 ];
