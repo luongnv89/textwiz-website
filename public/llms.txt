@@ -25,6 +25,7 @@
 - [Agent auth policy](https://textwiz.pro/auth.md): No agent authentication or registration exists; all resources are public
 - [OAuth AS metadata](https://textwiz.pro/.well-known/oauth-authorization-server.json): RFC 8414 document declaring zero grant types
 - [OAuth resource metadata](https://textwiz.pro/.well-known/oauth-protected-resource.json): RFC 9728 document declaring all resources public
+- WebMCP: pages register read-only tools (get_site_overview, list_pages, get_page_markdown, get_product_facts) via navigator.modelContext in supporting browsers
 - [Feedback](https://textwiz.pro/feedback): GitHub issue templates
 - [GitHub repository](https://github.com/luongnv89/textwiz): macOS app source (Swift/SwiftUI)
 - [GitHub issues / feedback](https://github.com/luongnv89/textwiz-website/issues/new/choose): Public issue tracker
