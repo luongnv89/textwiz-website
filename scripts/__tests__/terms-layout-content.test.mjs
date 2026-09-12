@@ -3,7 +3,6 @@ import test from 'node:test';
 import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
-import { PRO_PLANS } from '../../src/lib/pricing.js';
 
 // Visual QA (#33): the plan table in Terms section 5 overflowed its scroll
 // container at phone width, clipping the "Introductory offer" column with no
@@ -12,19 +11,34 @@ import { PRO_PLANS } from '../../src/lib/pricing.js';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const terms = readFileSync(path.join(__dirname, '../../src/pages/TermsPage.jsx'), 'utf8');
 
-test('the plan table stays inside a horizontal scroll container (#33)', () => {
-  assert.match(terms, /overflow-x-auto/);
+// Scope every assertion to the table itself. `px-4 py-3` is a house idiom used
+// elsewhere in the app, so a whole-file scan would fail on unrelated markup and
+// blame the plan table for it.
+function planTable() {
+  const open = terms.indexOf('<table');
+  assert.notEqual(open, -1, 'expected a plan table in TermsPage');
+  const close = terms.indexOf('</table>', open);
+  assert.notEqual(close, -1, 'expected the plan table to be closed');
+  return { markup: terms.slice(open, close), before: terms.slice(0, open) };
+}
+
+test('the plan table sits inside a horizontal scroll container (#33)', () => {
+  const { before } = planTable();
+  const wrapper = before.slice(-200);
+  assert.match(wrapper, /overflow-x-auto/, 'the element wrapping the plan table no longer scrolls horizontally');
 });
 
 test('plan table cells use narrow padding until the sm breakpoint (#33)', () => {
-  const responsive = (terms.match(/px-2 py-3 sm:px-4/g) || []).length;
-  const cells = (terms.match(/<t[hd][ >]/g) || []).length;
-  assert.ok(responsive >= 8, `expected every plan-table cell to use responsive padding, found ${responsive}`);
-  assert.ok(cells >= responsive, 'more responsive padding classes than table cells');
-  assert.doesNotMatch(terms, /className="px-4 py-3/, 'a plan-table cell still hardcodes wide padding at phone width');
+  const { markup } = planTable();
+  const cells = markup.match(/<t[hd][\s>]/g) || [];
+  const responsive = markup.match(/px-2 py-3 sm:px-4/g) || [];
+
+  assert.ok(cells.length >= 8, `expected at least 8 plan-table cells, found ${cells.length}`);
+  assert.equal(responsive.length, cells.length, 'every plan-table cell should use the responsive padding');
+  assert.doesNotMatch(markup, /px-4 py-3/, 'a plan-table cell still hardcodes wide padding at phone width');
 });
 
 test('the plan table renders one row per plan from shared pricing data (#33)', () => {
-  assert.match(terms, /PRO_PLANS\.map/);
-  assert.equal(PRO_PLANS.length, 3);
+  const { markup } = planTable();
+  assert.match(markup, /PRO_PLANS\.map/, 'plan rows should come from shared pricing data, not hardcoded markup');
 });
