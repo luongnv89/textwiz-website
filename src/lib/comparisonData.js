@@ -17,7 +17,7 @@
  * elsewhere on the page — Hero.jsx / Screenshots.jsx (works everywhere via
  * ⌘⇧Space and Services), Features.jsx ("Native macOS Integration"),
  * Wizards.jsx (one-keystroke wizards), and FreeLocalAI.jsx ("Local AI by
- * default", "Zero token cost"). Pricing-model claims belong to
+ * default", "No token bills"). Pricing-model claims belong to
  * shared/pricing.mjs and the Pricing section, not to this table. This file
  * introduces no new TextWiz claims.
  *

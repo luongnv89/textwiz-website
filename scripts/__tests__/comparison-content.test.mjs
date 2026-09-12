@@ -114,6 +114,28 @@ test('no comparison row asserts a pricing-model advantage for TextWiz (#41)', ()
   }
 });
 
+test('TextWiz notes and the section intro never claim a free lunch the Pro gate contradicts (#41)', () => {
+  // The regression this guards is prose, not a row label: the first attempt at
+  // this fix said local engines "cost nothing to run", which reads as free of
+  // charge when they are Pro-gated. Any cost claim about local engines has to
+  // carry the per-token qualifier or name Pro.
+  const surfaces = [
+    ['TextWiz notes', comparisonRows.map((row) => row.textwiz.note).join(' ')],
+    ['Comparison.jsx', comparison],
+  ];
+  for (const [name, text] of surfaces) {
+    for (const match of text.matchAll(/[^.]*local (?:engines|models|ai)[^.]*\./gi)) {
+      const sentence = match[0];
+      if (!/cost|free|bill|pay|price/i.test(sentence)) continue;
+      assert.match(
+        sentence,
+        /per-token|token cost|token bill|provider bill|TextWiz Pro/i,
+        `${name} claims local engines are free without the per-token or Pro qualifier: "${sentence.trim()}"`,
+      );
+    }
+  }
+});
+
 test('Comparison and comparisonData avoid unverifiable competitor pricing figures or absolute superlatives (#7)', () => {
   for (const source of [comparisonData, comparison]) {
     assert.doesNotMatch(source, /\$\s?\d/, 'no specific dollar figures for any competitor');
