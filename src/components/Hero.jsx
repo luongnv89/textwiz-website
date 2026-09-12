@@ -1,101 +1,95 @@
-import { useRef } from 'react';
-import { Maximize2 } from 'lucide-react';
+import { useRef, useState } from 'react';
+import { ArrowRight, Play } from 'lucide-react';
 import MacAppStoreBadge from './MacAppStoreBadge';
+import MacWindow from './MacWindow';
+import { Shortcut } from './Kbd';
 import { publicUrl } from '../lib/publicUrl';
 
 export default function Hero() {
   const videoRef = useRef(null);
-
-  const handleFullscreen = () => {
-    const el = videoRef.current;
-    if (!el) return;
-    if (el.requestFullscreen) {
-      el.requestFullscreen();
-    } else if (el.webkitEnterFullscreen) {
-      // iOS Safari
-      el.webkitEnterFullscreen();
-    } else if (el.webkitRequestFullscreen) {
-      el.webkitRequestFullscreen();
-    }
-  };
+  const [isPlaying, setIsPlaying] = useState(false);
 
   return (
-    <section className="min-h-screen flex flex-col justify-center px-6 pt-24 pb-12 bg-gradient-to-b from-primary-50 via-white to-white dark:from-slate-900 dark:via-slate-950 dark:to-black transition-colors duration-300">
-      <div className="max-w-7xl mx-auto w-full grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-        {/* Left: message */}
-        <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
-          <p className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-100 dark:bg-emerald-500/15 text-emerald-800 dark:text-emerald-200 text-sm font-medium mb-5">
-            <span className="font-semibold">Free download</span> · TextWiz Pro from $0.99 for the first week
-          </p>
+    <section className="relative overflow-hidden pt-36 pb-20 md:pt-44 md:pb-28 px-6">
+      <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top,rgba(0,0,0,0.045),transparent_60%)] dark:bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.06),transparent_60%)]" />
 
-          <p className="text-lg md:text-xl font-medium text-gray-700 dark:text-slate-300 mb-4 max-w-xl">
-            Still pasting private text into browser tabs? TextWiz keeps the rewrite where the text already is.
-          </p>
+      <div className="max-w-3xl mx-auto text-center">
+        <p
+          className="rise text-sm font-semibold uppercase tracking-[0.14em] text-primary-700 dark:text-primary-400"
+          style={{ animationDelay: '0ms' }}
+        >
+          Free on the Mac App Store
+        </p>
 
-          <h1 className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-slate-100 mb-4 leading-tight">
-            Fix any sentence in 2 seconds — without leaving your Mac.
-          </h1>
-          <p className="text-2xl md:text-3xl font-semibold text-gray-700 dark:text-slate-200 mb-6">
-            Select text, press ⌘⇧Space, and get a private AI rewrite back on your Mac. No servers. No token
-            bills.
-          </p>
+        <h1
+          className="rise mt-5 text-5xl md:text-6xl lg:text-7xl leading-[1.05] font-semibold tracking-tight text-gray-950 dark:text-white"
+          style={{ animationDelay: '80ms' }}
+        >
+          Fix any sentence in 2 seconds — without leaving your Mac.
+        </h1>
 
-          <p className="text-lg md:text-xl text-gray-600 dark:text-slate-300 mb-8 leading-relaxed max-w-xl">
-            Proofread, rewrite, and run custom AI wizards on any text—right where you&rsquo;re working. Runs on{' '}
-            <strong className="text-gray-800 dark:text-slate-200">on-device AI</strong> by default, or bring your own cloud provider—no data collection, either way.
-          </p>
+        <p
+          className="rise mt-6 text-xl md:text-2xl text-gray-600 dark:text-slate-400 leading-relaxed"
+          style={{ animationDelay: '160ms' }}
+        >
+          Select text, press <Shortcut />, and get a private AI rewrite back. On-device by default. No servers. No token bills.
+        </p>
 
-          <div className="mb-4">
-            <MacAppStoreBadge height={48} />
-          </div>
-
+        <div
+          className="rise mt-10 flex flex-col sm:flex-row items-center justify-center gap-6"
+          style={{ animationDelay: '240ms' }}
+        >
+          <MacAppStoreBadge height={52} />
           <a
-            href="#screenshots"
-            className="mb-4 inline-flex items-center py-2 text-sm font-medium text-gray-600 dark:text-slate-300 underline underline-offset-4 decoration-gray-300 dark:decoration-slate-600 hover:text-gray-900 dark:hover:text-slate-100 transition-colors"
+            href="#how-it-works"
+            className="inline-flex items-center gap-1 text-sm font-medium text-gray-900 dark:text-slate-100 underline underline-offset-4 decoration-gray-300 dark:decoration-slate-600 hover:decoration-current transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500"
           >
             See how it works
+            <ArrowRight className="h-4 w-4" aria-hidden="true" />
           </a>
-
-          <p className="text-sm text-gray-500 dark:text-slate-400">
-            Free to download • Demo provider free forever • TextWiz Pro unlocks every real provider
-          </p>
         </div>
 
-        {/* Right: demo */}
-        <div className="w-full">
-          <div className="relative group w-full rounded-2xl overflow-hidden border border-white/25 dark:border-primary-400/30 shadow-[0_30px_80px_-20px_rgba(15,23,42,0.4)] dark:shadow-[0_30px_90px_-20px_rgba(21,95,44,0.5)] bg-white dark:bg-slate-900">
+        <p className="mt-6 text-sm text-gray-500 dark:text-slate-500">
+          Free download · Demo provider free forever · TextWiz Pro unlocks real providers
+        </p>
+      </div>
+
+      <div className="rise mt-16 md:mt-20 max-w-5xl mx-auto" style={{ animationDelay: '360ms' }}>
+        <MacWindow title="TextWiz">
+          <div className="relative group">
             <video
               ref={videoRef}
-              className="w-full h-auto block cursor-pointer"
+              className="w-full h-auto block"
               src={publicUrl('/demo-1.0.0.mp4')}
-              poster={publicUrl('/shortcuts-preview/1.0.0/appstore-overview.png')}
-              autoPlay
-              loop
+              poster={publicUrl('/shortcuts-preview/1.0.0/appstore-x-post-shortcut.png')}
+              controls
               muted
               playsInline
-              controls
               preload="metadata"
-              onClick={handleFullscreen}
-              aria-label="TextWiz demo video — click to view fullscreen"
+              onPlay={() => setIsPlaying(true)}
+              onPause={() => setIsPlaying(false)}
+              onEnded={() => setIsPlaying(false)}
+              aria-label="TextWiz demo video"
             >
               Your browser does not support the video tag.
             </video>
-
-            <button
-              type="button"
-              onClick={handleFullscreen}
-              className="absolute top-4 right-4 inline-flex items-center gap-2 px-3 py-2 rounded-lg bg-black/60 hover:bg-black/80 text-white text-sm font-medium backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-400 focus-visible:opacity-100"
-              aria-label="View video in fullscreen"
-            >
-              <Maximize2 className="h-4 w-4" />
-              Fullscreen
-            </button>
+            {!isPlaying && (
+              <button
+                type="button"
+                onClick={() => videoRef.current?.play()}
+                className="absolute inset-x-0 top-0 bottom-16 flex items-center justify-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500"
+                aria-label="Play the 40-second demo"
+              >
+                <span className="h-16 w-16 rounded-full bg-white/95 text-gray-950 shadow-lg flex items-center justify-center">
+                  <Play className="h-7 w-7 ml-1" aria-hidden="true" />
+                </span>
+              </button>
+            )}
           </div>
-
-          <p className="mt-4 text-sm text-gray-600 dark:text-slate-300 text-center">
-            Copy text, press ⌘⇧Space, and transform it anywhere on macOS.
-          </p>
-        </div>
+        </MacWindow>
+        <p className="text-sm text-gray-500 dark:text-slate-500 text-center mt-4">
+          Copy text, press ⌘⇧Space, pick a wizard. That's the whole workflow.
+        </p>
       </div>
     </section>
   );

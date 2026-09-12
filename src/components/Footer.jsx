@@ -20,13 +20,13 @@ function XLogo({ className = 'h-5 w-5' }) {
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-950 text-gray-300 py-16 px-6">
+    <footer className="bg-gray-950 border-t border-gray-800 text-gray-300 py-16 px-6">
       <div className="max-w-7xl mx-auto space-y-12">
         <div className="grid gap-12 md:grid-cols-[1.4fr,1fr,1fr]">
           <div className="space-y-6">
             <img src={publicUrl('/Wordmark-white.svg')} alt="TextWiz" className="h-8" />
             <p className="text-gray-400 max-w-sm">
-              Private, local-first AI text shortcuts for macOS—global hotkey, Services menu, and ten engines (four on-device). Polish copy in place with no servers and no data collection.
+              Private, local-first AI text actions for macOS. One keystroke, any app, no servers.
             </p>
           </div>
 
@@ -42,7 +42,7 @@ export default function Footer() {
                 Pricing
               </Link>
               <Link to="/getting-started" className="block text-gray-400 transition hover:text-white">
-                Setup & API keys
+                Setup guide
               </Link>
               <Link to="/changelog" className="block text-gray-400 transition hover:text-white">
                 Changelog
