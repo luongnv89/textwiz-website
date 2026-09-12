@@ -22,3 +22,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# gitissue run state, lock, and issue cache (machine-local)
+.gitissue/

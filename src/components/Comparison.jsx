@@ -4,8 +4,10 @@ import { comparisonColumns, comparisonRows, getStatusLabel } from '../lib/compar
 // Viral principles #31, #32, #19 — see comparisonData.js for the full
 // rationale. In short: #31 wants a comparison table against named
 // alternatives (this section), #32 wants pricing framed as premium (the
-// intro copy below leads with privacy/local/one-time positioning, not a
-// discount pitch), and #19 wants a "never seen before" element — the
+// intro copy below leads with privacy/local/no-token-cost positioning, not
+// a discount pitch, and makes no claim about the billing model — TextWiz
+// Pro is a subscription, see #41), and #19 wants a "never seen before"
+// element — the
 // local-AI + no-Accessibility-permission + one-keystroke combination that no
 // competitor row here offers together. #32 is about pricing perception, not
 // a specific price — this file makes no claim about any competitor's actual
@@ -38,9 +40,10 @@ export default function Comparison() {
             The premium, private choice — not just the cheap one
           </h2>
           <p className="text-xl text-gray-600 dark:text-slate-300 max-w-3xl mx-auto leading-relaxed">
-            TextWiz isn&rsquo;t a discount alternative to the tools below. It&rsquo;s the local-first, one-time-purchase
-            way to rewrite text anywhere on your Mac—without an Accessibility prompt, a subscription, or a token
-            meter running in the background.
+            TextWiz isn&rsquo;t a discount alternative to the tools below. It&rsquo;s the local-first way to rewrite
+            text anywhere on your Mac—without an Accessibility prompt, a browser tab, or a token meter running in
+            the background. The download is free, the Demo provider never expires, and local engines add no
+            per-token cost on top of TextWiz Pro.
           </p>
         </div>
 
