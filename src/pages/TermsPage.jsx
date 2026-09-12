@@ -9,6 +9,7 @@ import {
 
 const linkClass =
   'text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 underline';
+const weeklyPlan = PRO_PLANS.find((plan) => plan.id === 'weekly');
 
 function Section({ title, children }) {
   return (
@@ -128,11 +129,9 @@ export default function TermsPage() {
               </div>
 
               <p id="terms-intro-offer">
-                <strong className="text-gray-900 dark:text-slate-100">Introductory offer:</strong> the weekly plan is
-                offered at $0.99 for the first week. The $0.99 is charged up front and covers one week only. It is
-                available once per Apple Account. After that first week the weekly plan renews at $2.99 per week
-                until you cancel. The monthly plan at $7.99 per month and the yearly plan at $59.99 per year carry no
-                introductory offer and are charged at full price from the first period.
+                <strong className="text-gray-900 dark:text-slate-100">Introductory offer:</strong> {weeklyPlan.note}{' '}
+                The monthly plan at $7.99 per month and the yearly plan at $59.99 per year carry no introductory offer
+                and are charged at full price from the first period.
               </p>
 
               <p>

@@ -1,4 +1,4 @@
-import { PRICING_SUMMARY, PRO_PLANS } from './pricing.js';
+import { INTRO_OFFER_ELIGIBILITY, PRICING_SUMMARY, PRO_PLANS } from './pricing.js';
 
 const weeklyPlan = PRO_PLANS.find((p) => p.id === 'weekly');
 
@@ -14,7 +14,7 @@ export const faqData = [
   },
   {
     q: 'Can I try TextWiz before subscribing?',
-    a: 'Yes. Download the app and run the Demo provider, which is free, ungated, and permanent. It is the real interface with real wizards, so nothing about the flow is hidden from you. There is no trial period on any paid plan, because the free Demo provider does that job without a clock running. If you want the cheapest way into a real provider, the weekly plan starts at $0.99 for the first week.',
+    a: `Yes. Download the app and run the Demo provider, which is free, ungated, and permanent. It is the real interface with real wizards, so nothing about the flow is hidden from you. There is no trial period on any paid plan, because the free Demo provider does that job without a clock running. For eligible customers, the weekly plan starts at ${weeklyPlan.intro}. ${INTRO_OFFER_ELIGIBILITY}`,
   },
   {
     q: 'How do I cancel TextWiz Pro?',
