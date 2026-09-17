@@ -3,13 +3,48 @@ import { APP_VERSION_FULL } from '../lib/version';
 
 const releases = [
   {
+    version: '1.5.0',
+    build: '17',
+    date: 'September 2026',
+    title: 'Appearance, Placement & Smarter Defaults',
+    description:
+      'A more personal and predictable TextWiz: choose your appearance, open the floating panel on the display you are using, and start with on-device Apple Intelligence when available.',
+    isLatest: true,
+    highlights: [
+      { icon: Palette, text: 'Appearance Controls' },
+      { icon: Zap, text: 'Cursor Display' },
+      { icon: Sparkles, text: 'Smarter Defaults' },
+      { icon: Wrench, text: 'Current Models' },
+    ],
+    sections: [
+      {
+        title: 'New Features',
+        icon: Sparkles,
+        items: [
+          'Choose System, Light, or Dark appearance in Settings; the preference persists across launches.',
+          'The floating panel and wizard picker now open centered on the display under your cursor.',
+          'Fresh installs default to the on-device Apple Foundation Model when Apple Intelligence is available.',
+        ],
+      },
+      {
+        title: 'Improvements',
+        icon: Wrench,
+        items: [
+          'Updated built-in Gemini, OpenAI, Claude, Mistral, OpenRouter, and Groq model catalogs.',
+          'Saved selections for retired model identifiers migrate to supported replacements.',
+          'Brand text remains legible across light and dark appearances.',
+        ],
+      },
+    ],
+  },
+  {
     version: '1.1.1',
     build: '12',
     date: 'June 2026',
     title: 'Performance & Catalog Polish',
     description:
       'A focused release for the current App Store submission: faster floating-panel updates, a unified provider/model catalog, clearer model picker behavior, and a refreshed About page.',
-    isLatest: true,
+    isLatest: false,
     highlights: [
       { icon: Zap, text: 'Faster Panel' },
       { icon: Wrench, text: 'Unified Catalog' },
