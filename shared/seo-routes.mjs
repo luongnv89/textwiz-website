@@ -27,8 +27,22 @@ export const SEO_ROUTES = [
     sources: ['src/pages/HomePage.jsx', 'src/components', 'src/lib/faqData.js', 'shared'],
     body: `
       <h1>TextWiz — private, local-first AI text shortcuts for macOS</h1>
-      <p>Select text, copy with ⌘C, press ⌘⇧Space to open the floating AI panel—or use Services to replace text in place. Each AI action is a "wizard." We group the built-ins into collections by job: Everyday Edits and Social ship today; the Analyst & Coach collection arrives in the next update. Plus unlimited custom wizards. Ten engines, four of them on-device: Apple Intelligence (Foundation Model, no API key), Ollama, LM Studio, and MLX-LM, plus cloud APIs (OpenAI, Anthropic, Gemini, Mistral, Groq, OpenRouter) when you bring your own key.</p>
-      <p>Private by design: on-device engines keep your text on your Mac, TextWiz runs no servers and collects none of your data, and cloud keys live in the Keychain. The app is a free download and the Demo provider is free forever. Every run against a real provider needs TextWiz Pro, an auto-renewable subscription sold on the Mac App Store: $2.99 per week with an introductory offer of $0.99 for the first week, $7.99 per month, or $59.99 per year in US dollars. Customers who bought the paid app before the switch keep Pro for life at no cost. No Accessibility permission. Apple Intelligence requires macOS 15.2+ on supported hardware.</p>
+      <p>TextWiz is an AI writing assistant for Mac users. Proofread, rewrite, shorten text, or change its tone without leaving the app you are using.</p>
+      <h2>How TextWiz works</h2>
+      <p>Select text, copy with ⌘C, and press ⌘⇧Space to open the floating AI panel. Pick a wizard, then paste the result. Or use right-click → Services to replace selected text in place.</p>
+      <h2>Wizards and collections</h2>
+      <p>Each AI action is a "wizard." Everyday Edits includes Proofread, Rewrite, Concise, Friendly, and Professional. Social includes X Post and LinkedIn Post. Build unlimited custom wizards with your own prompts.</p>
+      <p>The Analyst &amp; Coach collection arrives in the next update, with Clarity Critic, Executive Summary, Decision Extractor, Rewrite Coach, Argument Stress Test, and Structure Tightener.</p>
+      <h2>Supported AI providers</h2>
+      <p>Ten engines, four of them on-device: Apple Intelligence (Foundation Model, no API key), Ollama, LM Studio, and MLX-LM. Cloud APIs include OpenAI, Anthropic, Gemini, Mistral, Groq, and OpenRouter when you bring your own key.</p>
+      <h2>Privacy and permissions</h2>
+      <p>On-device engines keep your text on your Mac. TextWiz runs no servers and collects none of your data. Cloud keys live in the macOS Keychain, and text goes directly to your chosen provider. No Accessibility permission is needed.</p>
+      <h2>Free download and TextWiz Pro</h2>
+      <p>The app is a free download on the Mac App Store, and the Demo provider is free forever. Every run against a real provider needs TextWiz Pro, including on-device engines.</p>
+      <p>TextWiz Pro is an auto-renewable subscription: $2.99 per week, $7.99 per month, or $59.99 per year in US dollars. For eligible customers, the weekly plan starts at $0.99 for the first week. ${INTRO_OFFER_ELIGIBILITY}</p>
+      <p>Customers who bought the paid app before the switch keep Pro for life at no cost. Cloud provider API costs are separate from the TextWiz Pro subscription.</p>
+      <h2>System requirements</h2>
+      <p>Apple Intelligence requires macOS 15.2+ on supported hardware.</p>
     `,
   },
   {

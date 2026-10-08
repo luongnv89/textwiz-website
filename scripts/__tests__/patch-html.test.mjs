@@ -61,6 +61,28 @@ test('patchHtml swaps crawl content between prerender markers inside #root', () 
   assert.match(rootMatch[1], /<h1>Setup and API keys<\/h1>/);
 });
 
+test('homepage HTML retains product facts with Subgrep content-block limits', () => {
+  const route = SEO_ROUTES.find((r) => r.path === '/');
+  const html = patchHtml(MULTILINE_SHELL, route);
+  const article = html.match(/<article[^>]*>([\s\S]*?)<nav>/)[1];
+  const blocks = [...article.matchAll(/<(h[1-4]|p|li)\b[^>]*>([\s\S]*?)<\/\1>/g)]
+    .map(([, tag, text]) => ({ tag, text: text.replace(/<[^>]*>/g, ' ').trim() }));
+  const words = (text) => text.split(/\s+/).length;
+
+  // Subgrep skips headings outside 2–25 words and paragraphs outside 4–60.
+  // The old two-paragraph summary lost both paragraphs, leaving only 9 words.
+  const retained = blocks.filter(({ tag, text }) => {
+    const [min, max] = tag.startsWith('h') ? [2, 25] : [4, 60];
+    return words(text) >= min && words(text) <= max;
+  });
+  assert.deepEqual(retained, blocks, 'every product block should survive extraction');
+  assert.ok(retained.reduce((sum, block) => sum + words(block.text), 0) >= 100);
+  const text = retained.map((block) => block.text).join('\n');
+  for (const fact of ['AI writing assistant', 'Proofread', 'Apple Intelligence', 'Keychain', 'TextWiz Pro', '$2.99']) {
+    assert.ok(text.includes(fact), `missing extracted product fact: ${fact}`);
+  }
+});
+
 test('patchHtml is idempotent', () => {
   const route = SEO_ROUTES.find((r) => r.path === '/getting-started');
   const once = patchHtml(MULTILINE_SHELL, route);
