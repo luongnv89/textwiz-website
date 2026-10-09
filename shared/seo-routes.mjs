@@ -1,7 +1,7 @@
 /** Single source for per-route SEO + prerender crawl bodies (Helmet, prerender, llms). */
 
 import { INTRO_OFFER_ELIGIBILITY } from './pricing.mjs';
-import { APP_VERSION_FULL, APP_RELEASE_URL } from '../src/lib/version.js';
+import { APP_VERSION, APP_DRAFT_BUILD, APP_VERSION_FULL, APP_RELEASE_URL } from '../src/lib/version.js';
 
 export const SITE_URL = 'https://textwiz.pro';
 export const SITE_NAME = 'TextWiz';
@@ -41,6 +41,7 @@ export const SEO_ROUTES = [
       <p>Custom OpenAI-compatible providers require an absolute HTTPS URL with a host and no embedded credentials, query, or fragment. Existing custom HTTP endpoints need HTTPS before use; built-in local engines keep their HTTP setup. API credentials remain in macOS Keychain.</p>
       <h2>Latest release</h2>
       <p>TextWiz ${APP_VERSION_FULL}, released October 9, 2026, is <a href="${APP_RELEASE_URL}">available on GitHub</a>. The Mac App Store update is not yet available.</p>
+      <p>Version ${APP_VERSION} build ${APP_DRAFT_BUILD} is a draft App Store update, not yet released. It adds collapsed provider cards, official setup and API-key guides, recognizable provider artwork, and clearer custom HTTPS endpoint setup with corrections and save recovery.</p>
       <h2>Privacy and permissions</h2>
       <p>On-device engines keep your text on your Mac. TextWiz runs no servers and collects none of your data. Cloud keys live in the macOS Keychain, and text goes directly to your chosen provider. No Accessibility permission is needed.</p>
       <h2>Free download and TextWiz Pro</h2>
@@ -59,6 +60,9 @@ export const SEO_ROUTES = [
     sources: ['src/pages/GettingStartedPage.jsx', 'src/components/guide'],
     body: `
       <h1>Setup and API keys</h1>
+      <h2>Provider setup in the next update</h2>
+      <p>Version ${APP_VERSION} build ${APP_DRAFT_BUILD} is a draft update, not yet available on the Mac App Store. In Dashboard → Providers, choose Show Settings for a service to access its official setup and API-key guides. Save a key only when needed, then Check Connection.</p>
+      <p>Use Add Custom Provider with the service's HTTPS API Address, optional API key, and exact Model IDs. Invalid fields explain what to correct, and failed saves retain your entries. Custom connection checks read the model list; run a wizard to check text generation.</p>
       <p>Connect TextWiz to an LLM: local Ollama track or cloud Gemini track, then configure Dashboard → Settings → Primary Provider. Free-tier signup links for Gemini, Groq, OpenRouter, and Mistral on the same page.</p>
       <p>Find free models and API tokens: compare free LLM models and providers at <a href="https://free-llm-models.custats.info/">free-llm-models.custats.info</a>, and find free tokens, trial credits, and API offers at <a href="https://freetokens.custats.info/">freetokens.custats.info</a>. Choose an offer with API access for a TextWiz-supported provider or a custom OpenAI-compatible endpoint, sign up with the provider, create an API key, and follow the setup guide. Check the provider's current limits and eligibility before claiming an offer.</p>
       <p>Shortcuts share one Primary Provider and Model from Settings. Capture text via clipboard + hotkey or Services → Process with TextWiz.</p>
@@ -75,6 +79,8 @@ export const SEO_ROUTES = [
     sources: ['src/pages/ChangelogPage.jsx'],
     body: `
       <h1>TextWiz changelog</h1>
+      <h2>Draft update — ${APP_VERSION} build ${APP_DRAFT_BUILD}</h2>
+      <p>This update is in preparation and is not yet released. Provider cards start collapsed with independent Show Settings controls, official setup and API-key guides, and original provider artwork. Custom setup explains the HTTPS address, optional key, and exact model IDs; invalid settings show corrections and failed saves keep entered settings for retry.</p>
       <h2>TextWiz ${APP_VERSION_FULL} — October 9, 2026</h2>
       <p>TextWiz ${APP_VERSION_FULL} is <a href="${APP_RELEASE_URL}">available on GitHub</a>. The Mac App Store update is not yet available.</p>
       <p>Cloud pickers offer three suggested defaults per provider plus added API model IDs. Validate &amp; Add checks the exact model before saving, including Claude. Older catalog models remain available to saved wizards and can be added explicitly.</p>

@@ -125,6 +125,21 @@ export default function GettingStartedPage() {
         <h2 className="text-3xl font-bold text-gray-900 dark:text-slate-100 mt-16 mb-4">
           Before you start
         </h2>
+        <Callout icon={BookOpen} tone="info" title="Provider setup in the next update">
+          <p className="mb-3">
+            Version 1.6.0 build 20 is a draft update, not yet available on the Mac App Store.
+            Open <strong>Dashboard → Providers</strong>, find your service, and choose{' '}
+            <strong>Show Settings</strong>. Each card includes its official setup and API-key guides.
+            Save a key only when your service needs one, then choose <strong>Check Connection</strong>.
+          </p>
+          <p>
+            For another service, choose <strong>Add Custom Provider</strong>. Copy its{' '}
+            <strong>HTTPS API Address</strong> and exact <strong>Model IDs</strong> from its guide;
+            add an API key only if required. Invalid settings explain what to correct, and a failed save
+            keeps your entries for retry. A custom connection check reads the model list; run a wizard
+            to check text generation.
+          </p>
+        </Callout>
         <p className="text-gray-700 dark:text-slate-300 leading-relaxed mb-4">
           You&rsquo;ll need TextWiz installed and running. Launch the app — you should see the TextWiz
           icon in the macOS menu bar.

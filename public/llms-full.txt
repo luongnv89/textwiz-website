@@ -10,6 +10,15 @@ TextWiz ships 14 built-in wizards: 13 visible actions in Everyday Edits (Proofre
 
 **Requirements:** macOS 15.2 or later; Apple Intelligence also requires supported hardware. The app is distributed through the Mac App Store, but the latest GitHub release below is not yet available there.
 
+## Draft update — 1.6.0 (build 20)
+
+Build 20 is a draft App Store update and is not yet released. The published GitHub download remains build 19.
+
+- Provider cards start collapsed; Show Settings opens each service independently while names stay visible.
+- Official setup and API-key guides appear under each provider card, with clear local and on-device guidance and original provider artwork.
+- Add Custom Provider explains the HTTPS API Address, optional API key, and exact Model IDs. Optional headers are under Advanced Settings.
+- Missing settings and malformed headers show corrections. Failed saves keep entered settings available for retry. Custom connection checks read the model list; run a wizard to check text generation.
+
 ## Latest release — 1.6.0 (build 19), 2026-10-09
 
 TextWiz 1.6.0 (build 19) is [available on GitHub](https://github.com/luongnv89/textwiz/releases/tag/v1.6.0). The Mac App Store update is not yet available.

@@ -1,7 +1,42 @@
-import { History, Sparkles, Wrench, Bug, Zap, Shield, Palette } from 'lucide-react';
-import { APP_VERSION, APP_BUILD, APP_VERSION_FULL, APP_RELEASE_URL } from '../lib/version';
+import { History, Sparkles, Wrench, Bug, Zap, Shield, Palette, BookOpen } from 'lucide-react';
+import { APP_VERSION, APP_BUILD, APP_DRAFT_BUILD, APP_VERSION_FULL, APP_RELEASE_URL } from '../lib/version';
 
 const releases = [
+  {
+    version: APP_VERSION,
+    build: APP_DRAFT_BUILD,
+    date: 'In preparation',
+    title: 'Easier Provider Setup',
+    description:
+      'Find your AI service quickly, follow its setup guide, and configure a custom endpoint with clear examples and helpful corrections.',
+    availability:
+      `TextWiz ${APP_VERSION} build ${APP_DRAFT_BUILD} is an App Store draft update and is not yet released. The published GitHub download remains build ${APP_BUILD}.`,
+    isDraft: true,
+    highlights: [
+      { icon: BookOpen, text: 'Setup Guides' },
+      { icon: Wrench, text: 'Custom Services' },
+      { icon: Palette, text: 'Provider Artwork' },
+    ],
+    sections: [
+      {
+        title: 'Improvements',
+        icon: Wrench,
+        items: [
+          'Provider cards start collapsed. Show Settings opens each service independently while provider names stay visible for quick scanning.',
+          'Provider cards include official setup and API-key guides, with clear guidance for local and on-device services.',
+          'Custom setup explains the HTTPS API address, optional API key, and exact model IDs. Optional headers are under Advanced Settings.',
+          'Provider artwork keeps original colors and proportions, with supplied dark variants where available. Groq and custom services keep neutral icons.',
+        ],
+      },
+      {
+        title: 'Fixes',
+        icon: Bug,
+        items: [
+          'Missing settings and malformed headers explain what to correct. Failed saves keep the editor and your entries available for retry.',
+        ],
+      },
+    ],
+  },
   {
     version: APP_VERSION,
     build: APP_BUILD,
@@ -305,7 +340,7 @@ export default function ChangelogPage() {
           </div>
           <h1 className="text-4xl font-bold text-gray-900 dark:text-slate-100 mb-4">Changelog</h1>
           <p className="text-gray-600 dark:text-slate-300">
-            Every version of TextWiz, what shipped in it, and why. Current build:{' '}
+            Released versions and upcoming changes. Latest published GitHub build:{' '}
             <span className="font-mono text-gray-900 dark:text-slate-100">{APP_VERSION_FULL}</span>.
           </p>
         </div>
@@ -313,7 +348,7 @@ export default function ChangelogPage() {
         <div className="space-y-12">
           {releases.map((release, index) => (
             <article
-              key={release.version}
+              key={`${release.version}-${release.build}`}
               className={`relative ${index !== releases.length - 1 ? 'pb-12 border-b border-gray-200 dark:border-slate-800' : ''}`}
             >
               <div className="flex flex-wrap items-center gap-3 mb-4">
@@ -324,6 +359,11 @@ export default function ChangelogPage() {
                   build {release.build}
                 </span>
                 <span className="text-base text-gray-500 dark:text-slate-400">{release.date}</span>
+                {release.isDraft && (
+                  <span className="px-2 py-0.5 bg-gray-100 dark:bg-slate-800 text-gray-700 dark:text-slate-300 text-xs font-medium rounded">
+                    Draft update
+                  </span>
+                )}
                 {release.isLatest && (
                   <span className="px-2 py-0.5 bg-green-100 dark:bg-emerald-500/10 text-green-700 dark:text-emerald-300 text-xs font-medium rounded">
                     Latest
@@ -336,14 +376,16 @@ export default function ChangelogPage() {
               {release.availability && (
                 <p className="text-sm text-gray-600 dark:text-slate-300 mb-4">
                   {release.availability}{' '}
-                  <a
-                    href={release.releaseUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-primary-700 dark:text-primary-300 underline underline-offset-4"
-                  >
-                    GitHub release notes
-                  </a>
+                  {release.releaseUrl && (
+                    <a
+                      href={release.releaseUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-primary-700 dark:text-primary-300 underline underline-offset-4"
+                    >
+                      GitHub release notes
+                    </a>
+                  )}
                 </p>
               )}
 
