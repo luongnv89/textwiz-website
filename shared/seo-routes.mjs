@@ -19,13 +19,24 @@ export function pageTitle(route) {
   return `${segmentTitle} | TextWiz`;
 }
 
+// These shared inputs affect the generated content, metadata, or schema of
+// every route. Track their history along with each route's own UI sources.
+const SHARED_ROUTE_SOURCES = [
+  'shared/seo-routes.mjs',
+  'shared/structured-data.mjs',
+  'src/lib/version.js',
+  'index.html',
+  'scripts/prerender-routes.mjs',
+  'scripts/lib/patch-html.mjs',
+];
+
 /** @type {{ path: string, title: string | null, description: string, body: string, sources: string[] }[]} */
 export const SEO_ROUTES = [
   {
     path: '/',
     title: null,
     description: DEFAULT_DESCRIPTION,
-    sources: ['src/pages/HomePage.jsx', 'src/components', 'src/lib/faqData.js', 'shared'],
+    sources: [...SHARED_ROUTE_SOURCES, 'src/pages/HomePage.jsx', 'src/components', 'src/lib/faqData.js', 'shared/app-store.mjs', 'shared/pricing.mjs'],
     body: `
       <h1>TextWiz — private, local-first AI text shortcuts for macOS</h1>
       <p>TextWiz is an AI writing assistant for Mac users. Proofread, rewrite, shorten text, or change its tone without leaving the app you are using.</p>
@@ -57,13 +68,33 @@ export const SEO_ROUTES = [
     title: 'Setup & API Keys',
     description:
       'Set up TextWiz on macOS: Ollama and Gemini walkthroughs, free-tier API keys (Gemini, Groq, OpenRouter, Mistral), hotkey ⌘⇧Space, and Services.',
-    sources: ['src/pages/GettingStartedPage.jsx', 'src/components/guide'],
+    sources: [...SHARED_ROUTE_SOURCES, 'src/pages/GettingStartedPage.jsx', 'src/components/guide'],
     body: `
       <h1>Setup and API keys</h1>
       <h2>Provider setup in the next update</h2>
       <p>Version ${APP_VERSION} build ${APP_DRAFT_BUILD} is a draft update, not yet available on the Mac App Store. In Dashboard → Providers, choose Show Settings for a service to access its official setup and API-key guides. Save a key only when needed, then Check Connection.</p>
       <p>Use Add Custom Provider with the service's HTTPS API Address, optional API key, and exact Model IDs. Invalid fields explain what to correct, and failed saves retain your entries. Custom connection checks read the model list; run a wizard to check text generation.</p>
       <p>Connect TextWiz to an LLM: local Ollama track or cloud Gemini track, then configure Dashboard → Settings → Primary Provider. Free-tier signup links for Gemini, Groq, OpenRouter, and Mistral on the same page.</p>
+      <h2>Before you start</h2>
+      <p>TextWiz requires macOS 15.2 or later. The download and built-in Demo provider are free forever. Every real provider, cloud and on-device alike, requires TextWiz Pro. See <a href="/#pricing">pricing</a> and the <a href="/terms">subscription terms</a>. On-device engines have no per-token costs; cloud provider charges and limits are separate from TextWiz Pro.</p>
+      <p>On a supported Mac with Apple Intelligence enabled, open TextWiz → Dashboard → Settings and choose Apple Intelligence as Primary Provider. No API key or additional model install is needed.</p>
+      <h2>Track A: Ollama on your Mac</h2>
+      <ol>
+        <li>Install <a href="https://ollama.com">Ollama</a>, or run <code>brew install ollama</code>.</li>
+        <li>Start the local server with <code>ollama serve</code> and leave it running. Check it with <code>curl http://localhost:11434/api/tags</code>.</li>
+        <li>Download a model with <code>ollama pull llama3.2:3b</code>. Choose a model that fits your Mac's memory.</li>
+        <li>Open TextWiz → Dashboard → Settings. Set Primary Provider to Ollama, use the server URL <code>http://localhost:11434</code>, and click Refresh to discover installed models.</li>
+        <li>Choose a Model, click Test Connection, then copy text with ⌘C and press ⌘⇧Space to run a wizard.</li>
+      </ol>
+      <h2>Track B: Gemini with your own API key</h2>
+      <ol>
+        <li>Sign in to <a href="https://aistudio.google.com/">Google AI Studio</a> and <a href="https://aistudio.google.com/app/apikey">create an API key</a>. Check the current <a href="https://ai.google.dev/gemini-api/docs/pricing">Gemini API pricing and limits</a>.</li>
+        <li>Open TextWiz → Dashboard → Settings and choose Gemini as Primary Provider. In the API Key card, click Configure, paste your key, and click Save Key. The key is stored in macOS Keychain.</li>
+        <li>Click Test Connection and choose a suggested Model. To add another API model ID, use Dashboard → Providers → Validate &amp; Add.</li>
+        <li>Copy text with ⌘C, press ⌘⇧Space, and pick a wizard. Cloud processing sends your text directly to Gemini.</li>
+      </ol>
+      <h2>Other cloud providers</h2>
+      <p>Create keys through the <a href="https://console.groq.com/">Groq console</a> (API Keys → Create), <a href="https://openrouter.ai/keys">OpenRouter key settings</a>, or <a href="https://console.mistral.ai/">Mistral La Plateforme</a> (Workspace → API keys). Save the key for your chosen Primary Provider and test the connection. Free-tier availability, limits, and eligibility can change; check the provider before use.</p>
       <p>Find free models and API tokens: compare free LLM models and providers at <a href="https://free-llm-models.custats.info/">free-llm-models.custats.info</a>, and find free tokens, trial credits, and API offers at <a href="https://freetokens.custats.info/">freetokens.custats.info</a>. Choose an offer with API access for a TextWiz-supported provider or a custom OpenAI-compatible endpoint, sign up with the provider, create an API key, and follow the setup guide. Check the provider's current limits and eligibility before claiming an offer.</p>
       <p>Shortcuts share one Primary Provider and Model from Settings. Capture text via clipboard + hotkey or Services → Process with TextWiz.</p>
       <p>Built-in cloud providers offer three suggested defaults plus user-added API model IDs. In Dashboard → Providers, enter the exact API model ID and use Validate &amp; Add to check that model before saving without generating text. Local engines discover installed models.</p>
@@ -76,7 +107,7 @@ export const SEO_ROUTES = [
     path: '/changelog',
     title: 'Changelog',
     description: 'Release notes and version history for TextWiz, the macOS AI text shortcuts app.',
-    sources: ['src/pages/ChangelogPage.jsx'],
+    sources: [...SHARED_ROUTE_SOURCES, 'src/pages/ChangelogPage.jsx'],
     body: `
       <h1>TextWiz changelog</h1>
       <h2>Draft update — ${APP_VERSION} build ${APP_DRAFT_BUILD}</h2>
@@ -97,10 +128,17 @@ export const SEO_ROUTES = [
     path: '/feedback',
     title: 'Feedback',
     description: 'Send feedback or report issues for TextWiz. Help improve the macOS AI writing assistant.',
-    sources: ['src/pages/FeedbackPage.jsx'],
+    sources: [...SHARED_ROUTE_SOURCES, 'src/pages/FeedbackPage.jsx'],
     body: `
       <h1>TextWiz feedback</h1>
       <p>Share bugs, ideas, and provider-specific issues via public GitHub issue templates.</p>
+      <p>You need a free GitHub account to submit an issue. Choose the form that fits your feedback:</p>
+      <ul>
+        <li><a href="https://github.com/luongnv89/textwiz-website/issues/new?template=bug_report.yml">Report a bug</a>: describe what broke and how to reproduce it.</li>
+        <li><a href="https://github.com/luongnv89/textwiz-website/issues/new?template=feature_request.yml">Request a feature</a>: describe the improvement you would like.</li>
+        <li><a href="https://github.com/luongnv89/textwiz-website/issues/new?template=feedback.yml">Send general feedback</a>: ask a question or share a suggestion.</li>
+      </ul>
+      <p>Issues are public. Do not include API keys, personal information, or private text.</p>
     `,
   },
   {
@@ -108,7 +146,7 @@ export const SEO_ROUTES = [
     title: 'Privacy Policy',
     description:
       'How TextWiz handles data: static site, API keys in Keychain, local SQLite, third-party AI providers, and TextWiz Pro billing handled by Apple.',
-    sources: ['src/pages/PrivacyPage.jsx', 'shared/seo-routes.mjs'],
+    sources: [...SHARED_ROUTE_SOURCES, 'src/pages/PrivacyPage.jsx'],
     body: `
       <h1>Privacy policy</h1>
       <p>The marketing site does not collect email or run on-site feedback forms. The app stores API keys in macOS Keychain, usage in local SQLite, and sends text only to the AI provider you choose. TextWiz operates no backend telemetry servers.</p>
@@ -120,7 +158,7 @@ export const SEO_ROUTES = [
     title: 'Terms of Service',
     description:
       'End user license agreement for the TextWiz Mac app and the auto-renewing TextWiz Pro subscription: prices, renewal, and how to cancel.',
-    sources: ['src/pages/TermsPage.jsx', 'shared/pricing.mjs'],
+    sources: [...SHARED_ROUTE_SOURCES, 'src/pages/TermsPage.jsx', 'shared/pricing.mjs'],
     body: `
       <h1>Terms of service and end user license agreement</h1>
       <p>Terms governing use of the TextWiz marketing site, the Mac application, and the TextWiz Pro subscription. TextWiz is a free download; the Demo provider is free forever and every run against a real AI provider requires TextWiz Pro.</p>

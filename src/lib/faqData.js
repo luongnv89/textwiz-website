@@ -70,8 +70,8 @@ export const faqData = [
     a: 'TextWiz runs no servers and collects none of your data. With on-device providers (Apple Intelligence, Ollama, LM Studio, MLX-LM), nothing ever leaves your Mac. With cloud providers, only the text you process is sent—directly to the provider you chose, never to us. History and analytics live in local SQLite; API keys stay in the macOS Keychain.',
   },
   {
-    q: 'How is TextWiz different from ChatGPT, Grammarly, or other Mac AI writing apps?',
-    a: 'Browser-tab assistants mean copying your text into someone else\'s server and back. Grammarly is a cloud service. Most Mac AI writing utilities need the macOS Accessibility permission to read your screen. TextWiz runs on-device by default, uses only the clipboard and the Services menu (no Accessibility permission), and puts every action behind one keystroke. Provider costs, where they exist, stay between you and the provider you chose.',
+    q: 'What does TextWiz offer for writing in other Mac apps?',
+    a: 'TextWiz opens a floating AI panel from your clipboard with ⌘⇧Space, or processes selected text through the macOS Services menu. It needs no Accessibility permission. Choose an on-device engine to keep text on your Mac without per-token costs, or bring your own cloud API key; cloud usage is billed by the provider. Every real provider, including on-device engines, requires TextWiz Pro. The Demo provider is free forever.',
   },
   {
     q: 'Does TextWiz need the Accessibility permission?',

@@ -77,6 +77,10 @@ export default function Privacy() {
             <img
               src={publicUrl('/shortcuts-preview/1.0.0/appstore-settings.png')}
               alt="TextWiz settings: choosing a primary provider and model"
+              width={2560}
+              height={1600}
+              loading="lazy"
+              decoding="async"
               className="w-full h-auto block"
             />
           </MacWindow>

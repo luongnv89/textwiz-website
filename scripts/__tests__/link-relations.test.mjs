@@ -17,7 +17,7 @@ const indexShell = readFileSync(join(root, 'index.html'), 'utf8');
 const DISCOVERY_LINKS = [
   { rel: 'alternate', type: 'text/plain', path: '/llms.txt' },
   { rel: 'alternate', type: 'text/plain', path: '/llms-full.txt' },
-  { rel: 'describedby', type: 'text/plain', path: '/llms-full.txt' },
+  { rel: 'describedby', type: 'text/plain', path: '/llms.txt' },
   { rel: 'sitemap', type: 'application/xml', path: '/sitemap.xml' },
   { rel: 'help', path: '/getting-started' },
 ];

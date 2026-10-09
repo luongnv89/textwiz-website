@@ -19,7 +19,6 @@ const privacy = readSrc('components/Privacy.jsx');
 const pricing = readSrc('components/Pricing.jsx');
 const finalCta = readSrc('components/FinalCTA.jsx');
 const navigation = readSrc('components/Navigation.jsx');
-const faqDataSrc = readSrc('lib/faqData.js');
 
 test('HomePage mounts the seven redesigned sections in order and nothing removed', () => {
   const order = ['<Hero', '<HowItWorks', '<Wizards', '<Privacy', '<Pricing', '<FAQ', '<FinalCTA'];
@@ -33,8 +32,7 @@ test('HomePage mounts the seven redesigned sections in order and nothing removed
   assert.doesNotMatch(homePage, /Testimonials|HonestNote|Comparison|Features|FreeLocalAI|Screenshots/);
 });
 
-test('Hero: numeric-outcome headline, one primary CTA, poster-first video', () => {
-  assert.match(hero, /Fix any sentence in \d+ seconds/);
+test('Hero: one primary CTA and poster-first video', () => {
   assert.equal((hero.match(/<MacAppStoreBadge/g) || []).length, 1);
   assert.match(hero, /poster=/);
   assert.doesNotMatch(hero, /autoPlay/);
@@ -158,8 +156,7 @@ test('Landing captions meet contrast and standalone links meet mobile target siz
   }
 });
 
-test('FAQ data carries the comparison answer and nothing imports the deleted comparison table', () => {
-  assert.match(faqDataSrc, /different from ChatGPT, Grammarly/);
+test('nothing imports the deleted comparison table', () => {
   const srcRoot = path.join(__dirname, '../../src');
   const entries = readdirSync(srcRoot, { recursive: true, withFileTypes: true });
   for (const entry of entries) {

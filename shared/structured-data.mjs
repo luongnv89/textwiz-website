@@ -24,7 +24,7 @@ const organization = {
 const softwareApp = {
   '@type': 'SoftwareApplication',
   name: SITE_NAME,
-  applicationCategory: 'ProductivityApplication',
+  applicationCategory: 'UtilitiesApplication',
   operatingSystem: 'macOS 15.2 or later (Apple Intelligence on supported hardware)',
   description: DEFAULT_DESCRIPTION,
   url: SITE_URL,

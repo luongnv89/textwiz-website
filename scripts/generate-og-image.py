@@ -16,7 +16,7 @@ installed, the script additionally composites a small rasterized wordmark
 onto the image as a best-effort nice-to-have; its absence (or any
 rendering failure) is silently ignored and never blocks the main output.
 Font rendering prefers Linux TrueType fonts (the `fonts-liberation` and/or
-`fonts-dejavu-core` packages); without them it falls back to Pillow's
+`fonts-dejavu-core` packages), then macOS Arial Bold; without them it falls back to Pillow's
 built-in bitmap font, so output still degrades gracefully on macOS,
 Windows, or a minimal container instead of crashing.
 
@@ -55,6 +55,7 @@ OUTPUT_PATH = PUBLIC / "og-image.png"
 
 FONT_BOLD = "/usr/share/fonts/truetype/liberation/LiberationSans-Bold.ttf"
 FONT_BOLD_FALLBACK = "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"
+FONT_BOLD_MACOS = "/System/Library/Fonts/Supplemental/Arial Bold.ttf"
 
 BACKDROP_BLUR_RADIUS = 10  # public/background.png embeds a product screenshot (with
 # stale UI chrome/branding) roughly centered in the frame — no 1200x630 crop of it
@@ -70,7 +71,7 @@ HEADLINE_1_START_SIZE = 72
 HEADLINE_1_MIN_SIZE = 40
 HEADLINE_1_COLOR = (245, 245, 247, 255)  # near-white #F5F5F7
 
-HEADLINE_2_TEXT = "No servers. No token bills."
+HEADLINE_2_TEXT = "On-device AI. No per-token costs."
 HEADLINE_2_START_SIZE = 42
 HEADLINE_2_MIN_SIZE = 26
 HEADLINE_2_COLOR = (116, 234, 174, 255)  # accent mint-green #74EAAE
@@ -93,20 +94,16 @@ SCREENSHOT_MARGIN_BOTTOM = 56
 
 
 def _font(path, size):
-    try:
-        return ImageFont.truetype(path, size)
-    except OSError:
+    for candidate in (path, FONT_BOLD_FALLBACK, FONT_BOLD_MACOS):
         try:
-            return ImageFont.truetype(FONT_BOLD_FALLBACK, size)
+            return ImageFont.truetype(candidate, size)
         except OSError:
-            # Neither hardcoded Linux TrueType path exists (e.g. macOS, Windows,
-            # or a minimal container) — degrade to Pillow's built-in bitmap font
-            # rather than raising an uncaught OSError.
-            try:
-                return ImageFont.load_default(size=size)
-            except TypeError:
-                # Pillow < 9.2 doesn't accept a `size` kwarg here.
-                return ImageFont.load_default()
+            continue
+    try:
+        return ImageFont.load_default(size=size)
+    except TypeError:
+        # Older Pillow versions do not accept a size argument.
+        return ImageFont.load_default()
 
 
 def _fit_font(draw, text, start_size, min_size, max_width):

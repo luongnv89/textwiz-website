@@ -1,39 +1,22 @@
 # TextWiz
 
-> TextWiz is a private, local-first native macOS productivity app that runs AI "wizards" on text you select—via clipboard + global hotkey (⌘⇧Space) or macOS Services—without Accessibility APIs. A wizard (a "wiz") is a named prompt that transforms your selected text. TextWiz ships 14 built-in wizards: 13 visible actions in Everyday Edits (Proofread, Rewrite, Concise, Friendly, Professional), Social (X Post, LinkedIn Post), and Analyst & Coach (Clarity Critic, Executive Summary, Decision Extractor, Rewrite Coach, Argument Stress Test, Structure Tightener), plus Improve Prompt in the wizard editor and unlimited custom wizards. It defaults to on-device AI on supported Macs: Apple Intelligence (no API key), plus Ollama, LM Studio, and MLX-LM locally, with no per-token cost. Or bring your own cloud key for Gemini, OpenAI, Claude, Mistral, Groq, or OpenRouter. TextWiz requires macOS 15.2 or later. It is a free download and the Demo provider is free forever; every real provider requires TextWiz Pro, an auto-renewable subscription sold on the Mac App Store at $2.99 per week ($0.99 for the first week for eligible customers, weekly plan only), $7.99 per month, or $59.99 per year in US dollars. TextWiz runs no servers and collects none of your data; diff, history, and analytics stay local, and API keys stay in macOS Keychain. Marketing site: https://textwiz.pro — source: https://github.com/luongnv89/textwiz
+> TextWiz is a native macOS AI writing utility: copy text and press ⌘⇧Space, or use macOS Services to process a selection. On-device engines keep text on your Mac with no per-token costs; optional cloud providers use your own API key and bill separately. The download and Demo provider are free forever. Every real provider, including on-device engines, requires TextWiz Pro. Requires macOS 15.2 or later.
 
-## Latest release
+## Product and setup
 
-TextWiz 1.6.0 (build 19), dated 2026-10-09, is [available on GitHub](https://github.com/luongnv89/textwiz/releases/tag/v1.6.0). The Mac App Store update is not yet available.
+- [Overview and FAQ](https://textwiz.pro/index.md): Features, supported engines, TextWiz Pro, privacy, and common questions.
+- [Setup and API keys](https://textwiz.pro/getting-started.md): Apple Intelligence, Ollama and Gemini setup, provider key links, and clipboard or Services workflows.
+- [Changelog](https://textwiz.pro/changelog.md): Release notes and current GitHub release availability.
 
-Cloud providers offer three suggested defaults plus user-added API model IDs. Validate & Add checks the specific model ID before saving without generating text. Current Claude and GPT-6 request compatibility includes safe, actionable failures. Services preserves selected text after failure, refusal, or incomplete results and opens the floating panel. Custom OpenAI-compatible endpoints require HTTPS with a host and no embedded credentials, query, or fragment; existing HTTP custom endpoints need HTTPS before use. API credentials remain in macOS Keychain; built-in local engines keep their HTTP setup.
+## Policies and feedback
 
-Optional auto-copy and Copy closing the panel and returning focus shipped in 1.5.0 build 18. Auto-copy is off by default. If the panel was opened from TextWiz itself, Copy just closes it.
-
-## Product
-
-- [Home](https://textwiz.pro/): Overview, features, demo video, FAQ
-- [Setup & API keys](https://textwiz.pro/getting-started): Ollama and Gemini setup, free-tier provider keys, hotkey, Services, troubleshooting
-
-## Updates & policy
-
-- [Changelog](https://textwiz.pro/changelog): Release notes
-- [Privacy policy](https://textwiz.pro/privacy): Static site, Keychain, local SQLite, third-party AI providers, Apple-handled payments
-- [Terms of service](https://textwiz.pro/terms): EULA plus auto-renewing TextWiz Pro subscription terms (durations, prices, renewal, cancellation)
+- [Privacy policy](https://textwiz.pro/privacy.md): Keychain, local storage, third-party processing, and Apple billing.
+- [Terms of service](https://textwiz.pro/terms.md): Pro subscription prices, introductory-offer eligibility, renewal, and cancellation.
+- [Feedback](https://textwiz.pro/feedback.md): Public GitHub forms for bugs, feature requests, and general feedback.
 
 ## Optional
 
-- [Full context for AI](https://textwiz.pro/llms-full.txt): Extended product, setup, FAQ, and privacy text
-- [Markdown alternates](https://textwiz.pro/index.md): Every page ships a .md variant (e.g. /getting-started.md)
-- [Agent card](https://textwiz.pro/.well-known/agent-card.json): A2A discovery manifest (documentation-only entity)
-- [Agent skills index](https://textwiz.pro/.well-known/agent-skills/index.json): Published agent skills with SHA-256 digests
-- [MCP server card](https://textwiz.pro/.well-known/mcp/server-card.json): SEP-2127 card (informational; no live transport)
-- [API catalog](https://textwiz.pro/.well-known/api-catalog.json): RFC 9727 linkset of machine-readable resources
-- [AI catalog](https://textwiz.pro/.well-known/ai-catalog.json): ARD manifest of published agent resources
-- [Agent auth policy](https://textwiz.pro/auth.md): No agent authentication or registration exists; all resources are public
-- [OAuth AS metadata](https://textwiz.pro/.well-known/oauth-authorization-server.json): RFC 8414 document declaring zero grant types
-- [OAuth resource metadata](https://textwiz.pro/.well-known/oauth-protected-resource.json): RFC 9728 document declaring all resources public
-- WebMCP: pages register read-only tools (get_site_overview, list_pages, get_page_markdown, get_product_facts) via navigator.modelContext in supporting browsers
-- [Feedback](https://textwiz.pro/feedback): GitHub issue templates
-- [GitHub repository](https://github.com/luongnv89/textwiz): macOS app source (Swift/SwiftUI)
-- [GitHub issues / feedback](https://github.com/luongnv89/textwiz-website/issues/new/choose): Public issue tracker
+- [Full site context](https://textwiz.pro/llms-full.txt): Extended product, setup, FAQ, and policy text.
+- [App source](https://github.com/luongnv89/textwiz): Native macOS app source and releases.
+- [Agent resources](https://textwiz.pro/.well-known/ai-catalog.json): Index of published machine-readable resources.
+- [Agent auth policy](https://textwiz.pro/auth.md): Public resources; no agent authentication or registration.

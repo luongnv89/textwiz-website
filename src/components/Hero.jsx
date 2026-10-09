@@ -25,14 +25,14 @@ export default function Hero() {
           className="rise mt-5 text-5xl md:text-6xl lg:text-7xl leading-[1.05] font-semibold tracking-tight text-gray-950 dark:text-white"
           style={{ animationDelay: '80ms' }}
         >
-          Fix any sentence in 2 seconds — without leaving your Mac.
+          Polish your next message without opening another app.
         </h1>
 
         <p
           className="rise mt-6 text-xl md:text-2xl text-gray-600 dark:text-slate-400 leading-relaxed"
           style={{ animationDelay: '160ms' }}
         >
-          Select text, press <Shortcut />, and get a private AI rewrite back. On-device by default. No servers. No token bills.
+          Copy text, press <Shortcut />, and get an AI rewrite. On-device engines keep your text on your Mac with no per-token costs. Cloud providers bill separately.
         </p>
 
         <div
@@ -59,7 +59,9 @@ export default function Hero() {
           <div className="relative group">
             <video
               ref={videoRef}
-              className="w-full h-auto block"
+              className="w-full h-auto block aspect-[1496/967] object-contain"
+              width={2992}
+              height={1934}
               src={publicUrl('/demo-1.0.0.mp4')}
               poster={publicUrl('/shortcuts-preview/1.0.0/appstore-x-post-shortcut.png')}
               controls
@@ -78,7 +80,7 @@ export default function Hero() {
                 type="button"
                 onClick={() => videoRef.current?.play()}
                 className="absolute inset-x-0 top-0 bottom-16 flex items-center justify-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-700 dark:focus-visible:outline-primary-400"
-                aria-label="Play the 40-second demo"
+                aria-label="Play the TextWiz demo"
               >
                 <span className="h-16 w-16 rounded-full bg-white/95 text-gray-950 shadow-lg flex items-center justify-center">
                   <Play className="h-7 w-7 ml-1" aria-hidden="true" />
