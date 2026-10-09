@@ -11,7 +11,7 @@ import {
   ArrowRight,
   Sparkles,
 } from 'lucide-react';
-import { Callout, Code, Pre, Step, Table } from '../components/guide/GuideBlocks';
+import { Callout, Code, Ext, Pre, Step, Table } from '../components/guide/GuideBlocks';
 import ApiKeysSection from '../components/guide/ApiKeysSection';
 
 export default function GettingStartedPage() {
@@ -92,6 +92,28 @@ export default function GettingStartedPage() {
           </a>{' '}
           below.
         </p>
+
+        <Callout icon={Cloud} tone="info" title="Find free models and API tokens">
+          <ul className="list-disc pl-5 space-y-2 mb-3">
+            <li>
+              <Ext href="https://free-llm-models.custats.info/">
+                <span className="break-all">free-llm-models.custats.info</span>
+              </Ext>{' '}
+              — compare free LLM models and their providers.
+            </li>
+            <li>
+              <Ext href="https://freetokens.custats.info/">
+                <span className="break-all">freetokens.custats.info</span>
+              </Ext>{' '}
+              — find free tokens, trial credits, and API offers.
+            </li>
+          </ul>
+          <p>
+            Choose an offer with API access for a TextWiz-supported provider or a custom OpenAI-compatible
+            endpoint. Sign up with the provider, create an API key, and follow the setup below to use it in
+            TextWiz. Check the provider&apos;s current limits and eligibility before claiming an offer.
+          </p>
+        </Callout>
 
         <Callout icon={Zap} tone="info" title="TL;DR">
           Install or get an API key → open TextWiz Dashboard → <strong>Settings</strong> → pick a{' '}

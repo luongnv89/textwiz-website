@@ -32,6 +32,8 @@ TextWiz 1.6.0 (build 19) is [available on GitHub](https://github.com/luongnv89/t
 
 ## Setup (getting started)
 
+**Free models and API tokens:** Compare free LLM models and providers at [free-llm-models.custats.info](https://free-llm-models.custats.info/), and find free tokens, trial credits, and API offers at [freetokens.custats.info](https://freetokens.custats.info/). Choose an offer with API access for a TextWiz-supported provider or a custom OpenAI-compatible endpoint, sign up with the provider, create an API key, and follow the setup below. Check the provider's current limits and eligibility before claiming an offer.
+
 **Ollama (local):** `brew install ollama` → `ollama serve` → `ollama pull llama3.2:3b` (or similar) → TextWiz Dashboard → Settings → Primary Provider Ollama → verify server URL → Refresh models → Test Connection → ⌘C + ⌘⇧Space.
 
 **Gemini (cloud):** API key from Google AI Studio → Settings → Primary Provider Gemini → Configure API Key → Save to Keychain → pick model → Test Connection.
