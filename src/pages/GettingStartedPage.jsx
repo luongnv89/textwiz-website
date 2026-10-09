@@ -97,13 +97,13 @@ export default function GettingStartedPage() {
           <ul className="list-disc pl-5 space-y-2 mb-3">
             <li>
               <Ext href="https://free-llm-models.custats.info/">
-                <span className="break-all">free-llm-models.custats.info</span>
+                <span className="break-all text-primary-800 dark:text-primary-300">free-llm-models.custats.info</span>
               </Ext>{' '}
               — compare free LLM models and their providers.
             </li>
             <li>
               <Ext href="https://freetokens.custats.info/">
-                <span className="break-all">freetokens.custats.info</span>
+                <span className="break-all text-primary-800 dark:text-primary-300">freetokens.custats.info</span>
               </Ext>{' '}
               — find free tokens, trial credits, and API offers.
             </li>
