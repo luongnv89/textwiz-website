@@ -370,8 +370,9 @@ brew install ollama
           <Step n="5" title="Pick a model">
             <p className="text-gray-700 dark:text-slate-300 leading-relaxed">
               In the <strong>Provider &amp; Model</strong> card, open the <strong>Model</strong>{' '}
-              dropdown. For Gemini, TextWiz ships with the latest flash preview, which is fast and
-              inexpensive. Leave it selected unless you have a reason to change.
+              dropdown. Gemini offers three suggested defaults, followed by any API model IDs
+              you have added in the Providers tab. Pick a suggested model or validate and add
+              the exact API model ID you want to use.
             </p>
           </Step>
 
@@ -426,8 +427,10 @@ brew install ollama
           </h2>
           <p className="text-gray-700 dark:text-slate-300 leading-relaxed mb-4">
             TextWiz ships built-in wizards grouped into collections — Everyday Edits (Proofread,
-            Rewrite, Concise, Friendly, Professional) and Social (X Post, LinkedIn Post), with the
-            new Analyst &amp; Coach collection arriving in the next update. To add your own:
+            Rewrite, Concise, Friendly, Professional), Social (X Post, LinkedIn Post), and
+            Analyst &amp; Coach (Clarity Critic, Executive Summary, Decision Extractor, Rewrite
+            Coach, Argument Stress Test, Structure Tightener). These 13 visible actions plus
+            Improve Prompt in the wizard editor make 14 built-ins. To add your own:
           </p>
           <ol className="list-decimal ml-5 text-gray-700 dark:text-slate-300 space-y-2 leading-relaxed">
             <li>
@@ -528,6 +531,13 @@ brew install ollama
           <p className="text-gray-700 dark:text-slate-300 leading-relaxed mt-4">
             Logs never contain your API keys or the text you captured — they capture metadata
             (provider, model, latency, error codes) for debugging.
+          </p>
+          <p className="text-gray-700 dark:text-slate-300 leading-relaxed mt-4">
+            Provider failures give recovery steps without displaying external error bodies or
+            secret-bearing network details. Replace an invalid API key, check account access or
+            billing when prompted, or wait and retry after a rate limit. If a Services run fails,
+            is refused, or returns an incomplete result, TextWiz keeps your selected text intact
+            and opens the floating panel.
           </p>
         </div>
 

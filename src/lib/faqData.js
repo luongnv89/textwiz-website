@@ -1,9 +1,14 @@
 import { INTRO_OFFER_ELIGIBILITY, PRICING_SUMMARY, PRO_PLANS } from './pricing.js';
+import { APP_VERSION_FULL } from './version.js';
 
 const weeklyPlan = PRO_PLANS.find((p) => p.id === 'weekly');
 
 /** Shared FAQ copy for UI and FAQPage structured data */
 export const faqData = [
+  {
+    q: 'Where is the latest TextWiz release available?',
+    a: `TextWiz ${APP_VERSION_FULL}, released on October 9, 2026, is available on GitHub. The Mac App Store update is not yet available. See the changelog for the release notes and GitHub link.`,
+  },
   {
     q: 'How much does TextWiz cost?',
     a: `${PRICING_SUMMARY.replace('TextWiz is a free download.', 'TextWiz is a free download on the Mac App Store.')} ${weeklyPlan.note} Monthly and yearly have no introductory offer. Prices vary by region because Apple equalizes them per storefront.`,
@@ -37,12 +42,20 @@ export const faqData = [
     a: 'Cloud providers need your own API key—stored in the macOS Keychain and only sent to the provider you chose. On-device engines (Apple Intelligence, Ollama, LM Studio, and MLX-LM) need no API key, but TextWiz Pro is still required for every real provider except the Demo provider.',
   },
   {
+    q: 'Can I add a cloud model of my own?',
+    a: 'Yes. Each built-in cloud provider offers three suggested defaults plus your added API model IDs. In Dashboard → Providers, enter the exact API model ID, including its namespace where required, then use Validate & Add. TextWiz checks that specific model before saving without generating text; a valid API key alone is not enough. Older catalog models remain available to saved wizards and can be added explicitly. Local engines list the installed models they discover.',
+  },
+  {
+    q: 'Can I use a custom OpenAI-compatible provider?',
+    a: 'Yes. Open Dashboard → Providers → Add Custom Provider and enter an absolute HTTPS base URL with a host and any API prefix, such as https://api.example.com/v1. Embedded credentials, query parameters, and fragments are rejected. Existing custom HTTP endpoints must be edited to HTTPS before use; built-in local engines keep their HTTP setup. Enter model API IDs one per line and put credentials in the API Key field, which stores them in macOS Keychain. Additional headers are plaintext routing metadata and should not contain secrets.',
+  },
+  {
     q: 'What are wizards and collections?',
-    a: 'A wizard (or "wiz") is one AI spell—a named prompt that transforms the text you select. We group the built-in wizards into collections by the job they do: Everyday Edits (Proofread, Rewrite, Concise, Friendly, Professional) and Social (X Post, LinkedIn Post) ship today; an Analyst & Coach collection (Clarity Critic, Executive Summary, Decision Extractor, Rewrite Coach, Argument Stress Test, Structure Tightener) arrives in the next update. You can also build unlimited wizards of your own—write the prompt, pick the provider and model, and it shows up in the panel alongside the built-ins.',
+    a: 'A wizard (or "wiz") is one AI spell—a named prompt that transforms the text you select. TextWiz ships 14 built-in wizards: 13 visible actions in Everyday Edits (Proofread, Rewrite, Concise, Friendly, Professional), Social (X Post, LinkedIn Post), and Analyst & Coach (Clarity Critic, Executive Summary, Decision Extractor, Rewrite Coach, Argument Stress Test, Structure Tightener), plus Improve Prompt in the wizard editor. You can also build unlimited wizards of your own—write the prompt, pick the provider and model, and it shows up in the panel alongside the built-ins.',
   },
   {
     q: 'Can TextWiz write the result back into my document?',
-    a: "Yes — two ways. Via right-click → Services → Process with TextWiz, macOS splices the AI result in place where the selection was, no extra steps. Via the ⌘⇧Space hotkey, the result is auto-copied when the wizard finishes and the panel shows a 'Copied — press ⌘V to paste' toast. Either way, no Accessibility permission is needed.",
+    a: 'Yes — two ways. Via right-click → Services → Process with TextWiz, macOS replaces the selection after a successful, complete result. On failure, refusal, or an incomplete result, your selected text stays intact and the floating panel opens. Via the ⌘⇧Space hotkey, click Copy to put the result on the clipboard, close the panel, and return focus to your previous app, then press ⌘V. Auto-copy is a Settings option and is off by default. If the panel was opened from TextWiz itself, Copy just closes it. No Accessibility permission is needed.',
   },
   {
     q: 'Does TextWiz keep a history of my requests?',

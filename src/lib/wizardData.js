@@ -4,10 +4,9 @@
  * A "wizard" (or "wiz") is one AI spell: a named prompt that transforms the
  * text you select. Collections group related wizards by the job they do.
  *
- * Shipped today (App Store v1.1.1): the 8 Everyday + Social wizards.
- * The Analyst & Coach collection ships in the next update — marked `upcoming`.
- *
- * Source of truth: ../textwiz Sources/TextWizDomain/Wizard.swift (PredefinedWizards).
+ * All three collections ship in TextWiz 1.6.0, including Analyst & Coach.
+ * Source of truth: ../textwiz/Sources/TextWizDomain/PredefinedWizards.swift
+ * and PredefinedWizards+Utility.swift.
  * "Improve Prompt" is built in but hidden (powers the wizard editor), so it is
  * not listed here — the visible count is 13, the total built-in count is 14.
  */
@@ -36,7 +35,7 @@ export const wizardCollections = [
   {
     name: 'Analyst & Coach',
     tagline: 'Pressure-test, summarize, and sharpen serious writing.',
-    upcoming: true,
+    upcoming: false,
     wizards: [
       { name: 'Clarity Critic', desc: 'Flags clarity issues and hands back a tighter draft.' },
       { name: 'Executive Summary', desc: 'TL;DR, key points, risks, and next actions.' },

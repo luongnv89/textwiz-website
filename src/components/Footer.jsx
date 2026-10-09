@@ -116,7 +116,7 @@ export default function Footer() {
               <p>&copy; {new Date().getFullYear()} TextWiz. All rights reserved.</p>
               <span className="hidden md:inline text-gray-700">•</span>
               <p className="font-mono text-xs text-gray-400">
-                TextWiz v{APP_VERSION_FULL}
+                Latest GitHub release: TextWiz v{APP_VERSION_FULL}
               </p>
             </div>
             <div className="flex gap-6">

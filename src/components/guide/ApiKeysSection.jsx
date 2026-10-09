@@ -28,6 +28,29 @@ export default function ApiKeysSection() {
         <strong>macOS Keychain</strong>.
       </Callout>
 
+      <h3 className="text-xl font-bold text-gray-900 dark:text-slate-100 mt-10 mb-4">Cloud model choices</h3>
+      <p className="text-gray-700 dark:text-slate-300 leading-relaxed mb-4">
+        Gemini, OpenAI, Claude, Mistral, Groq, and OpenRouter each show three suggested defaults,
+        followed by your added API model IDs. In <strong>Dashboard → Providers</strong>, enter
+        the exact API model ID and click <strong>Validate &amp; Add</strong>. TextWiz checks that
+        model before saving without generating text; a valid key alone does not validate the ID.
+        Include any namespace, such as <Code>author/model</Code> for OpenRouter. Older catalog
+        models still work in saved wizards and can be added explicitly.
+      </p>
+
+      <h3 className="text-xl font-bold text-gray-900 dark:text-slate-100 mt-8 mb-4">Custom OpenAI-compatible providers</h3>
+      <p className="text-gray-700 dark:text-slate-300 leading-relaxed mb-4">
+        Open <strong>Dashboard → Providers → Add Custom Provider</strong>. Use an absolute HTTPS
+        base URL with a host and any API prefix, such as <Code>https://api.example.com/v1</Code>.
+        Embedded credentials, query parameters, and fragments are rejected. Existing custom HTTP
+        endpoints need HTTPS before use; built-in local engines keep their HTTP server setup.
+      </p>
+      <p className="text-gray-700 dark:text-slate-300 leading-relaxed mb-8">
+        Enter model API IDs one per line. Put credentials in the <strong>API Key</strong> field,
+        which stores them in macOS Keychain. Additional headers are plaintext routing metadata;
+        keep secrets in the API Key field.
+      </p>
+
       <h3 className="text-xl font-bold text-gray-900 dark:text-slate-100 mt-10 mb-4">Which provider should I start with?</h3>
       <ol className="list-decimal list-inside space-y-2 text-gray-700 dark:text-slate-300 mb-8">
         <li>
@@ -76,9 +99,7 @@ export default function ApiKeysSection() {
             ['Free limits', <Ext href="https://ai.google.dev/gemini-api/docs/pricing">Gemini API pricing</Ext>],
             [
               'Models',
-              <>
-                <Code>gemini-2.5-flash</Code>, <Code>gemini-2.0-flash</Code>
-              </>,
+              'Choose a suggested default in TextWiz or validate and add an API model ID in Providers.',
             ],
             [
               'Env var',
@@ -121,9 +142,7 @@ export default function ApiKeysSection() {
             ['Free limits', <Ext href="https://console.groq.com/docs/rate-limits">Rate limits</Ext>],
             [
               'Models',
-              <>
-                <Code>llama-3.3-70b-versatile</Code>, <Code>llama-3.1-8b-instant</Code>
-              </>,
+              'Choose a suggested default in TextWiz or validate and add an API model ID in Providers.',
             ],
             ['TextWiz', 'Settings → Groq → Save Key → Test Connection'],
           ]}

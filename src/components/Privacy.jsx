@@ -62,7 +62,7 @@ export default function Privacy() {
               })}
             </ul>
             <p className="mt-6 text-sm text-gray-500 dark:text-slate-400">
-              10 engines, 4 on-device. Apple Intelligence needs macOS 15.2+; everything else runs on macOS 14+.
+              10 engines, 4 on-device. TextWiz requires macOS 15.2+; Apple Intelligence also needs supported hardware.
             </p>
             <Link
               to="/getting-started"

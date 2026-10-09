@@ -19,7 +19,7 @@ const steps = [
   {
     numeral: '03',
     title: 'Paste the result',
-    body: 'The rewrite is copied automatically; press ⌘V. Or use right-click → Services and TextWiz replaces the text in place.',
+    body: 'Click Copy to close the panel and return to your app, then press ⌘V. Auto-copy is optional and off by default. Or use right-click → Services to replace the selected text in place.',
   },
 ];
 

@@ -1,15 +1,60 @@
 import { History, Sparkles, Wrench, Bug, Zap, Shield, Palette } from 'lucide-react';
-import { APP_VERSION_FULL } from '../lib/version';
+import { APP_VERSION, APP_BUILD, APP_VERSION_FULL, APP_RELEASE_URL } from '../lib/version';
 
 const releases = [
   {
+    version: APP_VERSION,
+    build: APP_BUILD,
+    date: 'October 9, 2026',
+    title: 'Focused Models & Safer Provider Runs',
+    description:
+      'Three suggested cloud models per provider, validated custom API model IDs, current Claude and GPT-6 request support, and safer failures that preserve your selected text.',
+    availability:
+      `TextWiz ${APP_VERSION} is available on GitHub. The Mac App Store update is not yet available.`,
+    releaseUrl: APP_RELEASE_URL,
+    isLatest: true,
+    highlights: [
+      { icon: Sparkles, text: 'Focused Models' },
+      { icon: Wrench, text: 'Validated Model IDs' },
+      { icon: Bug, text: 'Claude & GPT-6' },
+      { icon: Shield, text: 'Safer Failures' },
+    ],
+    sections: [
+      {
+        title: 'Improvements',
+        icon: Wrench,
+        items: [
+          'Cloud model pickers show three suggested defaults per provider plus your added API model IDs. Older catalog models remain available to saved wizards and can be added explicitly.',
+          'Validate & Add checks the specific API model ID before saving for every built-in cloud provider, including Claude. A valid API key alone does not validate a model.',
+        ],
+      },
+      {
+        title: 'Fixes',
+        icon: Bug,
+        items: [
+          'Newer Claude and Claude Mythos models omit unsupported sampling parameters. GPT-6 requests to OpenAI omit temperature and use the current output token-limit parameter.',
+          'Claude streamed API errors fail the run with safe, actionable recovery guidance. Connection tests distinguish account, network, unexpected-response, and cancellation outcomes.',
+          'macOS Services preserves the selected text after a streamed failure, refusal, or token-limited result and hands off to the floating panel.',
+        ],
+      },
+      {
+        title: 'Security',
+        icon: Shield,
+        items: [
+          'Custom OpenAI-compatible providers require an absolute HTTPS URL with a host and no embedded credentials, query, or fragment. Existing custom HTTP endpoints must be changed to HTTPS before use; built-in local engines keep their HTTP server setup.',
+          'Completion and connection failures omit external error bodies and secret-bearing network details. API credentials remain in macOS Keychain.',
+        ],
+      },
+    ],
+  },
+  {
     version: '1.5.0',
-    build: '17',
-    date: 'September 2026',
+    build: '18',
+    date: 'September 17, 2026',
     title: 'Appearance, Placement & Smarter Defaults',
     description:
       'A more personal and predictable TextWiz: choose your appearance, open the floating panel on the display you are using, and start with on-device Apple Intelligence when available.',
-    isLatest: true,
+    isLatest: false,
     highlights: [
       { icon: Palette, text: 'Appearance Controls' },
       { icon: Zap, text: 'Cursor Display' },
@@ -33,6 +78,7 @@ const releases = [
           'Updated built-in Gemini, OpenAI, Claude, Mistral, OpenRouter, and Groq model catalogs.',
           'Saved selections for retired model identifiers migrate to supported replacements.',
           'Brand text remains legible across light and dark appearances.',
+          'Auto-copy of a finished result is optional in Settings and off by default. Clicking Copy puts the result on the clipboard, closes the panel, and returns focus to the app you were using so you can paste with ⌘V; when opened from TextWiz itself, Copy just closes the panel.',
         ],
       },
     ],
@@ -287,6 +333,19 @@ export default function ChangelogPage() {
 
               <h2 className="text-xl font-semibold text-gray-900 dark:text-slate-100 mb-2">{release.title}</h2>
               <p className="text-gray-600 dark:text-slate-300 mb-4">{release.description}</p>
+              {release.availability && (
+                <p className="text-sm text-gray-600 dark:text-slate-300 mb-4">
+                  {release.availability}{' '}
+                  <a
+                    href={release.releaseUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-primary-700 dark:text-primary-300 underline underline-offset-4"
+                  >
+                    GitHub release notes
+                  </a>
+                </p>
+              )}
 
               <div className="flex flex-wrap gap-2 mb-6">
                 {release.highlights.map((highlight, i) => (

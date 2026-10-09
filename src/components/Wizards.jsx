@@ -17,7 +17,7 @@ export default function Wizards() {
             13 built-in text actions. Add your own.
           </h2>
           <p className="mt-4 text-lg md:text-xl text-gray-600 dark:text-slate-400 max-w-2xl">
-            A wizard is a saved prompt that runs on your selection with one keystroke. Built-ins are grouped by the job they do; custom wizards sit right beside them.
+            A wizard is a saved prompt that runs on your selection with one keystroke. TextWiz includes 14 built-ins: the 13 actions below, plus Improve Prompt in the wizard editor. Add unlimited custom wizards beside them.
           </p>
         </div>
 

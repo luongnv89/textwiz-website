@@ -68,6 +68,6 @@ body:
     attributes:
       label: TextWiz Version (optional)
       description: Find this in TextWiz → Settings → About
-      placeholder: "1.1.1 (8)"
+      placeholder: "e.g. 1.6.0 (19) — use the version in About"
     validations:
       required: false

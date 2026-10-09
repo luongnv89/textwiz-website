@@ -1,21 +1,33 @@
 # TextWiz — full site context for AI systems
 
-> TextWiz is a native macOS productivity application that runs AI writing shortcuts on text you select. Capture via clipboard (⌘C) + global hotkey (⌘⇧Space) or macOS Services (right-click → Process with TextWiz). No Accessibility APIs. Nine LLM providers; API keys in Keychain; history and analytics in local SQLite. Site: https://textwiz.pro — App source: https://github.com/luongnv89/textwiz
+> TextWiz is a native macOS productivity application that runs AI writing shortcuts on text you select. Capture via clipboard (⌘C) + global hotkey (⌘⇧Space) or macOS Services (right-click → Process with TextWiz). No Accessibility APIs. Ten AI engines plus Demo and custom providers; API keys in macOS Keychain; history and analytics in local SQLite. Site: https://textwiz.pro — App source: https://github.com/luongnv89/textwiz
 
 ## Product summary
 
-TextWiz ships eight built-in shortcuts (Proofread, Rewrite, Concise, Friendly, Professional, X Post, LinkedIn Post, Improve Prompt) plus unlimited custom shortcuts from the shortcut manager. A floating panel streams responses with an inline diff (additions/deletions). Results can auto-copy to the clipboard or splice back via Services.
+TextWiz ships 14 built-in wizards: 13 visible actions in Everyday Edits (Proofread, Rewrite, Concise, Friendly, Professional), Social (X Post, LinkedIn Post), and Analyst & Coach (Clarity Critic, Executive Summary, Decision Extractor, Rewrite Coach, Argument Stress Test, Structure Tightener), plus Improve Prompt in the wizard editor. Add unlimited custom wizards from Dashboard → Wizards. A floating panel streams responses with an inline diff. Click Copy to close the panel and return focus to your previous app, then paste with ⌘V. If opened from TextWiz itself, Copy just closes it. Auto-copy is optional and off by default; this Copy flow shipped in 1.5.0 build 18.
 
 **Providers:** On-device — Apple Intelligence (Apple Foundation Model, no API key on supported Macs, requires TextWiz Pro), Ollama, LM Studio, MLX-LM. Cloud — Gemini, OpenAI, Claude, Mistral, Groq, OpenRouter. Every real provider requires TextWiz Pro except the Demo provider. One Primary Provider and one Model in Settings apply to all shortcuts.
 
-**Requirements:** macOS 14 Sonoma or later for distribution; some features need macOS 15.2+ for Apple Intelligence. Available on the Mac App Store.
+**Requirements:** macOS 15.2 or later; Apple Intelligence also requires supported hardware. The app is distributed through the Mac App Store, but the latest GitHub release below is not yet available there.
+
+## Latest release — 1.6.0 (build 19), 2026-10-09
+
+TextWiz 1.6.0 (build 19) is [available on GitHub](https://github.com/luongnv89/textwiz/releases/tag/v1.6.0). The Mac App Store update is not yet available.
+
+- Cloud model pickers offer three suggested defaults per provider plus user-added API model IDs. Older catalog models remain available to saved wizards and can be added explicitly.
+- Validate & Add checks the specific API model ID before saving for every built-in cloud provider, including Claude, without generating text. A valid key alone does not validate a model.
+- Current Claude and GPT-6 requests use supported parameters. Newer Claude and Mythos models omit unsupported sampling parameters; GPT-6 requests to OpenAI omit temperature and use the current output token-limit parameter.
+- Claude streamed API errors fail the run with safe recovery guidance. Connection tests distinguish account, network, unexpected-response, and cancellation outcomes.
+- macOS Services leaves selected text intact after streamed failure, refusal, or token-limited results and hands off to the floating panel.
+- Custom OpenAI-compatible providers require an absolute HTTPS URL with a host and no embedded credentials, query, or fragment. Existing custom HTTP endpoints need HTTPS before use. Built-in local engines keep their HTTP setup.
+- Completion and connection failures omit external error bodies and secret-bearing network details. API credentials remain in macOS Keychain.
 
 **Pricing:** the app is a free download. The built-in Demo provider is free and ungated forever. Every run against a real provider (OpenAI, Anthropic, Gemini, Ollama, Apple Intelligence, LM Studio, MLX-LM, Mistral, Groq, OpenRouter) requires TextWiz Pro, an auto-renewable subscription sold through the Mac App Store only. US reference prices: $2.99 per week, $7.99 per month, $59.99 per year. For eligible customers, the weekly plan has an introductory offer of $0.99 charged up front for one week; it then renews at $2.99 per week. Eligibility and the exact price are shown in the App Store before purchase. Monthly and yearly have no introductory offer. Prices are US dollars and vary by region because Apple equalizes them per storefront. Payment is charged to the Apple Account at confirmation of purchase; the subscription renews automatically unless cancelled at least 24 hours before the end of the current period, with the renewal charge taken within 24 hours before the period ends. Cancel in System Settings > Apple Account > Media & Purchases > Subscriptions. Customers who bought the paid app before the switch to free keep TextWiz Pro for life at no cost.
 
 ## How to use TextWiz
 
-1. Copy selected text with ⌘C, press ⌘⇧Space — panel opens with clipboard as input, pick a shortcut.
-2. Or right-click selection → Services → Process with TextWiz — macOS replaces text in place.
+1. Copy selected text with ⌘C, press ⌘⇧Space — panel opens with clipboard as input, pick a wizard, then click Copy and paste with ⌘V.
+2. Or right-click selection → Services → Process with TextWiz — macOS replaces text after a successful, complete result; failures, refusals, and incomplete results preserve the selection and open the panel.
 3. No Accessibility permission; works in sandboxed apps (Slack, VS Code, browsers).
 
 ## Setup (getting started)
@@ -25,6 +37,10 @@ TextWiz ships eight built-in shortcuts (Proofread, Rewrite, Concise, Friendly, P
 **Gemini (cloud):** API key from Google AI Studio → Settings → Primary Provider Gemini → Configure API Key → Save to Keychain → pick model → Test Connection.
 
 Other providers follow the same Settings pattern (API key or server URL for local engines).
+
+**Custom cloud models:** Dashboard → Providers → enter the exact API model ID (including any namespace, such as `author/model` for OpenRouter) → Validate & Add. The model is checked before saving without generating text. Local engines list discovered installed models.
+
+**Custom providers:** Dashboard → Providers → Add Custom Provider → HTTPS base URL including the API prefix, such as `https://api.example.com/v1` → model API IDs one per line. Use the API Key field for credentials, which stores them in macOS Keychain. Additional headers are plaintext routing metadata and should not contain secrets.
 
 ## Privacy
 
@@ -36,6 +52,9 @@ Other providers follow the same Settings pattern (API key or server URL for loca
 - Payments: Apple processes the TextWiz Pro purchase and charges the Apple Account; TextWiz never sees card data. Subscription entitlement state is cached locally on the Mac. No account, no login, no licensing server.
 
 ## FAQ
+
+### Where is the latest TextWiz release available?
+TextWiz 1.6.0 (19), released on October 9, 2026, is available on GitHub. The Mac App Store update is not yet available. See the changelog for the release notes and GitHub link.
 
 ### How much does TextWiz cost?
 TextWiz is a free download on the Mac App Store. The Demo provider is free forever. TextWiz Pro unlocks every real AI provider: $2.99 per week ($0.99 for the first week), $7.99 per month, or $59.99 per year in US dollars. For eligible customers, $0.99 is charged up front for one week. It then renews at $2.99 per week until cancelled. Eligibility and the exact price are shown in the App Store before purchase. Monthly and yearly have no introductory offer. Prices vary by region because Apple equalizes them per storefront.
@@ -61,11 +80,17 @@ Ten engines out of the box, four of them on-device: Apple Intelligence (Apple Fo
 ### Do I need an API key?
 Cloud providers need your own API key—stored in the macOS Keychain and only sent to the provider you chose. On-device engines (Apple Intelligence, Ollama, LM Studio, and MLX-LM) need no API key, but TextWiz Pro is still required for every real provider except the Demo provider.
 
+### Can I add a cloud model of my own?
+Yes. Each built-in cloud provider offers three suggested defaults plus your added API model IDs. In Dashboard → Providers, enter the exact API model ID, including its namespace where required, then use Validate & Add. TextWiz checks that specific model before saving without generating text; a valid API key alone is not enough. Older catalog models remain available to saved wizards and can be added explicitly. Local engines list the installed models they discover.
+
+### Can I use a custom OpenAI-compatible provider?
+Yes. Open Dashboard → Providers → Add Custom Provider and enter an absolute HTTPS base URL with a host and any API prefix, such as https://api.example.com/v1. Embedded credentials, query parameters, and fragments are rejected. Existing custom HTTP endpoints must be edited to HTTPS before use; built-in local engines keep their HTTP setup. Enter model API IDs one per line and put credentials in the API Key field, which stores them in macOS Keychain. Additional headers are plaintext routing metadata and should not contain secrets.
+
 ### What are wizards and collections?
-A wizard (or "wiz") is one AI spell—a named prompt that transforms the text you select. We group the built-in wizards into collections by the job they do: Everyday Edits (Proofread, Rewrite, Concise, Friendly, Professional) and Social (X Post, LinkedIn Post) ship today; an Analyst & Coach collection (Clarity Critic, Executive Summary, Decision Extractor, Rewrite Coach, Argument Stress Test, Structure Tightener) arrives in the next update. You can also build unlimited wizards of your own—write the prompt, pick the provider and model, and it shows up in the panel alongside the built-ins.
+A wizard (or "wiz") is one AI spell—a named prompt that transforms the text you select. TextWiz ships 14 built-in wizards: 13 visible actions in Everyday Edits (Proofread, Rewrite, Concise, Friendly, Professional), Social (X Post, LinkedIn Post), and Analyst & Coach (Clarity Critic, Executive Summary, Decision Extractor, Rewrite Coach, Argument Stress Test, Structure Tightener), plus Improve Prompt in the wizard editor. You can also build unlimited wizards of your own—write the prompt, pick the provider and model, and it shows up in the panel alongside the built-ins.
 
 ### Can TextWiz write the result back into my document?
-Yes — two ways. Via right-click → Services → Process with TextWiz, macOS splices the AI result in place where the selection was, no extra steps. Via the ⌘⇧Space hotkey, the result is auto-copied when the wizard finishes and the panel shows a 'Copied — press ⌘V to paste' toast. Either way, no Accessibility permission is needed.
+Yes — two ways. Via right-click → Services → Process with TextWiz, macOS replaces the selection after a successful, complete result. On failure, refusal, or an incomplete result, your selected text stays intact and the floating panel opens. Via the ⌘⇧Space hotkey, click Copy to put the result on the clipboard, close the panel, and return focus to your previous app, then press ⌘V. Auto-copy is a Settings option and is off by default. If the panel was opened from TextWiz itself, Copy just closes it. No Accessibility permission is needed.
 
 ### Does TextWiz keep a history of my requests?
 Yes. Every run is saved locally so you can browse, search, and reopen past results from the History view. It's stored in SQLite on your Mac—never uploaded anywhere.
@@ -93,5 +118,5 @@ No. TextWiz captures text through two fully compliant paths: the system clipboar
 ## Links
 
 - GitHub (app): https://github.com/luongnv89/textwiz
-- GitHub (feedback issues): https://github.com/luongnv89/textwiz-feedback
+- GitHub (feedback issue templates): https://github.com/luongnv89/textwiz-website/issues/new/choose
 - Developer X: https://twitter.com/luongnv89
