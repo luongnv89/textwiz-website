@@ -60,6 +60,7 @@ export const SEO_ROUTES = [
     body: `
       <h1>Setup and API keys</h1>
       <p>Connect TextWiz to an LLM: local Ollama track or cloud Gemini track, then configure Dashboard → Settings → Primary Provider. Free-tier signup links for Gemini, Groq, OpenRouter, and Mistral on the same page.</p>
+      <p>Find free models and API tokens: compare free LLM models and providers at <a href="https://free-llm-models.custats.info/">free-llm-models.custats.info</a>, and find free tokens, trial credits, and API offers at <a href="https://freetokens.custats.info/">freetokens.custats.info</a>. Choose an offer with API access for a TextWiz-supported provider or a custom OpenAI-compatible endpoint, sign up with the provider, create an API key, and follow the setup guide. Check the provider's current limits and eligibility before claiming an offer.</p>
       <p>Shortcuts share one Primary Provider and Model from Settings. Capture text via clipboard + hotkey or Services → Process with TextWiz.</p>
       <p>Built-in cloud providers offer three suggested defaults plus user-added API model IDs. In Dashboard → Providers, enter the exact API model ID and use Validate &amp; Add to check that model before saving without generating text. Local engines discover installed models.</p>
       <p>Custom OpenAI-compatible providers require HTTPS with a host and no embedded credentials, query, or fragment; existing custom HTTP endpoints must be updated before use. API keys stay in macOS Keychain. Built-in local engines keep their HTTP setup.</p>
